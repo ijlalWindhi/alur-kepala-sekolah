@@ -1,24 +1,37 @@
 import React from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import './App.css';
+// import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Home from './pages/Landingpage/Home';
-import Login from './pages/Landingpage/Login';
-import SignUp from "./pages/Landingpage/SignUp";
+//call pages
+// pages UTAMA
+import Beranda from "./pages/Beranda";
+import LandingPage from "./pages/LandingPage";
+import Registrasi from "./pages/Registrasi";
+import ResetPassword from "./pages/ResetPassword";
+import Login from "./pages/Login";
 
+// pages INNER BERANDA
+import Blog from "./pages/Beranda/Blog";
+import ForumDiskusi from "./pages/Beranda/ForumDiskusi";
+import Marketplace from "./pages/Beranda/Marketplace";
+import Pengajuan from "./pages/Beranda/Pengajuan";
 
-function App() {
+import "./App.css";
+
+export default function App() {
   return (
-    <Router>
-    <div className="App">
-      <Switch>
-        <Route exact path={["/", "home"]} component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-      </Switch>
-    </div>
-    </Router>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/landingpage" element={<LandingPage />} />
+      <Route path="/beranda" element={<Beranda />} />
+      <Route path="/registrasi" element={<Registrasi />} />
+      <Route path="/resetpassword" element={<ResetPassword />} />
+
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/forumdiskusi" element={<ForumDiskusi />} />
+      <Route path="/marketplace" element={<Marketplace />} />
+      <Route path="/pengajuan" element={<Pengajuan />} />
+    </Routes>
   );
 }
-
-export default App;
