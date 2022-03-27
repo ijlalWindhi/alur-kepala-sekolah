@@ -17,6 +17,11 @@ code {
 .btn-round{
   border-radius: 16px !important;
 }
+
+.usernameJohn button{
+  background-color: #fecdd3;
+  color: #be123c;
+}
 /* untuk reusable css */
 @layer components {
   .btn-warning {

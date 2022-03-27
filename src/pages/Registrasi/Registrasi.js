@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { baseUrl } from "../../config";
 import image from "../../assets/image-login.svg";
 import google from "../../assets/icon-google.svg";
+import axios from "axios";
 
 // inisiasi component
 
