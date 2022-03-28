@@ -15,6 +15,8 @@ import Blog from "./pages/Beranda/Blog";
 import ForumDiskusi from "./pages/Beranda/ForumDiskusi";
 import Marketplace from "./pages/Beranda/Marketplace";
 import Pengajuan from "./pages/Beranda/Pengajuan";
+import Acara from "./pages/Beranda/Blog/Acara";
+import Tersimpan from "./pages/Beranda/Blog/Tersimpan";
 
 import "./App.css";
 
@@ -32,6 +34,9 @@ export default function App() {
       <Route path="/forumdiskusi" element={<ForumDiskusi />} />
       <Route path="/marketplace" element={<Marketplace />} />
       <Route path="/pengajuan" element={<Pengajuan />} />
+
+      <Route path="/acara" element={<Acara />} />
+      <Route path="/tersimpan" element={<Tersimpan />} />
     </Routes>
   );
 }
