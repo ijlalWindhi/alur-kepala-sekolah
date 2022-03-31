@@ -17,6 +17,11 @@ import Marketplace from "./pages/Beranda/Marketplace";
 import Pengajuan from "./pages/Beranda/Pengajuan";
 import Acara from "./pages/Beranda/Blog/Acara";
 import Tersimpan from "./pages/Beranda/Blog/Tersimpan";
+import GuruTamu from "./pages/Beranda/Pengajuan/GuruTamu";
+import GuruMagang from "./pages/Beranda/Pengajuan/GuruMagang";
+import Kunjungan from "./pages/Beranda/Pengajuan/Kunjungan";
+import Sertifikasi from "./pages/Beranda/Pengajuan/Sertifikasi";
+import BursaKerja from "./pages/Beranda/Pengajuan/BursaKerja";
 
 import "./App.css";
 
@@ -37,6 +42,12 @@ export default function App() {
 
       <Route path="/acara" element={<Acara />} />
       <Route path="/tersimpan" element={<Tersimpan />} />
+
+      <Route path="/guruMagang" element={<GuruMagang />} />
+      <Route path="/guruTamu" element={<GuruTamu />} />
+      <Route path="/kunjungan" element={<Kunjungan />} />
+      <Route path="/sertifikasi" element={<Sertifikasi />} />
+      <Route path="/bursaKerja" element={<BursaKerja />} />
     </Routes>
   );
 }

@@ -26,9 +26,9 @@ export default class Blog extends React.Component {
         <LayoutSidebar>
           <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-8">
             <div class="col-span-2 ml-14 mt-6">
-              <div className="mt-2">
+              {/* <div className="mt-2">
                 <input type="text" className=" w-1/2 h-12 bg-slate-100 border-red-500 rounded-full px-6 ml-6" placeholder="Apa yang anda pikirkan sekarang?"></input>
-              </div>
+              </div> */}
 
               <div className="card rounded-lg bg-white p-6 mt-10">
               <iframe width="100%" height="315" src="https://www.youtube.com/embed/pdhuW_mz9YU" frameborder="0" allowfullscreen></iframe>
@@ -80,19 +80,12 @@ export default class Blog extends React.Component {
               </div>
             </div>
             <div>
-              <div className="pl-32 usernameJohn">
-                  <button className="mt-2 btn-warning bg-pink rounded-full">
-                    <img src={UserLogin} className="inline w-5 mr-4"></img>
-                    <span className="text-base font-small">John Dohn</span>
-                  </button>
-                  <img src={bell} className="inline mr-2 w-5"></img>
-                  <img src={power} className="inline mr-2 w-5"></img>
-              </div>
+              
               <div className="pl-32 mt-12">
                 <h4 className="text-lg font-semibold">Blog/Berita</h4>
-                <input type="text" className=" w-3/9 h-9 rounded-full px-6 mt-5" placeholder="Cari Blog/Berita"></input>
+                <input type="text" className=" w-3/9 h-9 rounded-full border-red-400  px-6 mt-5" placeholder="Cari Blog/Berita"></input>
                 <div className="mt-6">
-                  <a href="#">
+                  <a href="#" className="hover:bg-red-600 active:bg-red-600 focus:outline-none focus:ring focus:ring-red-600 active:border-8 focus:ring-offset-8 focus:offset-8 focus:text-white focus:bg-red-600 focus:rounded-full active:rounded-full focus:bg-contain focus:padding-4 active:text-white">
                     <img src={video} className="inline mr-4"></img>
                     <span className="font-normal text-base ">Siaran Langsung</span>
                   </a>

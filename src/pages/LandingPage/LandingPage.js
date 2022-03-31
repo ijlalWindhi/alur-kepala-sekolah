@@ -1,12 +1,26 @@
 // inisiasi library default
 import React from "react";
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 // inisiasi component
 import LayoutNavbar from "../../components/Layout/LayoutNavbar";
-import Corousel from "../../components/fragment/Corousel";
+import Corousel from "../../components/fragment/Corousel/Corousel";
+import {CorouselData} from "../../components/fragment/Corousel/CorouselData";
 import DataBox from "../../components/fragment/DataBox";
 import Card from "../../components/fragment/Card";
 import CallBox from "../../components/fragment/CallBox";
+import Footer from "../../components/fragment/Footer";
+
+// Google Maps Configuration
+const containerStyle = {
+  width: '50%',
+  height: '400px'
+};
+
+const center = {
+  lat: -7.976830,
+  lng: 112.658958
+};
 
 export default class LandingPage extends React.Component {
   constructor() {
@@ -21,7 +35,7 @@ export default class LandingPage extends React.Component {
         <LayoutNavbar />
         {/* COROUSEL */}
         <div className=" py-5 px-5">
-          <Corousel />
+          <Corousel slides={CorouselData}/>
         </div>
         <div className="py-5 px-5 text-center">
           <div className="flex flex-row justify-center">
@@ -46,21 +60,24 @@ export default class LandingPage extends React.Component {
         </div>
         <div className="py-5 px-5 text-center">
           <h2 className="text-3xl font-semibold text-center underline underline-offset-8 decoration-4 decoration-red-600">Hubungi Kami</h2>
-          <div className="flex flex-row gap-4 justify-center pt-14">
-            <CallBox />
-            <CallBox />
+          <div className="flex justify-center mt-10">
+            <LoadScript
+              googleMapsApiKey="AIzaSyBqJneG14ZZmgDdlIpsD5LA-f5DfKg0XXk"
+            >
+              <GoogleMap
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={18}
+              >
+                <></>
+              </GoogleMap>
+            </LoadScript>
+          </div>
+          <div className="flex flex-row gap-8 justify-center pt-14 mb-20">
             <CallBox />
           </div>
         </div>
-        <div className="bg-red-200 py-5 px-5">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="col-span-3 ...">
-              <h1 className="text-3xl font-semibold">Platform SMK TKJ</h1>
-              Selamat datang di platform SMK TKJ. Platform SMK TKJ membantu anda terhubung dan berbagi dengan orang-orang dalam kehidupan anda. Anda dapat membuat halaman Blog Berita, Forum Diskusi, Marketplace pengajuan dan banyak hal
-              lainya
-            </div>
-          </div>
-        </div>
+        <Footer />
       </>
     );
   }

@@ -4,6 +4,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UserLog from '../../assets/user-login.png'
 import Logo from '../../assets/logo.png'
+import bell from '../../assets/bell.png'
+import power from '../../assets/power.png'
 
 export default function LayoutSidebar({ children }) {
   const sidebarContent = [
@@ -52,6 +54,38 @@ export default function LayoutSidebar({ children }) {
                 </Link>
               </li>
             ))}
+            <li className="pl-6">
+              <button id="dropdownDefault" data-dropdown-toggle="dropdown" className="text-dark border-red-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">Pengajuan<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                  <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                      <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                        <li>
+                          <Link to="/guruTamu">
+                            <span className="font-normal text-base ">Guru Tamu </span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/guruMagang">
+                            <span className="font-normal text-base ">Magang Guru / Siswa </span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/kunjungan">
+                            <span className="font-normal text-base ">Kunjungan</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/sertifikasi">
+                            <span className="font-normal text-base ">Sertifikasi</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/bursaKerja">
+                            <span className="font-normal text-base">Bursa Kerja</span>
+                          </Link>                        
+                        </li>
+                      </ul>
+                </div>
+            </li>
           <div className="static">
             <li className="absolute bottom-14 left-6 text-lg font-medium"><img src={UserLog} width="42" className="inline pr-2"/>Jhon Doe</li>
           </div>
@@ -68,6 +102,8 @@ export default function LayoutSidebar({ children }) {
               <img src={UserLog} className="inline w-8 mr-2"></img>
               <span className="text-sm font-medium text-red-500">John Doe</span>
             </span>
+            <a href="#"><img src={bell} className="inline mx-4"></img></a>
+            <img src={power} className="inline"></img>
           </div>
         </div>
         {/* <!-- Page content--> */}{" "}
