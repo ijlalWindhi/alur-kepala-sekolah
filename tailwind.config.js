@@ -9,6 +9,11 @@ module.exports = {
       nunito: ["Poppins"],
     },
   },
+  variants: {
+    extends: {
+      backgroundColor: ["active"],
+    }   
+  },
   plugins: [
     require('flowbite/plugin')
   ],
