@@ -26,9 +26,9 @@ export default class Blog extends React.Component {
         <LayoutSidebar>
           <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-8">
             <div class="col-span-2 ml-14 mt-6">
-              <div className="mt-2">
+              {/* <div className="mt-2">
                 <input type="text" className=" w-1/2 h-12 bg-slate-100 rounded-full px-6 ml-6" placeholder="Search "></input>
-              </div>
+              </div> */}
               
               <div className="card rounded-lg bg-white p-6 mt-8">
                   <h4 className="text-lg font-semibold mb-5">Tontonan Original Platform SMK TKJ</h4>
@@ -75,18 +75,11 @@ export default class Blog extends React.Component {
               </div>
             </div>
             <div>
-              <div className="pl-32 usernameJohn">
-                <button className="mt-2 btn-warning bg-pink rounded-full">
-                  <img src={UserLogin} className="inline w-5 mr-4"></img>
-                  <span className="text-base font-small">John Dohn</span>
-                </button>
-                <img src={bell} className="inline mr-2 w-5"></img>
-                <img src={power} className="inline mr-2 w-5"></img>
-              </div>
+              
                 
               <div className="pl-32 mt-12">
                 <h4 className="text-lg font-semibold">Blog/Berita</h4>
-                <input type="text" className=" w-3/9 h-9 rounded-full px-6 mt-5" placeholder="Cari Blog/Berita"></input>
+                <input type="text" className=" w-3/9 h-9 rounded-full border-red-400 px-6 mt-5" placeholder="Cari Blog/Berita"></input>
                 <div className="mt-6">
                   <Link to="/blog">
                     <img src={video} className="inline mr-4"></img>
