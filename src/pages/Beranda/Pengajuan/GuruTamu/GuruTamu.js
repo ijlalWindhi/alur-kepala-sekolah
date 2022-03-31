@@ -20,7 +20,7 @@ export default class GuruTamu extends React.Component {
               <h1 className="text-xl font-semibold">Pengajuan Guru Tamu</h1>
               <div className="mb-8 grid grid-cols-5 mt-5">
                 <div className="col-span-2">
-                  <button className="bg-red-600 p-3 text-white rounded-2xl">+ Pembelian Barang</button>
+                  <button className="bg-red-600 p-3 text-white rounded-2xl">+ Guru Tamu</button>
                 </div>
                 <div className="col-span-3 flex justify-end">
                   <button id="dropdownDefault" data-dropdown-toggle="dropdown" className="text-dark border-red-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">3<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -72,22 +72,22 @@ export default class GuruTamu extends React.Component {
                     </thead>
                     <tbody>
                       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        <th scope="row" class="px-6 py-4 text-black font-semibold text-sm">
                           1
                         </th>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 text-black font-semibold text-sm">
                           21 Desember 2021
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 text-black font-semibold text-sm">
                           Webinar
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 text-black font-semibold text-sm">
                           10
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 text-black font-semibold text-sm">
                           10.00
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 text-black font-semibold text-sm">
                           10.00
                         </td>
                         <td class="px-6 py-4 text-right">

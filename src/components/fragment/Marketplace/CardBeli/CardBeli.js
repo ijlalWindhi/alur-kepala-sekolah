@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 // inisiasi component
 import Item from "../../../../assets/item.svg"
+import Message from "../../../../assets/message-circle.svg"
 
 export default function CardBeli({ handleAction }) {
   return (
@@ -19,7 +20,8 @@ export default function CardBeli({ handleAction }) {
             <div>
                 <h5>12 Maret 2021</h5>
                 <div className="mt-4">
-                    <button className="btn btn-md bg-red-600 py-2 px-6 rounded-full text-white mt-6">Detail</button>
+                    <img src={Message} className="inline mr-3"></img>
+                    <button className="btn btn-sm bg-red-600 py-2 px-4 rounded-full text-white mt-6 inline text-sm font-medium">Detail</button>
                 </div>
             </div>
         </div>

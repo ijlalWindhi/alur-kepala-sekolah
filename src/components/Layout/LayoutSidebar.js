@@ -4,6 +4,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UserLog from '../../assets/user-login.png'
 import Logo from '../../assets/logo.png'
+import bell from '../../assets/bell.png'
+import power from '../../assets/power.png'
 
 export default function LayoutSidebar({ children }) {
   const sidebarContent = [
@@ -72,10 +74,14 @@ export default function LayoutSidebar({ children }) {
                           </Link>
                         </li>
                         <li>
-                          <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sertifikasi Online</a>
+                          <Link to="/sertifikasi">
+                            <span className="font-normal text-base ">Sertifikasi</span>
+                          </Link>
                         </li>
                         <li>
-                          <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Bursa Kerja</a>
+                          <Link to="/bursaKerja">
+                            <span className="font-normal text-base">Bursa Kerja</span>
+                          </Link>                        
                         </li>
                       </ul>
                 </div>
@@ -96,6 +102,8 @@ export default function LayoutSidebar({ children }) {
               <img src={UserLog} className="inline w-8 mr-2"></img>
               <span className="text-sm font-medium text-red-500">John Doe</span>
             </span>
+            <a href="#"><img src={bell} className="inline mx-4"></img></a>
+            <img src={power} className="inline"></img>
           </div>
         </div>
         {/* <!-- Page content--> */}{" "}

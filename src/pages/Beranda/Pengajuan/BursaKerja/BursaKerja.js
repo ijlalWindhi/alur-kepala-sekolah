@@ -4,7 +4,7 @@ import React from "react";
 // inisiasi component
 import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
 
-export default class GuruMagang extends React.Component {
+export default class BursaKerja extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -17,10 +17,10 @@ export default class GuruMagang extends React.Component {
         <LayoutSidebar>
           <div className="pl-12 grid grid-flow-row-dense grid-cols-3 mt-10">
             <div className="col-span-2" >
-              <h1 className="text-xl font-semibold">Pengajuan Magang Guru</h1>
+              <h1 className="text-xl font-semibold">Pengajuan Bursa Kerja</h1>
               <div className="mb-8 grid grid-cols-5 mt-5">
                 <div className="col-span-2">
-                  <button className="bg-red-600 p-3 text-white rounded-2xl">+ Guru</button>
+                  <button className="bg-red-600 p-3 text-white rounded-2xl">+ Tambah Lowongan</button>
                 </div>
                 <div className="col-span-3 flex justify-end">
                   <button id="dropdownDefault" data-dropdown-toggle="dropdown" className="text-dark border-red-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">3<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -48,54 +48,33 @@ export default class GuruMagang extends React.Component {
                     <thead class="text-xs text-white uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400">
                       <tr>
                         <th scope="col" class="px-6 py-3">
-                          Aksi
+                          Nama Jabatan Kerja
                         </th>
                         <th scope="col" class="px-6 py-3">
-                          Tujuan Magang
+                          Deskripsi
                         </th>
                         <th scope="col" class="px-6 py-3">
-                          Tanggal Magang
+                          Persyaratan
                         </th>
                         <th scope="col" class="px-6 py-3">
-                          Lokasi
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                          Jumlah Guru
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                          Nama Guru
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                          Opsi
+                          Tanggal Due Date
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                <label for="checkbox-table-1" class="sr-only">checkbox</label>
-                            </div>
+                            <h6 className="text-black font-semibold text-sm">Web Developer</h6>
+                        </td>
+                        <td class="px-6 py-4">
+                          <h6 className="text-black font-semibold text-sm">Bertanggung jawab mengelola website</h6>
+                        </td>
+                        <td class="px-6 py-4">
+                          <h6 className="text-black font-semibold text-sm">1. Menguasai 3 bahasa porgram</h6>
+                          <h6 className="text-black font-semibold text-sm">2. Mampu bekerjasama</h6>
                         </td>
                         <td class="px-6 py-4 text-black font-semibold text-sm">
-                          Telkom Grup
-                        </td>
-                        <td class="px-6 py-4 text-black font-semibold text-sm">
-                          21 Januari 2021
-                        </td>
-                        <td class="px-6 py-4 text-black font-semibold text-sm">
-                          Jakasrta Selatan
-                        </td>
-                        <td class="px-6 py-4 text-black font-semibold text-sm">
-                          10
-                        </td>
-                        <td class="px-6 py-4 text-black font-semibold text-sm">
-                          Dianne Ruseel, Dinda Caharani
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                          <a href="#" class="font-medium text-red-600 dark:text-blue-500 hover:underline ml-2">Delete</a>
+                            15 Januari 2022
                         </td>
                       </tr>
                     </tbody>
