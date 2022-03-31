@@ -6,6 +6,9 @@ import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
 import ItemCard from "../../../components/fragment/Marketplace/ItemCard";
 import CardBeli from "../../../components/fragment/Marketplace/CardBeli";
 import SummaryCard from "../../../components/fragment/Marketplace/SummaryCard";
+import Location from "../../../assets/map-pin.png"
+
+
 
 export default class Marketplace extends React.Component {
   constructor() {
@@ -24,8 +27,11 @@ export default class Marketplace extends React.Component {
                   {/* Tab Content 1 */}
                   <div class="hidden p-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div className="mb-8 grid grid-cols-4">
-                      <h1 className="col-span-3 font-semibold text-xl inline">Pembelian Barang</h1>
-                      <span className="col-span-1 text-right text-base font-normal"> Jakarta</span>
+                      <h1 className="col-span-3 font-semibold text-xl inline">Pilihan Hari Ini</h1>
+                      <div className="flex justify-end">
+                      <img src={Location} className="inline"></img>
+                      <span className="text-right text-base font-normal ml-2"> Jakarta</span>
+                      </div>
                     </div>
                     <div className="grid grid-cols-3 gap-4">
                       <ItemCard/>
@@ -60,8 +66,6 @@ export default class Marketplace extends React.Component {
               </div>
             </div>
             <div>
-              <div className="bg-white pl-11 pr-13">
-                <div><br></br></div>
                 <h4 className="text-lg font-semibold">Marketplace</h4>
                 <input type="text" className="rounded-full w-80 h-11 px-8 mt-8  border-red-400" placeholder="Search" style={{border: `1px solid #E70000`}}></input>
                 <div>
@@ -90,13 +94,14 @@ export default class Marketplace extends React.Component {
                 </div>
                 <div className="mt-5">
                   <h4 className="text-lg font-semibold">Filter</h4>
-                  <div className="">
+                  <div className="mt-4">
+                    <img src={Location} className="inline mr-2"></img>
                     <span className="">Jakarta, Indonesia</span>
                   </div>
                 </div>
                 <div className="mt-5">
                   <h4 className="text-lg font-semibold">Kategori</h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-4">
                     <span className="badge bg-red-200 p-4 rounded-3xl text-xs font-medium text-red-600">Component</span>
                     <span className="badge bg-red-200 p-4 rounded-3xl text-xs font-medium text-red-600">Aksesoris Komputer</span>
                     <span className="badge bg-red-200 p-4 rounded-3xl text-xs font-medium text-red-600">Komputer</span>
