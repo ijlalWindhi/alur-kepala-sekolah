@@ -110,7 +110,8 @@ export default class Marketplace extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
+          
+          
         </LayoutSidebar>
       </>
     );
