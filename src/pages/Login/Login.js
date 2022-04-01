@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { baseUrl } from "../../config";
 import image from "../../assets/image-login.svg";
 import google from "../../assets/icon-google.svg";
+import eye from '../../assets/icon-eye.svg'
 
 // inisiasi component
 export default class Login extends React.Component {
@@ -18,7 +19,12 @@ export default class Login extends React.Component {
     };
 
     this.state.showModal = false;
+    this.state.showPassword = false;
   }
+
+  Password = () => {
+    this.setState({ showPassword: !this.state.showPassword });
+  };
 
   Modal = () => {
     this.setState({showModal : !this.state.showModal})
@@ -75,24 +81,18 @@ export default class Login extends React.Component {
                   value={this.state.email}
                   onChange={ev => this.setState({ email: ev.target.value })}
                 />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
-                  placeholder="Enter your Password"
-                  value={this.state.password}
-                  onChange={ev => this.setState({ password: ev.target.value })}
-                />
-                <input
-                  type="roles"
-                  name="roles"
-                  id="roles"
-                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
-                  placeholder="Enter your Role"
-                  value={this.state.roles}
-                  onChange={ev => this.setState({ roles: ev.target.value })}
-                />
+                <div className="flex flex-row justify-start items-center">
+                  <input
+                    type={this.state.showPassword?'text':'password'}
+                    name="password"
+                    id="password"
+                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
+                    placeholder="Enter your Password"
+                    value={this.state.password}
+                    onChange={ev => this.setState({ password: ev.target.value })}
+                  />
+                  <img src={eye} onClick={() => this.Password()} className="cursor-pointer absolute w-7 mt-2 ml-80"/>
+                </div>
                 <label className="block text-red-500 mt-2 text-sm ml-64" onClick={() => this.Modal()} style={{ cursor: 'pointer' }}>Forget Password?</label>
                 <button type="submit" className="justify-center mt-8 w-96 py-4 px-6 border border-transparent rounded-full text-lg font-medium text-white bg-red-500 " onClick={ev => (this.Login(ev))}>Login</button>
               </form>

@@ -1,11 +1,11 @@
 // inisiasi library default
 import React from "react";
-import { ReCAPTCHA } from "react-google-recaptcha";
 import { Link } from "react-router-dom";
 import { baseUrl } from "../../config";
 import image from "../../assets/image-login.svg";
 import google from "../../assets/icon-google.svg";
 import axios from "axios";
+import eye from '../../assets/icon-eye.svg'
 
 // inisiasi component
 
@@ -19,13 +19,25 @@ export default class Registrasi extends React.Component {
       password: "",
       roles: ""
     };
+
+    this.state.showPassword = false;
+    this.state.showRetypePassword = false;
   }
+
+  Password = () => {
+    this.setState({ showPassword: !this.state.showPassword });
+  };
+  RetypePassword = () => {
+    this.setState({ showRetypePassword: !this.state.showRetypePassword });
+  };
+
   Regis = event => {
     event.preventDefault();
     let sendData = {
       nama: this.state.nama,
       email: this.state.email,
       password: this.state.password,
+      retypePassword: this.state.retypePassword,
       roles: this.state.roles
     }
     let url = baseUrl + "/users/register"
@@ -66,11 +78,19 @@ export default class Registrasi extends React.Component {
                   value={this.state.nama} onChange={ev => this.setState({ nama: ev.target.value })} />
                 <input type="email" name="email" id="email" className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4" placeholder="Enter your Email"
                   value={this.state.email} onChange={ev => this.setState({ email: ev.target.value })} />
+
                 <input type="text" name="roles" id="name" className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4" placeholder="User role"
                   value={this.state.roles} onChange={ev => this.setState({ roles: ev.target.value })} />
-                <input type="password" name="password" id="password" className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4" placeholder="Enter your Password"
-                  value={this.state.password} onChange={ev => this.setState({ password: ev.target.value })} />
-                {/* <label className="block text-red-500 mt-2 text-sm ml-64">Forget Password?</label> */}
+                <div className="flex flex-row justify-start items-center">
+                  <input type={this.state.showPassword?'text':'password'} name="password" id="password" className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4" placeholder="Enter your Password"
+                    value={this.state.password} onChange={ev => this.setState({ password: ev.target.value })} />
+                    <img src={eye} onClick={() => this.Password()} className="cursor-pointer absolute w-7 mt-2 ml-80"/>
+                </div>
+                <div className="flex flex-row justify-start items-center">
+                  <input type={this.state.showRetypePassword?'text':'password'} name="password" id="password" className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4" placeholder="Retype your Password"
+                  value={this.state.retypePassword} onChange={ev => this.setState({ retypePassword: ev.target.value })} />
+                  <img src={eye} onClick={() => this.RetypePassword()} className="cursor-pointer absolute w-7 mt-2 ml-80"/>
+                </div>
                 <button type="submit" className="justify-center mt-8 w-96 py-4 px-6 border border-transparent rounded-full text-lg font-medium text-white bg-red-500 " onClick={ev => this.Regis(ev)}>
                   Sign Up
                 </button>
