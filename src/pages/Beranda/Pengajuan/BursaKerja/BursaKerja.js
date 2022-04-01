@@ -5,6 +5,7 @@ import React from "react";
 import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
 import AddButton from "../../../../assets/add-button.png"
 import deleteImg from "../../../../assets/delete.png"
+import { Link } from "react-router-dom";
 
 export default class BursaKerja extends React.Component {
   constructor() {
@@ -23,6 +24,7 @@ export default class BursaKerja extends React.Component {
               <div className="mb-8 grid grid-cols-5 mt-5">
                 <div className="col-span-2">
                   <button className="bg-red-600 p-3 text-white rounded-2xl" data-modal-toggle="defaultModal">+ Tambah Lowongan</button>
+                  <button className="bg-white p-3 text-red-600 rounded-2xl ml-4"><Link to="/pengajuanBursa">Pengajuan</Link></button>
                 </div>
                 <div id="defaultModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
                 <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">

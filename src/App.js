@@ -22,6 +22,7 @@ import GuruMagang from "./pages/Beranda/Pengajuan/GuruMagang";
 import Kunjungan from "./pages/Beranda/Pengajuan/Kunjungan";
 import Sertifikasi from "./pages/Beranda/Pengajuan/Sertifikasi";
 import BursaKerja from "./pages/Beranda/Pengajuan/BursaKerja";
+import PengajuanBursa from "./pages/Beranda/Pengajuan/PengajuanBursa";
 
 import "./App.css";
 
@@ -48,6 +49,8 @@ export default function App() {
       <Route path="/kunjungan" element={<Kunjungan />} />
       <Route path="/sertifikasi" element={<Sertifikasi />} />
       <Route path="/bursaKerja" element={<BursaKerja />} />
+      <Route path="/pengajuanBursa" element={<PengajuanBursa />} />
+
     </Routes>
   );
 }
