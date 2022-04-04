@@ -1,5 +1,7 @@
 // inisiasi library default
 import React from "react";
+import axios from "axios"
+import { baseUrl } from "../../../config"
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
@@ -15,41 +17,101 @@ export default class ForumDiskusi extends React.Component {
     super();
     this.state = {
       // call variable
+      token: "",
+      forum: []
     };
+
+    if (localStorage.getItem("token")) {
+      this.state.token = localStorage.getItem("token")
+    } else {
+      window.location = "/login"
+    }
+    this.headerConfig.bind(this)
   }
+
+  headerConfig = () => {
+    let header = {
+      headers: { Authorization: `Bearer ${this.state.token}` }
+    }
+    return header
+  }
+
+  getForum = () => {
+    let url = baseUrl + "/forum"
+    axios.get(url, this.headerConfig())
+      .then(response => {
+        this.setState({ forum: response.data.data })
+        console.log(response.data.data)
+      })
+      .catch(error => {
+        if (error.response) {
+          if (error.response.status) {
+            window.alert(error.response.data.message)
+            // this.props.history.push("/dashboard")
+          }
+        } else {
+          console.log(error);
+        }
+      })
+  }
+
+  componentDidMount() {
+    this.getForum()
+  }
+
+  saveForum = event => {
+    event.preventDefault()
+    let form = {
+      forumName: this.state.forumName,
+      description: this.state.description,
+      forumImage: this.state.forumImage
+    }
+    console.log(form)
+    let url = baseUrl + "/forum"
+    // console.log("ini msuk insert")
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getForum()
+      })
+      .catch(error => console.log(error))
+
+  }
+
   render() {
     return (
       <>
         <LayoutSidebar>
-        <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-10">
+          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-10">
             <div class="col-span-2 ml-14">
               <div id="tabContent">
                 {/* Tab Content 1 */}
                 <div class="hidden py-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                   <h1 className="text-3xl font-semibold">Aktivitas Terbaru</h1>
                   <div className="card rounded-lg bg-white p-6 mt-8 mr-20">
-                  <div className="grid grid-cols-9">
-                    <div>
-                      <img src={UserLogin}/>
-                    </div>
-                    <div className="col-span-7">
-                      <h5 className="text-base font-medium">Forum Programmer Indonesia</h5>
-                      <span className="font-normal text-sm text-slate-300">Antonio Purnama</span>
-                      <h6 className="font-normal text-sm text-slate-300">Yesterday at 12.30</h6>
-                    </div>
-                  </div>
-                  <div className="font-normal text-sm mt-4">Kasus penularan subvarian BA.2 Omicron dilaporkan terus meningkat. Studi ungkap tanda-tanda keparahan yang disebabkan oleh "Son of Omicron" ini.</div>
-                  <div className="mt-2">
-                    <img className="w-full" src={postingan}></img>
-                    <div className="mt-2 grid grid-cols-4">
-                      <div className="col-span-3">
-                        <button>Like : 23</button>
-                        <button className="mx-4">Comment : 23</button>
-                        <button>Share : 23</button>
+                    <div className="grid grid-cols-9">
+                      <div>
+                        <img src={UserLogin} />
                       </div>
-                    </div>  
+                      <div className="col-span-7">
+                        <h5 className="text-base font-medium">Forum Programmer Indonesia</h5>
+                        <span className="font-normal text-sm text-slate-300">Antonio Purnama</span>
+                        <h6 className="font-normal text-sm text-slate-300">Yesterday at 12.30</h6>
+                      </div>
+                    </div>
+                    <div className="font-normal text-sm mt-4">Kasus penularan subvarian BA.2 Omicron dilaporkan terus meningkat. Studi ungkap tanda-tanda keparahan yang disebabkan oleh "Son of Omicron" ini.</div>
+                    <div className="mt-2">
+                      <img className="w-full" src={postingan}></img>
+                      <div className="mt-2 grid grid-cols-4">
+                        <div className="col-span-3">
+                          <button>Like : 23</button>
+                          <button className="mx-4">Comment : 23</button>
+                          <button>Share : 23</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
                 </div>
                 {/* Tab Content 2 */}
                 <div class="hidden p-4" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
@@ -72,9 +134,9 @@ export default class ForumDiskusi extends React.Component {
                   <div className="card rounded-lg p-4">
                     <h1 className="font-semibold text-xl mb-8">Lebih Awal</h1>
                     <div className="gap-4">
-                      <Notification/>
-                      <Notification/>
-                      <Notification/>
+                      <Notification />
+                      <Notification />
+                      <Notification />
                     </div>
                   </div>
                 </div>
@@ -139,14 +201,14 @@ export default class ForumDiskusi extends React.Component {
                     <div className="mt-6 grid grid-cols-6">
                       <img src={UserLogin} className="inline w-10 mr-4"></img>
                       <div className="col-span-5">
-                        <span className="text-base font-normal">Programmer Club</span><br/>
+                        <span className="text-base font-normal">Programmer Club</span><br />
                         <span className="text-sm font-normal text-slate-400">Terakhir aktif 1 hari yang lalu</span>
                       </div>
                     </div>
                     <div className="mt-6 grid grid-cols-6">
                       <img src={UserLogin} className="inline w-10 mr-4"></img>
                       <div className="col-span-5">
-                        <span className="text-base font-normal">Programmer Club</span><br/>
+                        <span className="text-base font-normal">Programmer Club</span><br />
                         <span className="text-sm font-normal text-slate-400">Terakhir aktif 1 hari yang lalu</span>
                       </div>
                     </div>

@@ -1,6 +1,8 @@
 // inisiasi library default
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios"
+import { baseUrl } from "../../../config"
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
@@ -18,8 +20,71 @@ export default class Blog extends React.Component {
     super();
     this.state = {
       // call variable
+      token: "",
+      blogs: [],
+      description: "",
+      youtubeLink: "",
+      blogImage: ""
     };
+
+    if (localStorage.getItem("token")) {
+      this.state.token = localStorage.getItem("token")
+    } else {
+      window.location = "/login"
+    }
+    this.headerConfig.bind(this)
   }
+
+  headerConfig = () => {
+    let header = {
+      headers: { Authorization: `Bearer ${this.state.token}` }
+    }
+    return header
+  }
+
+  getBlogs = () => {
+    let url = baseUrl + "/blogs"
+    axios.get(url, this.headerConfig())
+      .then(response => {
+        this.setState({ blogs: response.data.data })
+        console.log(response.data.data)
+      })
+      .catch(error => {
+        if (error.response) {
+          if (error.response.status) {
+            window.alert(error.response.data.message)
+            // this.props.history.push("/dashboard")
+          }
+        } else {
+          console.log(error);
+        }
+      })
+  }
+
+  componentDidMount() {
+    this.getBlogs()
+  }
+
+  saveBlogs = event => {
+    event.preventDefault()
+    let form = {
+      description: this.state.description,
+      youtubeLink: this.state.youtubeLink,
+      blogImage: this.state.blogImage
+    }
+    console.log(form)
+    let url = baseUrl + "/blogs"
+    // console.log("ini msuk insert")
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getBlogs()
+      })
+      .catch(error => console.log(error))
+
+  }
+
   render() {
     return (
       <>

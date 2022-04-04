@@ -42,7 +42,8 @@ export default class Login extends React.Component {
         console.log(sendData)
         if (sendData != null) {
           let data = response.data.data
-          let token = response.data.token
+          console.log(response.data.data.accessToken)
+          let token = response.data.data.accessToken
           localStorage.setItem("data", JSON.stringify(data))
           localStorage.setItem("token", token)
           this.props.history.push("/beranda")
