@@ -1,5 +1,7 @@
 // inisiasi library default
 import React from "react";
+import axios from "axios"
+import { baseUrl } from "../../../../config"
 
 // inisiasi component
 import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
@@ -12,8 +14,48 @@ export default class BursaKerja extends React.Component {
     super();
     this.state = {
       // call variable
+      token: "",
+      job: []
     };
+
+    if (localStorage.getItem("token")) {
+      this.state.token = localStorage.getItem("token")
+    } else {
+      window.location = "/login"
+    }
+    this.headerConfig.bind(this)
   }
+
+  headerConfig = () => {
+    let header = {
+      headers: { Authorization: `Bearer ${this.state.token}` }
+    }
+    return header
+  }
+
+  getJob = () => {
+    let url = baseUrl + "/submission/job"
+    axios.get(url, this.headerConfig())
+      .then(response => {
+        this.setState({ job: response.data })
+        console.log(response.data)
+      })
+      .catch(error => {
+        if (error.response) {
+          if (error.response.status) {
+            window.alert(error.response.data.message)
+            // this.props.history.push("/dashboard")
+          }
+        } else {
+          console.log(error);
+        }
+      })
+  }
+
+  componentDidMount() {
+    this.getJob()
+  }
+
   render() {
     return (
       <>

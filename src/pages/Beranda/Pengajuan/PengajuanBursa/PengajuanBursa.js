@@ -1,5 +1,7 @@
 // inisiasi library default
 import React from "react";
+import axios from "axios"
+import { baseUrl } from "../../../../config"
 
 // inisiasi component
 import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
