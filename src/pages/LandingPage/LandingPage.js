@@ -40,22 +40,19 @@ export default class LandingPage extends React.Component {
         <div className="py-5 px-5 text-center">
           <div className="flex flex-row justify-center">
             <DataBox />
-            <DataBox />
-            <DataBox />
-            <DataBox />
           </div>
         </div>
         <div className="py-5 px-5 font-semibold">
           <h1 className="text-3xl text-center pb-14 underline underline-offset-8 decoration-4 decoration-red-600">Berita Terkini</h1>
-          <div className=" flex flex-row gap-4 grid grid-cols-4">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+          <div className="flex justify-center">
+            <div className="grid grid-cols-3 gap-14">
+              <Card/>
+              <Card/>
+              <Card/>
+              <Card/>
+              <Card/>
+              <Card/>
+            </div>
           </div>
         </div>
         <div className="py-5 px-5 text-center">

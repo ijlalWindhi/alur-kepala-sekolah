@@ -26,7 +26,7 @@ const Corousel = ({slides}) => {
           {CorouselData.map((slide, index) => {
             return (
               <div
-                className={index === current ? 'slide active' : 'slide'}
+                className={index === current ? 'slide' : 'slide'}
                 key={index}
               >
                 {index === current && (

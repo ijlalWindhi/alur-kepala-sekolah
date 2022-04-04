@@ -23,7 +23,7 @@ export default class Beranda extends React.Component {
     return (
       <>
         <LayoutSidebar>
-          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-8">
+          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 mt-8">
             <div class="col-span-2 ml-14">
               <div className="grid grid-cols-4">
                 <CardBox/>
