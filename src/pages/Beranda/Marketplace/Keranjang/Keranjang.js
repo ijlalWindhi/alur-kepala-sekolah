@@ -3,51 +3,38 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 // inisiasi component
-import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
-import ItemCard from "../../../components/fragment/Marketplace/ItemCard";
-import CardBeli from "../../../components/fragment/Marketplace/CardBeli";
-import SummaryCard from "../../../components/fragment/Marketplace/SummaryCard";
-import DragAndDropFile from "./FilesDragAndDrop"
-import Location from "../../../assets/map-pin.png";
-import AddButton from "../../../assets/icon-add.svg"
-import settings from "../../../assets/icon-settings.svg"
-import search from "../../../assets/icon-search.svg"
-import bag from "../../../assets/icon-bagWhite.svg"
-import trolly from "../../../assets/icon-trolly.svg"
-import tag from "../../../assets/icon-tag.svg"
+import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
+import ItemCard from "../../../../components/fragment/Marketplace/ItemCard";
+import CardBeli from "../../../../components/fragment/Marketplace/CardBeli";
+import SummaryCard from "../../../../components/fragment/Marketplace/SummaryCard";
+import Location from "../../../../assets/map-pin.png";
+import AddButton from "../../../../assets/add-button.png"
+import settings from "../../../../assets/icon-settings.svg"
+import search from "../../../../assets/icon-search.svg"
+import bag from "../../../../assets/icon-bag.svg"
+import trolly from "../../../../assets/icon-trollyWhite.svg"
+import tag from "../../../../assets/icon-tag.svg"
 
-export default class Marketplace extends React.Component {
+export default class Keranjang extends React.Component {
     constructor() {
         super();
         this.state = {
             // call variable
         };
-        
-        // state show modal tambah barang
-        this.state.showModal = false;
     }
-
-    // function untuk menampilkan modal tambah barang
-    Modal = () => {
-        this.setState({
-            showModal: !this.state.showModal
-        })
-    }
-
     render() {
         return (
-            <> < LayoutSidebar > 
-            <div class="grid grid-flow-row-dense grid-cols-3 mt-12">
+            <> < LayoutSidebar > <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-10">
                 <div class="col-span-2 ml-14">
                     <div id="tabContent">
                         {/* Tab Content 1 */}
                         <div
-                            class="p-4"
+                            class="hidden p-4"
                             id="profile"
                             role="tabpanel"
                             aria-labelledby="profile-tab">
                             <div className="mb-8 grid grid-cols-4">
-                                <h1 className="col-span-3 font-semibold text-3xl inline">Pilihan Hari Ini</h1>
+                                <h1 className="col-span-3 font-semibold text-xl inline">Pilihan Hari Ini</h1>
                                 <div className="flex justify-end">
                                     <img src={Location} className="inline"></img>
                                     <span className="text-right text-base font-normal ml-2">
@@ -57,11 +44,11 @@ export default class Marketplace extends React.Component {
 
                             {/* fitur tambah barang */}
                             <div className="mb-8 grid grid-cols-5 mt-5">
-                                {/* <div className="col-span-2">
+                                <div className="col-span-2">
                                     <button
                                         className="bg-red-600 p-3 text-white rounded-2xl"
                                         data-modal-toggle="defaultModal">+ Tambah Barang</button>
-                                </div> */}
+                                </div>
                                 <div
                                     id="defaultModal"
                                     tabindex="-1"
@@ -134,14 +121,13 @@ export default class Marketplace extends React.Component {
                         </div>
                         {/* Tab Content 2 */}
                         <div
-                            class="hidden p-4"
+                            class="p-4"
                             id="dashboard"
                             role="tabpanel"
                             aria-labelledby="dashboard-tab">
                             <div className="mb-8 grid grid-cols-4">
-                                <h1 className="col-span-3 font-semibold text-xl inline">Pembelian Barang</h1>
-                                <span className="col-span-1 text-right text-base font-normal text-red-600">
-                                    Beli Barang</span>
+                                <h1 className="col-span-3 font-semibold text-3xl inline">Pembelian Barang</h1>
+                                {/* <span className="col-span-1 text-right text-base font-normal text-red-600">Beli Barang</span> */}
                             </div>
                             <div className="grid cols-5 gap-4">
                                 <CardBeli/>
@@ -185,14 +171,14 @@ export default class Marketplace extends React.Component {
                               <img src={search}/>
                           </button>
                       </div>
-                      <div className="mt-8">
-                          <Link to="/marketplace" className="py-3 pl-5 pr-20 text-white bg-red-500 rounded-2xl">
+                      <div className="mt-8 ml-5">
+                          <Link to="/marketplace">
                               <img src={bag} className="inline mr-4"></img>
                               <span className="font-normal text-base ">Telusuri Semua</span>
                           </Link>
                       </div>
-                      <div className="mt-6 ml-5">
-                          <Link to="/keranjang">
+                      <div className="mt-6 ">
+                          <Link to="/keranjang" className="py-3 pl-5 pr-28 text-white bg-red-500 rounded-2xl">
                               <img src={trolly} className="inline mr-4"></img>
                               <span className="font-normal text-base ">Keranjang</span>
                           </Link>
@@ -203,13 +189,6 @@ export default class Marketplace extends React.Component {
                               <span className="font-normal text-base ">Riwayat Pembelian</span>
                           </Link>
                       </div>
-                      <div className="mt-8">
-                          <span onClick={() => this.Modal()} className="py-3 pl-5 pr-6 text-white bg-red-500 rounded-2xl cursor-pointer">
-                              <img src={AddButton} className="inline mr-4"></img>
-                              <span className="font-normal text-base ">Tambah Barang</span>
-                          </span>
-                      </div>
-
                       <div className="mt-8">
                         <h4 className="text-lg font-semibold">Filter</h4>
                         <div className="mt-4">
@@ -233,75 +212,6 @@ export default class Marketplace extends React.Component {
                   </div>
                 </div>
             </div>
-            {this.state.showModal ? (
-            <>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-                <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                    <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                        <div className="relative px-6 pt-6 flex-auto">
-                            <DragAndDropFile/>
-                            <input
-                                type="text"
-                                name="email"
-                                id="email"
-                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
-                                placeholder="Nama Barang"/>
-                            <input
-                                type="text"
-                                name="email"
-                                id="email"
-                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
-                                placeholder="Harga Barang"/>
-                            <input
-                                type="text"
-                                name="email"
-                                id="email"
-                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
-                                placeholder="Status"/>
-                            <select
-                                value={this.state.roles}
-                                onChange={ev => this.setState({roles: ev.target.value})}
-                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4">
-                                <option value="" disabled selected>Kategori Barang</option>
-                                <option value="1">Headmaster</option>
-                                <option value="4">Vocation Net</option>
-                                <option value="5">Telkom Group</option>
-                                <option value="6">Ministry</option>
-                            </select>
-                            <textarea 
-                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
-                                placeholder="Deskripsi Barang"/>
-                            <select
-                                value={this.state.roles}
-                                onChange={ev => this.setState({roles: ev.target.value})}
-                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mt-4">
-                                <option value="" disabled selected>Lokasi Penjualan</option>
-                                <option value="1">Headmaster</option>
-                                <option value="4">Vocation Net</option>
-                                <option value="5">Telkom Group</option>
-                                <option value="6">Ministry</option>
-                            </select>
-                        </div>
-                        <div className="flex items-center justify-end p-6">
-                            <button
-                                className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500"
-                                type="button"
-                                onClick={this.Modal}>
-                                Batal
-                            </button>
-                            <button
-                                className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none"
-                                type="submit"
-                                onClick={this.Modal}>
-                                Tambah
-                            </button>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-            </>
-        ) : null}
         </LayoutSidebar>
     </>
         );

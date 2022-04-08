@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // inisiasi component
 import Item from "../../../../assets/item.svg"
 import Message from "../../../../assets/message-circle.svg"
+import HorizontalIcon from "../../../../assets/icon-horizontal.svg"
 
 export default function CardBeli({ handleAction }) {
   return (
@@ -21,6 +22,7 @@ export default function CardBeli({ handleAction }) {
                 <h5>12 Maret 2021</h5>
                 <div className="mt-4">
                     <img src={Message} className="inline mr-3"></img>
+                    <img src={HorizontalIcon} className="inline mr-3"></img>
                     <button className="btn btn-sm bg-red-600 py-2 px-4 rounded-full text-white mt-6 inline text-sm font-medium">Detail</button>
                 </div>
             </div>

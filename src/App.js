@@ -14,6 +14,8 @@ import Login from "./pages/Login";
 import Blog from "./pages/Beranda/Blog";
 import ForumDiskusi from "./pages/Beranda/ForumDiskusi";
 import Marketplace from "./pages/Beranda/Marketplace";
+import Keranjang from "./pages/Beranda/Marketplace/Keranjang";
+import RiwayatPembelian from "./pages/Beranda/Marketplace/RiwayatPembelian";
 import Pengajuan from "./pages/Beranda/Pengajuan";
 import Acara from "./pages/Beranda/Blog/Acara";
 import Tersimpan from "./pages/Beranda/Blog/Tersimpan";
@@ -28,29 +30,32 @@ import "./App.css";
 
 export default function App() {
   return (
-    <Switch>
-      <Route path="/login" component={Login} />
-      <Route exact path="/" component={LandingPage} />
-      <Route path="/landingpage" component={LandingPage} />
-      <Route path="/beranda" component={Beranda} />
-      <Route path="/registrasi" component={Registrasi} />
-      <Route path="/resetpassword" component={ResetPassword} />
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/landingpage" element={<LandingPage />} />
+      <Route path="/beranda" element={<Beranda />} />
+      <Route path="/registrasi" element={<Registrasi />} />
+      <Route path="/resetpassword" element={<ResetPassword />} />
 
-      <Route path="/blog" component={Blog} />
-      <Route path="/forumdiskusi" component={ForumDiskusi} />
-      <Route path="/marketplace" component={Marketplace} />
-      <Route path="/pengajuan" component={Pengajuan} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/forumdiskusi" element={<ForumDiskusi />} />
+      <Route path="/marketplace" element={<Marketplace />} />
+      <Route path="/pengajuan" element={<Pengajuan />} />
 
-      <Route path="/acara" component={Acara} />
-      <Route path="/tersimpan" component={Tersimpan} />
+      <Route path="/acara" element={<Acara />} />
+      <Route path="/tersimpan" element={<Tersimpan />} />
 
-      <Route path="/guruMagang" component={GuruMagang} />
-      <Route path="/guruTamu" component={GuruTamu} />
-      <Route path="/kunjungan" component={Kunjungan} />
-      <Route path="/sertifikasi" component={Sertifikasi} />
-      <Route path="/bursaKerja" component={BursaKerja} />
-      <Route path="/pengajuanBursa" component={PengajuanBursa} />
+      <Route path="/keranjang" element={<Keranjang />} />
+      <Route path="/riwayatpembelian" element={<RiwayatPembelian />} />
 
-    </Switch>
+      <Route path="/guruMagang" element={<GuruMagang />} />
+      <Route path="/guruTamu" element={<GuruTamu />} />
+      <Route path="/kunjungan" element={<Kunjungan />} />
+      <Route path="/sertifikasi" element={<Sertifikasi />} />
+      <Route path="/bursaKerja" element={<BursaKerja />} />
+      <Route path="/pengajuanBursa" element={<PengajuanBursa />} />
+
+    </Routes>
   );
 }

@@ -5,11 +5,12 @@ import React from "react";
 import LayoutSidebar from "../../components/Layout/LayoutSidebar";
 import CardBox from "../../components/fragment/Beranda/CardBox";
 import UserLogin from "../../assets/user-login.png"
-import siaran from "../../assets/siaran.png"
-import foto from "../../assets/foto.png"
-import forum from "../../assets/forum.png"
+import siaran from "../../assets/youtube.svg"
+import foto from "../../assets/icon-foto.svg"
+import forum from "../../assets/icon-forum.svg"
 import postingan from "../../assets/postingan.png"
 import newGroup from "../../assets/newGroup.png"
+import Horizontal from "../../assets/icon-horizontal.svg"
 
 export default class Beranda extends React.Component {
   constructor() {
@@ -22,7 +23,7 @@ export default class Beranda extends React.Component {
     return (
       <>
         <LayoutSidebar>
-          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-8">
+          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 mt-8">
             <div class="col-span-2 ml-14">
               <div className="grid grid-cols-4">
                 <CardBox/>
@@ -31,23 +32,26 @@ export default class Beranda extends React.Component {
                 <CardBox/>
               </div>
               <div className="card rounded-lg bg-white p-6 mt-8">
-                <img src={UserLogin} className="inline"/>
-                <input type="text" className=" w-4/5 h-12 bg-slate-100 rounded-full px-6 ml-6" placeholder="Apa yang anda pikirkan sekarang?"></input>
+                <img src={UserLogin} className="inline w-14"/>
+                <input type="text" className="focus:ring-red-500 focus:border-red-500  w-4/5 h-12 bg-gray-100 border-none text-gray-500 rounded-full px-6 ml-4" placeholder="Apa yang anda pikirkan sekarang?"></input>
                 <div className="grid grid-cols-5 gap-4 mt-4">
                   <div></div>
-                  <div className="text-sm font-medium text-slate-500"><img className="w-8 mr-2.5 inline" src={siaran}></img> Siaran</div>
-                  <div className="text-sm font-medium text-slate-500"><img className="mr-2.5 inline" src={foto}></img> Foto/Video</div>
-                  <div className="text-sm font-medium text-slate-500"><img className="mr-2.5 inline" src={forum}></img> Forum</div>
+                  <div className="text-sm font-medium text-gray-500 cursor-pointer"><img className="w-8 mr-2.5 inline" src={siaran}></img> Siaran</div>
+                  <div className="text-sm font-medium text-gray-500 cursor-pointer"><img className="mr-2.5 inline" src={foto}></img> Foto/Video</div>
+                  <div className="text-sm font-medium text-gray-500 cursor-pointer"><img className="mr-2.5 inline" src={forum}></img> Forum</div>
                 </div>
               </div>
               <div className="card rounded-lg bg-white p-6 mt-8">
                 <div className="grid grid-cols-9">
                   <div>
-                    <img src={UserLogin}/>
+                    <img src={UserLogin} className="w-14"/>
                   </div>
                   <div className="col-span-7">
                     <h5 className="text-base font-medium">E10000</h5>
-                    <span className="font-normal text-sm text-slate-300">1 Jam yang lalu</span>
+                    <span className="font-normal text-sm text-gray-500">1 Jam yang lalu</span>
+                  </div>
+                  <div className="col-span-1 mt-2 cursor-pointer">
+                    <img src={Horizontal} className="w-6"/>
                   </div>
                 </div>
                 <div className="font-normal text-sm mt-4">Kasus penularan subvarian BA.2 Omicron dilaporkan terus meningkat. Studi ungkap tanda-tanda keparahan yang disebabkan oleh "Son of Omicron" ini.</div>
@@ -79,7 +83,7 @@ export default class Beranda extends React.Component {
                 <div className="mt-6">
                   <a href="#">
                     <img src={newGroup} className="inline mr-4"></img>
-                    <span className="font-normal text-base text-slate-400">Buat grup baru</span>
+                    <span className="font-normal text-base text-gray-500">Buat grup baru</span>
                   </a>
                 </div>
               </div>
