@@ -1,162 +1,208 @@
 // inisiasi library default
-import React, { useState } from "react";
+import React, {useState} from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { baseUrl } from "../../config";
+import {Link} from "react-router-dom";
+import {baseUrl} from "../../config";
 import image from "../../assets/image-login.svg";
-import google from "../../assets/icon-google.svg";
+import eye from '../../assets/icon-eye.svg'
 
 // inisiasi component
 export default class Login extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      // call variable
-      email: "",
-      password: "",
-      roles: ""
-    };
+    constructor() {
+        super();
+        this.state = {
+            // call variable
+            email: "",
+            password: "",
+            roles: ""
+        };
 
-    this.state.showModal = false;
-  }
-
-  Modal = () => {
-    this.setState({showModal : !this.state.showModal})
-  }
-
-  Login = event => {
-    event.preventDefault();
-    let sendData = {
-      email: this.state.email,
-      password: this.state.password,
-      roles: this.state.roles
+        this.state.showModal = false;
+        this.state.showPassword = false;
+        this.state.showPasswordModal = false;
     }
-    let url = baseUrl + "/users/login"
-    axios.post(url, sendData, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Basic dGVsa29tOmRhMWMyNWQ4LTM3YzgtNDFiMS1hZmUyLTQyZGQ0ODI1YmZlYQ=="
-      }
-    })
-      .then(response => {
-        console.log(sendData)
-        if (sendData != null) {
-          let data = response.data.data
-          let token = response.data.token
-          localStorage.setItem("data", JSON.stringify(data))
-          localStorage.setItem("token", token)
-          this.props.history.push("/beranda")
-        } else {
-          this.setState({ message: response.data.message })
-          this.props.history.push("/login")
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      }
-      )
-  }
 
-  render() {
-    return (
-      <>
-        <div className="h-screen flex">
-          <div className="flex w-1/2 justify-center items-center">
+    Password = () => {
+        this.setState({
+            showPassword: !this.state.showPassword
+        });
+    };
+    PasswordModal = () => {
+      this.setState({
+          showPasswordModal: !this.state.showPasswordModal
+      });
+  };
+
+    Modal = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
+    }
+
+    Login = event => {
+        event.preventDefault();
+        let sendData = {
+            email: this.state.email,
+            password: this.state.password,
+            roles: this.state.roles
+        }
+        let url = baseUrl + "/users/login"
+        axios
+            .post(url, sendData, {
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: "Basic dGVsa29tOmRhMWMyNWQ4LTM3YzgtNDFiMS1hZmUyLTQyZGQ0ODI1YmZlYQ=="
+                }
+            })
+            .then(response => {
+                console.log(sendData)
+                if (sendData != null) {
+                    let data = response.data.data
+                    let token = response
+                        .data
+                        .token
+                        localStorage
+                        .setItem("data", JSON.stringify(data))
+                    localStorage.setItem("token", token)
+                    this
+                        .props
+                        .history
+                        .push("/beranda")
+                } else {
+                    this.setState({message: response.data.message})
+                    this
+                        .props
+                        .history
+                        .push("/login")
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        }
+
+    render() {
+        return (<> < div className = "h-screen flex" > <div className="flex w-1/2 justify-center items-center">
             <div>
-              <h1 className="font-semibold text-3xl">Login</h1>
-              <h3 className="text-2xl mt-2">Login to connect with us</h3>
-              <form action="#" method="POST" className="mt-8" onSubmit={ev => (this.Login(ev))}>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4"
-                  placeholder="Enter your Email"
-                  value={this.state.email}
-                  onChange={ev => this.setState({ email: ev.target.value })}
-                />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
-                  placeholder="Enter your Password"
-                  value={this.state.password}
-                  onChange={ev => this.setState({ password: ev.target.value })}
-                />
-                <input
-                  type="roles"
-                  name="roles"
-                  id="roles"
-                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
-                  placeholder="Enter your Role"
-                  value={this.state.roles}
-                  onChange={ev => this.setState({ roles: ev.target.value })}
-                />
-                <label className="block text-red-500 mt-2 text-sm ml-64" onClick={() => this.Modal()} style={{ cursor: 'pointer' }}>Forget Password?</label>
-                <button type="submit" className="justify-center mt-8 w-96 py-4 px-6 border border-transparent rounded-full text-lg font-medium text-white bg-red-500 " onClick={ev => (this.Login(ev))}>Login</button>
-              </form>
-              <h6 className="text-sm mt-2 text-gray-400">Dont have account? <Link to="/registrasi"><span className="text-red-500">sign up</span></Link></h6>
-              <div className="w-full flex items-center justify-between mt-8">
-                <hr class="w-24 bg-gray-400"></hr>
-                <p class="text-sm px-1.5 text-gray-400">or Sign In with google</p>
-                <hr class="w-24 bg-gray-400  "></hr>
-              </div>
-              <button className="flex w-96 mt-8 space-x-2 justify-center items-end border-2 text-white py-4 rounded-full">
-                <img src={google} alt="google" /> <div className="text-gray-400">Continue with google</div>
-              </button>
-            </div>
-          </div>
-          <div className="flex w-1/2 justify-center items-center">
-            <img src={image} alt="image-login" />
-          </div>
-          {this.state.showModal ? (
-          <>
-            <div
-              className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
-            >
-              <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                  <div className="flex items-start justify-between px-6 pt-8">
-                    <h3 className="text-lg font-semibold">
-                      Forgot Password
-                    </h3>
-                  </div>
-                  <div className="relative px-6 pt-8 flex-auto">
-                    <p className="text-black font-normal text-base leading-relaxed">
-                      Masukan email yang sudah anda daftarkan untuk <br /> merubah password
-                    </p>
-                  </div>
-                  <div className="relative px-6 pt-8 flex-auto">
+                <h1 className="font-semibold text-3xl">Login</h1>
+                <h3 className="text-2xl mt-2">Login to connect with us</h3>
+                <form
+                    action="#"
+                    method="POST"
+                    className="mt-8"
+                    onSubmit={ev => (this.Login(ev))}>
                     <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4"
-                      placeholder="Enter your Email"
-                    />
-                  </div>
-                  <div className="flex items-center justify-end p-6">
+                        type="email"
+                        name="email"
+                        id="email"
+                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4"
+                        placeholder="Enter your Email"
+                        value={this.state.email}
+                        onChange={ev => this.setState({email: ev.target.value})}/>
+                    <div className="flex flex-row justify-start items-center">
+                        <input
+                            type={this.state.showPassword
+                                ? 'text'
+                                : 'password'}
+                            name="password"
+                            id="password"
+                            className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
+                            placeholder="Enter your Password"
+                            value={this.state.password}
+                            onChange={ev => this.setState({password: ev.target.value})}/>
+                        <img
+                            src={eye}
+                            onClick={() => this.Password()}
+                            className="cursor-pointer absolute w-7 mt-2 ml-80"/>
+                    </div>
+                    <label
+                        className="block text-red-500 mt-2 text-sm ml-64"
+                        onClick={() => this.Modal()}
+                        style={{
+                            cursor: 'pointer'
+                        }}>Forget Password?</label>
                     <button
-                      className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500"
-                      type="button"
-                      onClick={this.Modal}
-                    >
-                      Batal
-                    </button>
-                    <button
-                      className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none"
-                      type="submit"
-                      onClick={this.Modal}
-                    >
-                      Submit
-                    </button>
-                  </div>
+                        type="submit"
+                        className="justify-center mt-8 w-96 py-4 px-6 border border-transparent rounded-full text-lg font-medium text-white bg-red-500 hover:bg-red-700"
+                        onClick={ev => (this.Login(ev))}>Login</button>
+                </form>
+                <h6 className="text-sm mt-2 text-gray-400">Dont have account?
+                    <Link to="/registrasi">
+                        <span className="text-red-500">sign up</span>
+                    </Link>
+                </h6>
+            </div>
+        </div>
+        <div className="flex w-1/2 justify-center items-center">
+            <img src={image} alt="image-login"/>
+        </div>
+          {this.state.showModal ? (
+            <>
+              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                    <div
+                        className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                        <div className="flex items-start justify-between px-6 pt-8">
+                            <h3 className="text-lg font-semibold">
+                                Forgot Password
+                            </h3>
+                        </div>
+                        <div className="relative px-6 pt-4 flex-auto">
+                            <p className="text-black font-normal text-base leading-relaxed">
+                                Masukan email yang sudah anda daftarkan untuk
+                                <br/>
+                                merubah password
+                            </p>
+                        </div>
+                        <div className="relative px-6 pt-6 flex-auto">
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4"
+                                placeholder="Enter your Email"/>
+                            <div className="flex flex-row justify-start items-center">
+                              <input
+                                  type={this.state.showPasswordModal
+                                      ? 'text'
+                                      : 'password'}
+                                  name="password"
+                                  id="password"
+                                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
+                                  placeholder="Enter your Password"
+                                  value={this.state.passwordModal}
+                                  onChange={ev => this.setState({passwordModal: ev.target.value})}/>
+                              <img
+                                  src={eye}
+                                  onClick={() => this.PasswordModal()}
+                                  className="cursor-pointer absolute w-7 mt-2 ml-80"/>
+                            </div>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
+                                placeholder="Enter your OTP Code"/>
+                        </div>
+                        <div className="flex items-center justify-end p-6">
+                            <button
+                                className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500"
+                                type="button"
+                                onClick={this.Modal}>
+                                Batal
+                            </button>
+                            <button
+                                className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none"
+                                type="submit"
+                                onClick={this.Modal}>
+                                Submit
+                            </button>
+                        </div>
+                    </div>
                 </div>
               </div>
-            </div>
-            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-          </>
+              <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+            </>
         ) : null}
         </div>
       </>
