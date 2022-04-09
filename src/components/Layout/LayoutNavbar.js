@@ -1,22 +1,22 @@
 // dashboard => utk dasar template biar tampilannya sama semua / layout aja di bagian page content
 
-import React from "react";
-import { Link } from "react-router-dom";
-import Logo from "../../assets/logo.png"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Logo from '../../assets/logo.png';
 
-export default function LayoutNavbar({ children }) {
+export default function LayoutNavbar() {
   const sidebarContent = [
     {
-      label: "Berita",
-      target: "/blog",
+      label: 'Berita',
+      target: '/blog',
     },
     {
-      label: "Kontak",
-      target: "/kontak",
+      label: 'Kontak',
+      target: '/kontak',
     },
     {
-      label: "Tentang",
-      target: "/tentang",
+      label: 'Tentang',
+      target: '/tentang',
     },
   ];
 
@@ -25,7 +25,9 @@ export default function LayoutNavbar({ children }) {
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <div class="flex items-center">
           <img src={Logo} class="mr-3 h-6 sm:h-10" alt="SMK TKJ"></img>
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-black">Platform SMK TKJ</span>
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-black">
+            Platform SMK TKJ
+          </span>
         </div>
 
         {/*   TOGGLE  */}
@@ -37,10 +39,24 @@ export default function LayoutNavbar({ children }) {
           aria-expanded="false"
         >
           <span class="sr-only">Open main menu</span>
-          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
           </svg>
-          <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            class="hidden w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               fill-rule="evenodd"
               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -57,16 +73,23 @@ export default function LayoutNavbar({ children }) {
               <Link to="/beranda">Beranda</Link>
               <div className="mt-1 w-2.5 h-2.5 bg-red-500 text-red-500 rounded-full"></div>
             </div>
-            {sidebarContent.map(({ target, label }, i) => (
+            {sidebarContent.map(({ target, label }) => (
               <li className="px-3 py-3">
-                <Link to={target} className="block py-2 px-4 text-white rounded md:bg-transparent md:text-gray-400 font-normal md:p-0 dark:text-white bg-green-200" aria-current="page">
+                <Link
+                  to={target}
+                  className="block py-2 px-4 text-white rounded md:bg-transparent md:text-gray-400 font-normal md:p-0 dark:text-white bg-green-200"
+                  aria-current="page"
+                >
                   {label}
                 </Link>
               </li>
             ))}
 
             <Link to="/login" className="btn-round">
-              <button type="button" className="btn-warning bg-red-500 hover:bg-red-700 rounded-2xl">
+              <button
+                type="button"
+                className="btn-warning bg-red-500 hover:bg-red-700 rounded-2xl"
+              >
                 Login
               </button>
             </Link>
