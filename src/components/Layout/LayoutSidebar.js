@@ -4,7 +4,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Home, BookOpen, ShoppingBag, FileText, Users } from 'react-feather';
+import { Home, BookOpen, ShoppingBag, FileText, Users, Clipboard } from 'react-feather';
 
 import UserLog from '../../assets/user-login.png';
 import Logo from '../../assets/logo.png';
@@ -142,12 +142,32 @@ export default function LayoutSidebar({ children }) {
             </li>
             <li className="mt-1 ml-3 pl-6 hover:bg-red-500 hover:text-white hover:rounded-full w-9/12">
               <NavLink
-                to="/forumDiskusi"
+                to="/forumdiskusi"
                 activeClassName="active"
                 className="flex items-center p-4 text-base font-normal md:dark:hover:text-white dark:hover:bg-green-700 dark:hover:text-white dark:border-gray-700"
                 aria-current="page"
               >
                 <Users className="mr-3" /> Forum Diskusi
+              </NavLink>
+            </li>
+            <li className="mt-1 ml-3 pl-6 hover:bg-red-500 hover:text-white hover:rounded-full w-9/12">
+              <NavLink
+                to="/lmsGuru"
+                activeClassName="active"
+                className="flex items-center p-4 text-base font-normal md:dark:hover:text-white dark:hover:bg-green-700 dark:hover:text-white dark:border-gray-700"
+                aria-current="page"
+              >
+                <Clipboard className="mr-3" /> LMS Guru
+              </NavLink>
+            </li>
+            <li className="mt-1 ml-3 pl-6 hover:bg-red-500 hover:text-white hover:rounded-full w-9/12">
+              <NavLink
+                to="/lmsSiswa"
+                activeClassName="active"
+                className="flex items-center p-4 text-base font-normal md:dark:hover:text-white dark:hover:bg-green-700 dark:hover:text-white dark:border-gray-700"
+                aria-current="page"
+              >
+                <Clipboard className="mr-3" /> LMS Siswa
               </NavLink>
             </li>
             <div className="static">

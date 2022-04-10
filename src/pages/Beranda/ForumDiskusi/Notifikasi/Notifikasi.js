@@ -3,15 +3,17 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 // inisiasi component
-import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
-import DragAndDropFile from "./FilesDragAndDrop"
-import AddButton from "../../../assets/icon-add.svg"
-import settings from "../../../assets/icon-settings.svg"
-import berandaanda from "../../../assets/forumputih.png"
-import temukan from "../../../assets/temukan.png"
-import notifikasi from "../../../assets/bell.png"
-import UserLogin from '../../../assets/user-login.png';
-import postingan from '../../../assets/postingan.png';
+import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
+import DragAndDropFile from "./../FilesDragAndDrop"
+import AddButton from "../../../../assets/icon-add.svg"
+import settings from "../../../../assets/icon-settings.svg"
+import bag from "../../../../assets/berandaforum.png"
+import trolly from "../../../../assets/temukan.png"
+import tag from "../../../../assets/notifikasiputih.png"
+import UserLogin from '../../../../assets/user-login.png';
+import Notification from '../../../../components/fragment/Forum/Notification';
+
+
 
 
 
@@ -38,44 +40,17 @@ export default class Marketplace extends React.Component {
             <> < LayoutSidebar > 
             <div class="grid grid-flow-row-dense grid-cols-3 mt-12">
                 <div class="col-span-2 ml-14">
-                <div
-                  
-                >
-                  <h1 className="text-3xl font-semibold">Aktivitas Terbaru ini halaman temukan</h1>
-                  <div className="card rounded-lg bg-white p-6 mt-8 mr-20">
-                    <div className="grid grid-cols-9">
-                      <div>
-                        <img src={UserLogin} />
-                      </div>
-                      <div className="col-span-7">
-                        <h5 className="text-base font-medium">
-                          Forum Programmer Indonesia
-                        </h5>
-                        <span className="font-normal text-sm text-slate-300">
-                          Antonio Purnama
-                        </span>
-                        <h6 className="font-normal text-sm text-slate-300">
-                          Yesterday at 12.30
-                        </h6>
-                      </div>
-                    </div>
-                    <div className="font-normal text-sm mt-4">
-                      Kasus penularan subvarian BA.2 Omicron dilaporkan terus
-                      meningkat. Studi ungkap tanda-tanda keparahan yang
-                      disebabkan oleh "Son of Omicron" ini.
-                    </div>
-                    <div className="mt-2">
-                      <img className="w-full" src={postingan}></img>
-                      <div className="mt-2 grid grid-cols-4">
-                        <div className="col-span-3">
-                          <button>Like : 23</button>
-                          <button className="mx-4">Comment : 23</button>
-                          <button>Share : 23</button>
-                        </div>
-                      </div>
+                <div>
+                  <div className="card rounded-lg p-4">
+                    <h1 className="font-semibold text-xl mb-8">Lebih Awal</h1>
+                    <div className="gap-4">
+                      <Notification />
+                      <Notification />
+                      <Notification />
                     </div>
                   </div>
                 </div>
+
                 </div>
 
 
@@ -90,20 +65,20 @@ export default class Marketplace extends React.Component {
                       </div>
                      
                       <div className="mt-8">
-                          <Link to="/forumdiskusi" className="py-3 pl-5 pr-20 text-white bg-red-500 rounded-2xl">
-                              <img src={berandaanda} className="inline mr-4"></img>
+                          <Link to="/forumdiskusi" >
+                              <img src={bag} className="inline mr-4"></img>
                               <span className="font-normal text-base ">Beranda Anda</span>
                           </Link>
                       </div>
-                      <div className="mt-6 ml-5">
-                          <Link to="/Temukan">
-                              <img src={temukan} className="inline mr-4"></img>
+                      <div className="mt-6 mr-4">
+                          <Link to="/Temukan" >
+                              <img src={trolly} className="inline mr-4 text-white"></img>
                               <span className="font-normal text-base ">Temukan</span>
                           </Link>
                       </div>
-                      <div className="mt-6 ml-5 mb-8">
-                          <Link to="/Notifikasi">
-                              <img src={notifikasi} className="inline mr-4"></img>
+                      <div className="mt-6 mr-4 mb-8">
+                          <Link to="/Notifikasi" className="py-3 pl-5 pr-20 text-white bg-red-500 rounded-2xl">
+                              <img src={tag} className="inline mr-4"></img>
                               <span className="font-normal text-base ">Notifikasi</span>
                           </Link>
                       </div>
