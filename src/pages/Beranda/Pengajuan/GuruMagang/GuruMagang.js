@@ -15,7 +15,11 @@ export default class GuruMagang extends React.Component {
     this.state = {
       // call variable
       token: "",
-      internship: []
+      internship: [],
+      apprenticeshipPlace: "",
+      description: "",
+      intershipDate: "",
+      place : ""
     };
 
     if (localStorage.getItem("token")) {
@@ -54,6 +58,28 @@ export default class GuruMagang extends React.Component {
 
   componentDidMount() {
     this.getInternship()
+  }
+
+  saveInternship = event => {
+    event.preventDefault()
+    let form = {
+      apprenticeshipPlace: this.state.apprenticeshipPlace,
+      description: this.state.description,
+      intershipDate: this.state.intershipDate,
+      place : this.state.place
+      // user:
+      //   userId: 
+      //   name: 
+    }
+    console.log(form)
+    let url = baseUrl + "/submission/internship"
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getInternship()
+      })
+      .catch(error => console.log(error))
   }
 
   render() {

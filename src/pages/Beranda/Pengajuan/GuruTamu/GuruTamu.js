@@ -14,7 +14,12 @@ export default class GuruTamu extends React.Component {
     this.state = {
       // call variable
       token: "",
-      guest: []
+      guest: [],
+      visitDate: "",
+      necessity: "",
+      teacher: "",
+      in : "",
+      out : ""
     };
 
     if (localStorage.getItem("token")) {
@@ -55,6 +60,26 @@ export default class GuruTamu extends React.Component {
     this.getGuest()
   }
   
+  saveGuest = event => {
+    event.preventDefault()
+    let form = {
+      visitDate: this.state.visitDate,
+      necessity: this.state.necessity,
+      teacher: this.state.teacher,
+      in : this.state.in,
+      out : this.state.out
+    }
+    console.log(form)
+    let url = baseUrl + "/submission/guest"
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getGuest()
+      })
+      .catch(error => console.log(error))
+  }
+
   render() {
     return (
       <>

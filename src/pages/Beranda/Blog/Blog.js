@@ -1,6 +1,8 @@
 // inisiasi library default
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios"
+import { baseUrl } from "../../../config"
 
 // inisiasi component
 import LayoutSidebar from '../../../components/Layout/LayoutSidebar';
@@ -20,10 +22,70 @@ export default class Blog extends React.Component {
     super();
     this.state = {
       // call variable
+      token: "",
+      blogs: [],
+      description: "",
+      youtubeLink: "",
+      blogImage: ""
     };
 
-    // state show modal tambah blog
+    if (localStorage.getItem("token")) {
+      this.state.token = localStorage.getItem("token")
+    } else {
+      window.location = "/login"
+    }
+    this.headerConfig.bind(this);
+
     this.state.showModal = false;
+  }
+
+  headerConfig = () => {
+    let header = {
+      headers: { Authorization: `Bearer ${this.state.token}` }
+    }
+    return header
+  }
+
+  getBlogs = () => {
+    let url = baseUrl + "/blogs"
+    axios.get(url, this.headerConfig())
+      .then(response => {
+        this.setState({ blogs: response.data.data[0] })
+        console.log(response.data.data[0]) 
+      })
+      .catch(error => {
+        if (error.response) {
+          if (error.response.status) {
+            window.alert(error.response.data.message)
+            // this.props.history.push("/dashboard")
+          }
+        } else {
+          console.log(error);
+        }
+      })
+  }
+
+  componentDidMount() {
+    this.getBlogs()
+  }
+
+  saveBlogs = event => {
+    event.preventDefault()
+    let form = {
+      description: this.state.description,
+      youtubeLink: this.state.youtubeLink,
+      blogImage: this.state.blogImage
+    }
+    console.log(form)
+    let url = baseUrl + "/blogs"
+    // console.log("ini msuk insert")
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getBlogs()
+      })
+      .catch(error => console.log(error))
   }
 
   // function untuk menampilkan modal tambah blog
@@ -188,19 +250,19 @@ export default class Blog extends React.Component {
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={ev => this.saveBlogs(ev)}>
                     <div className="relative px-6 pt-6 flex-auto">
-                      <DragAndDropFile />
+                      <DragAndDropFile /> {/* kurang setState to image */}
                       <input
                         type="text"
                         name="email"
                         id="email"
                         className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
-                        placeholder="Youtube Links"
+                        placeholder="Youtube Links" onChange={ev => this.setState({ youtubeLink: ev.target.value })}
                       />
                       <textarea
                         className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
-                        placeholder="Deskripsi Video"
+                        placeholder="Deskripsi Video" onChange={ev => this.setState({ description: ev.target.value })}
                       />
                     </div>
                     <div className="flex items-center justify-end p-6">

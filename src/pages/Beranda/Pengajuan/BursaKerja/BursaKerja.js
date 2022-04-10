@@ -15,7 +15,11 @@ export default class BursaKerja extends React.Component {
     this.state = {
       // call variable
       token: "",
-      job: []
+      job: [],
+      jobTitle: "",
+      description: "",
+      condition: "",
+      date : ""
     };
 
     if (localStorage.getItem("token")) {
@@ -54,6 +58,25 @@ export default class BursaKerja extends React.Component {
 
   componentDidMount() {
     this.getJob()
+  }
+
+  saveJob = event => {
+    event.preventDefault()
+    let form = {
+      jobTitle: this.state.jobTitle,
+      description: this.state.description,
+      condition: this.state.condition,
+      date : this.state.date
+    }
+    console.log(form)
+    let url = baseUrl + "/submission/job"
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getJob()
+      })
+      .catch(error => console.log(error))
   }
 
   render() {
