@@ -59,7 +59,7 @@ export default class Login extends React.Component {
         console.log(sendData);
         if (sendData != null) {
           let data = response.data.data;
-          let token = response.data.token;
+          let token = response.data.data.accessToken;
           localStorage.setItem('data', JSON.stringify(data));
           localStorage.setItem('token', token);
           this.props.history.push('/beranda');
@@ -97,6 +97,15 @@ export default class Login extends React.Component {
                   placeholder="Enter your Email"
                   value={this.state.email}
                   onChange={(ev) => this.setState({ email: ev.target.value })}
+                />
+                <input
+                  type="roles"
+                  name="roles"
+                  id="roles"
+                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
+                  placeholder="Enter your Roles"
+                  value={this.state.roles}
+                  onChange={(ev) => this.setState({ roles: ev.target.value })}
                 />
                 <div className="flex flex-row justify-start items-center">
                   <input
@@ -136,7 +145,7 @@ export default class Login extends React.Component {
               <h6 className="text-sm mt-2 text-gray-400">
                 Dont have account?
                 <Link to="/registrasi">
-                  <span className="text-red-500">sign up</span>
+                  <span className="text-red-500">Sign up</span>
                 </Link>
               </h6>
             </div>

@@ -35,12 +35,12 @@ export default class ForumDiskusi extends React.Component {
   };
 
   getForum = () => {
-    let url = baseUrl + '/forum';
+    let url = baseUrl + '/chats/groups';
     axios
       .get(url, this.headerConfig())
       .then((response) => {
-        this.setState({ forum: response.data.data });
-        console.log(response.data.data);
+        this.setState({ forum: response.data });
+        console.log(response.data);
       })
       .catch((error) => {
         if (error.response) {
@@ -66,7 +66,7 @@ export default class ForumDiskusi extends React.Component {
       forumImage: this.state.forumImage,
     };
     console.log(form);
-    let url = baseUrl + '/forum';
+    let url = baseUrl + '/chats/groups'; //error
     // console.log("ini msuk insert")
     axios
       .post(url, form, this.headerConfig())

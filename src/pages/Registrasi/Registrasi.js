@@ -14,7 +14,7 @@ export default class Registrasi extends React.Component {
     super();
     this.state = {
       // call variable
-      nama: '',
+      name: '',
       email: '',
       password: '',
       roles: '',
@@ -48,7 +48,7 @@ export default class Registrasi extends React.Component {
   Regis = (event) => {
     event.preventDefault();
     let sendData = {
-      nama: this.state.nama,
+      name: this.state.name,
       email: this.state.email,
       password: this.state.password,
       roles: this.state.roles,
@@ -66,9 +66,7 @@ export default class Registrasi extends React.Component {
         console.log(sendData);
         if (sendData != null) {
           let data = response.data.data;
-          // let token = response.data.token
           localStorage.setItem('data', JSON.stringify(data));
-          // localStorage.setItem("token", token)
           this.props.history.push('/login');
         } else {
           this.setState({ message: response.data.message });

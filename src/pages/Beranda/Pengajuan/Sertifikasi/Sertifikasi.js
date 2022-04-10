@@ -16,7 +16,15 @@ export default class Sertifikasi extends React.Component {
     this.state = {
       // call variable
       token: "",
-      certification: []
+      certification: [],
+      name: "",
+      gender: "",
+      nisn : "",
+      phone : "",
+      school : "",
+      program : "",
+      date : "",
+      status : ""
     };
 
     if (localStorage.getItem("token")) {
@@ -56,7 +64,30 @@ export default class Sertifikasi extends React.Component {
   componentDidMount() {
     this.getCertification()
   }
-  
+
+  saveCertification = event => {
+    event.preventDefault()
+    let form = {
+      name: this.state.name,
+      gender: this.state.gender,
+      nisn : this.state.nisn,
+      phone : this.state.phone,
+      school : this.state.school,
+      program : this.state.program,
+      date : this.state.date,
+      status : this.state.status
+    }
+    console.log(form)
+    let url = baseUrl + "/submission/certification"
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getCertification()
+      })
+      .catch(error => console.log(error))
+  }
+
   render() {
     return (
       <>

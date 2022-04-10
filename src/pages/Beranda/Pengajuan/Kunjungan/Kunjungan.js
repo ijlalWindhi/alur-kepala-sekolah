@@ -14,7 +14,13 @@ export default class Kunjungan extends React.Component {
     this.state = {
       // call variable
       token: "",
-      industrial_visit: []
+      industrial_visit: [],
+      agencyName: "",
+      visitDate: "",
+      in : "",
+      out : "",
+      numberOfTeachers : "",
+      numberOfStudents : ""
     };
 
     if (localStorage.getItem("token")) {
@@ -55,6 +61,27 @@ export default class Kunjungan extends React.Component {
     this.getIndustrial_visit()
   }
   
+  saveIndustrial_visit = event => {
+    event.preventDefault()
+    let form = {
+      agencyName: this.state.agencyName,
+      visitDate: this.state.visitDate,
+      in : this.state.in,
+      out : this.state.out,
+      numberOfTeachers : this.state.numberOfTeachers,
+      numberOfStudents : this.state.numberOfStudents
+    }
+    console.log(form)
+    let url = baseUrl + "/submission/industrial-visit"
+    axios.post(url, form, this.headerConfig())
+      .then(response => {
+        window.alert(response.data.message)
+        console.log(response)
+        this.getIndustrial_visit()
+      })
+      .catch(error => console.log(error))
+  }
+
   render() {
     return (
       <>
