@@ -42,8 +42,8 @@ export default class Kunjungan extends React.Component {
     let url = baseUrl + "/submission/industrial-visit"
     axios.get(url, this.headerConfig())
       .then(response => {
-        this.setState({ industrial_visit: response.data })
-        console.log(response.data)
+        this.setState({ industrial_visit: response.data.data[0] })
+        console.log(response.data.data[0])
       })
       .catch(error => {
         if (error.response) {
