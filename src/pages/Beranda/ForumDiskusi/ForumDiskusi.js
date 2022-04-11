@@ -39,8 +39,8 @@ export default class ForumDiskusi extends React.Component {
     axios
       .get(url, this.headerConfig())
       .then((response) => {
-        this.setState({ forum: response.data });
-        console.log(response.data);
+        this.setState({ forum: response.data.data[0] });
+        console.log(response.data.data[0]);
       })
       .catch((error) => {
         if (error.response) {

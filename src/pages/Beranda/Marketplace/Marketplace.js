@@ -63,8 +63,8 @@ export default class Marketplace extends React.Component {
         let url = baseUrl + "/products"
         axios.get(url, this.headerConfig())
             .then(response => {
-                this.setState({ products: response.data })
-                console.log(response.data)
+                this.setState({ products: response.data.data[0] })
+                console.log(response.data.data[0])
             })
             .catch(error => {
                 if (error.response) {

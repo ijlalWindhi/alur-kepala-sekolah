@@ -46,8 +46,8 @@ export default class Sertifikasi extends React.Component {
     let url = baseUrl + "/submission/certification"
     axios.get(url, this.headerConfig())
       .then(response => {
-        this.setState({ certification: response.data })
-        console.log(response.data)
+        this.setState({ certification: response.data.data[0] })
+        console.log(response.data.data[0])
       })
       .catch(error => {
         if (error.response) {

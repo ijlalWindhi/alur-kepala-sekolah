@@ -41,8 +41,8 @@ export default class GuruMagang extends React.Component {
     let url = baseUrl + "/submission/internship"
     axios.get(url, this.headerConfig())
       .then(response => {
-        this.setState({ internship: response.data })
-        console.log(response.data)
+        this.setState({ internship: response.data.data[0] })
+        console.log(response.data.data[0])
       })
       .catch(error => {
         if (error.response) {

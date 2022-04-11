@@ -41,8 +41,8 @@ export default class GuruTamu extends React.Component {
     let url = baseUrl + "/submission/guest"
     axios.get(url, this.headerConfig())
       .then(response => {
-        this.setState({ guest: response.data })
-        console.log(response.data)
+        this.setState({ guest: response.data.data[0] })
+        console.log(response.data.data[0])
       })
       .catch(error => {
         if (error.response) {
