@@ -1,16 +1,21 @@
 // inisiasi library default
 import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { baseUrl } from '../../../config';
 
 // inisiasi component
 import LayoutSidebar from '../../../components/Layout/LayoutSidebar';
-import GrupCard from '../../../components/fragment/Forum/GrupCard';
-import Notification from '../../../components/fragment/Forum/Notification';
+import DragAndDropFile from './FilesDragAndDrop';
+import AddButton from '../../../assets/icon-add.svg';
+import settings from '../../../assets/icon-settings.svg';
+import berandaanda from '../../../assets/forumputih.png';
+import temukan from '../../../assets/temukan.png';
+import notifikasi from '../../../assets/bell.png';
 import UserLogin from '../../../assets/user-login.png';
 import postingan from '../../../assets/postingan.png';
 
-export default class ForumDiskusi extends React.Component {
+export default class Marketplace extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -25,6 +30,9 @@ export default class ForumDiskusi extends React.Component {
       window.location = '/login';
     }
     this.headerConfig.bind(this);
+
+    // state show modal tambah barang
+    this.state.showModal = false;
   }
 
   headerConfig = () => {
@@ -32,6 +40,13 @@ export default class ForumDiskusi extends React.Component {
       headers: { Authorization: `Bearer ${this.state.token}` },
     };
     return header;
+  };
+
+  // function untuk menampilkan modal tambah barang
+  Modal = () => {
+    this.setState({
+      showModal: !this.state.showModal,
+    });
   };
 
   getForum = () => {
@@ -82,215 +97,161 @@ export default class ForumDiskusi extends React.Component {
     return (
       <>
         <LayoutSidebar>
-          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-10">
+          <div class="grid grid-flow-row-dense grid-cols-3 mt-12">
             <div class="col-span-2 ml-14">
-              <div id="tabContent">
-                {/* Tab Content 1 */}
-                <div
-                  class="hidden py-4"
-                  id="profile"
-                  role="tabpanel"
-                  aria-labelledby="profile-tab"
-                >
-                  <h1 className="text-3xl font-semibold">Aktivitas Terbaru</h1>
-                  <div className="card rounded-lg bg-white p-6 mt-8 mr-20">
-                    <div className="grid grid-cols-9">
-                      <div>
-                        <img src={UserLogin} />
-                      </div>
-                      <div className="col-span-7">
-                        <h5 className="text-base font-medium">
-                          Forum Programmer Indonesia
-                        </h5>
-                        <span className="font-normal text-sm text-slate-300">
-                          Antonio Purnama
-                        </span>
-                        <h6 className="font-normal text-sm text-slate-300">
-                          Yesterday at 12.30
-                        </h6>
-                      </div>
+              <div>
+                <h1 className="text-3xl font-semibold">
+                  Aktivitas Terbaru ini halaman temukan
+                </h1>
+                <div className="card rounded-lg bg-white p-6 mt-8 mr-20">
+                  <div className="grid grid-cols-9">
+                    <div>
+                      <img src={UserLogin} />
                     </div>
-                    <div className="font-normal text-sm mt-4">
-                      Kasus penularan subvarian BA.2 Omicron dilaporkan terus
-                      meningkat. Studi ungkap tanda-tanda keparahan yang
-                      disebabkan oleh "Son of Omicron" ini.
-                    </div>
-                    <div className="mt-2">
-                      <img className="w-full" src={postingan}></img>
-                      <div className="mt-2 grid grid-cols-4">
-                        <div className="col-span-3">
-                          <button>Like : 23</button>
-                          <button className="mx-4">Comment : 23</button>
-                          <button>Share : 23</button>
-                        </div>
-                      </div>
+                    <div className="col-span-7">
+                      <h5 className="text-base font-medium">
+                        Forum Programmer Indonesia
+                      </h5>
+                      <span className="font-normal text-sm text-slate-300">
+                        Antonio Purnama
+                      </span>
+                      <h6 className="font-normal text-sm text-slate-300">
+                        Yesterday at 12.30
+                      </h6>
                     </div>
                   </div>
-                </div>
-                {/* Tab Content 2 */}
-                <div
-                  class="hidden p-4"
-                  id="dashboard"
-                  role="tabpanel"
-                  aria-labelledby="dashboard-tab"
-                >
-                  <h1 className="font-semibold text-2xl">
-                    Disarankan Untuk Anda
-                  </h1>
-                  <h4 className="mb-8 font-semibold text-base text-slate-400">
-                    Grup yang mungkin anda minati
-                  </h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <GrupCard />
-                    <GrupCard />
-                    <GrupCard />
+                  <div className="font-normal text-sm mt-4">
+                    Kasus penularan subvarian BA.2 Omicron dilaporkan terus
+                    meningkat. Studi ungkap tanda-tanda keparahan yang
+                    disebabkan oleh "Son of Omicron" ini.
                   </div>
-                  <h1 className="font-semibold text-2xl mt-8">Grup Teman</h1>
-                  <h4 className="mb-8 font-semibold text-base text-slate-400">
-                    Grub yang teman anda bergabung didalamnya
-                  </h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <GrupCard />
-                    <GrupCard />
-                  </div>
-                </div>
-                {/* Tab Content 3 */}
-                <div
-                  class="hidden p-4"
-                  id="settings"
-                  role="tabpanel"
-                  aria-labelledby="settings-tab"
-                >
-                  <div className="card rounded-lg p-4">
-                    <h1 className="font-semibold text-xl mb-8">Lebih Awal</h1>
-                    <div className="gap-4">
-                      <Notification />
-                      <Notification />
-                      <Notification />
+                  <div className="mt-2">
+                    <img className="w-full" src={postingan}></img>
+                    <div className="mt-2 grid grid-cols-4">
+                      <div className="col-span-3">
+                        <button>Like : 23</button>
+                        <button className="mx-4">Comment : 23</button>
+                        <button>Share : 23</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/*batas kanan */}
+
             <div>
-              <h4 className="text-lg font-semibold">Sharing Informasi</h4>
-              <div>
-                <div class="mb-4 border-b border-gray-200 mt-8">
-                  <ul
-                    class=" -mb-px text-sm font-medium"
-                    id="tab"
-                    data-tabs-toggle="#tabContent"
-                    role="tablist"
+              <div className="pl-32 mt-10">
+                <div className="flex flex-row">
+                  <h4 className="text-lg font-semibold">Sharing Informasi</h4>
+                  <img src={settings} className="ml-24 cursor-pointer" />
+                </div>
+
+                <div className="mt-8">
+                  <Link
+                    to="/forumdiskusi"
+                    className="py-3 pl-5 pr-20 text-white bg-red-500 rounded-2xl"
                   >
-                    <li class="mr-3" role="presentation">
-                      <button
-                        class="w-48 text-left focus:text-left active:text-left inline-block p-4 rounded-t-lg  focus:ring-none active:btn-warning focus:btn-warning"
-                        id="profile-tab"
-                        data-tabs-target="#profile"
-                        type="button"
-                        role="tab"
-                        aria-controls="profile"
-                        aria-selected="false"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6 inline mr-3"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                        >
-                          <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                        </svg>
-                        Beranda Anda
-                      </button>
-                    </li>
-                    <li class="mr-3" role="presentation">
-                      <button
-                        class="w-48 text-left focus:text-left active:text-left inline-block p-4 rounded-t-lg focus:ring-none active:btn-warning focus:btn-warning"
-                        id="dashboard-tab"
-                        data-tabs-target="#dashboard"
-                        type="button"
-                        role="tab"
-                        aria-controls="dashboard"
-                        aria-selected="false"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6 inline mr-3"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                        Temukan
-                      </button>
-                    </li>
-                    <li class="mr-3" role="presentation">
-                      <button
-                        class=" w-48 text-left focus:text-left active:text-left inline-block p-4 rounded-t-lg focus:ring-none active:btn-warning focus:btn-warning"
-                        id="settings-tab"
-                        data-tabs-target="#settings"
-                        type="button"
-                        role="tab"
-                        aria-controls="settings"
-                        aria-selected="false"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6 inline mr-3"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                          />
-                        </svg>
-                        Notifikasi
-                      </button>
-                    </li>
-                  </ul>
-                  <div className="mt-8">
-                    <h4 className="text-lg font-semibold">
-                      Grup yang Anda Tergabung didalamnya
-                    </h4>
-                    <div className="mt-6 grid grid-cols-6">
-                      <img src={UserLogin} className="inline w-10 mr-4"></img>
-                      <div className="col-span-5">
-                        <span className="text-base font-normal">
-                          Programmer Club
-                        </span>
-                        <br />
-                        <span className="text-sm font-normal text-slate-400">
-                          Terakhir aktif 1 hari yang lalu
-                        </span>
-                      </div>
+                    <img src={berandaanda} className="inline mr-4"></img>
+                    <span className="font-normal text-base ">Beranda Anda</span>
+                  </Link>
+                </div>
+                <div className="mt-6 ml-5">
+                  <Link to="/Temukan">
+                    <img src={temukan} className="inline mr-4"></img>
+                    <span className="font-normal text-base ">Temukan</span>
+                  </Link>
+                </div>
+                <div className="mt-6 ml-5 mb-8">
+                  <Link to="/Notifikasi">
+                    <img src={notifikasi} className="inline mr-4"></img>
+                    <span className="font-normal text-base ">Notifikasi</span>
+                  </Link>
+                </div>
+                <div className="mt-12">
+                  <span
+                    onClick={() => this.Modal()}
+                    className="py-3 pl-5 pr-6 text-white bg-red-500 rounded-2xl cursor-pointer"
+                  >
+                    <img src={AddButton} className="inline mr-4"></img>
+                    <span className="font-normal text-base ">Tambah Forum</span>
+                  </span>
+                </div>
+
+                <div className="mt-8">
+                  <h4 className="text-lg font-semibold">
+                    Grup yang Anda Tergabung didalamnya
+                  </h4>
+                  <div className="mt-6 grid grid-cols-6">
+                    <img src={UserLogin} className="inline w-10 mr-4"></img>
+                    <div className="col-span-5">
+                      <span className="text-base font-normal">
+                        Programmer Club
+                      </span>
+                      <br />
+                      <span className="text-sm font-normal text-slate-400">
+                        Terakhir aktif 1 hari yang lalu
+                      </span>
                     </div>
-                    <div className="mt-6 grid grid-cols-6">
-                      <img src={UserLogin} className="inline w-10 mr-4"></img>
-                      <div className="col-span-5">
-                        <span className="text-base font-normal">
-                          Programmer Club
-                        </span>
-                        <br />
-                        <span className="text-sm font-normal text-slate-400">
-                          Terakhir aktif 1 hari yang lalu
-                        </span>
-                      </div>
+                  </div>
+                  <div className="mt-6 grid grid-cols-6">
+                    <img src={UserLogin} className="inline w-10 mr-4"></img>
+                    <div className="col-span-5">
+                      <span className="text-base font-normal">
+                        Programmer Club
+                      </span>
+                      <br />
+                      <span className="text-sm font-normal text-slate-400">
+                        Terakhir aktif 1 hari yang lalu
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {this.state.showModal ? (
+            <>
+              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                    <div className="relative px-6 pt-6 flex-auto">
+                      <DragAndDropFile />
+                      <input
+                        type="text"
+                        name="forum"
+                        id="forum"
+                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                        placeholder="Forum Name"
+                      />
+                      <textarea
+                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                        placeholder="Deskripsi Forum"
+                      />
+                    </div>
+                    <div className="flex items-center justify-end p-6">
+                      <button
+                        className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500"
+                        type="button"
+                        onClick={this.Modal}
+                      >
+                        Batal
+                      </button>
+                      <button
+                        className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none"
+                        type="submit"
+                        onClick={this.Modal}
+                      >
+                        Tambah
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+            </>
+          ) : null}
         </LayoutSidebar>
       </>
     );

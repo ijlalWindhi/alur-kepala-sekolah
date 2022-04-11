@@ -25,6 +25,15 @@ import Kunjungan from './pages/Beranda/Pengajuan/Kunjungan';
 import Sertifikasi from './pages/Beranda/Pengajuan/Sertifikasi';
 import BursaKerja from './pages/Beranda/Pengajuan/BursaKerja';
 import PengajuanBursa from './pages/Beranda/Pengajuan/PengajuanBursa';
+import Notifikasi from './pages/Beranda/ForumDiskusi/Notifikasi';
+import Temukan from './pages/Beranda/ForumDiskusi/Temukan';
+import LmsGuru from './pages/Beranda/Lms/Guru/Guru';
+import AktifitasGuru from './pages/Beranda/Lms/Guru/Aktifitas';
+import DetailKelas from './pages/Beranda/Lms/Guru/Kelas/DetailKelas';
+import DetailKelasSiswa from './pages/Beranda/Lms/Siswa/Kelas/DetailKelas';
+import DetailTugas from './pages/Beranda/Lms/Guru/Kelas/DetailTugas';
+import DetailTugasSiswa from './pages/Beranda/Lms/Siswa/Kelas/DetailTugas';
+import LmsSiswa from './pages/Beranda/Lms/Siswa/Siswa';
 
 import './App.css';
 
@@ -55,6 +64,16 @@ export default function App() {
       <Route path="/sertifikasi" component={Sertifikasi} />
       <Route path="/bursaKerja" component={BursaKerja} />
       <Route path="/pengajuanBursa" component={PengajuanBursa} />
+
+      <Route path="/Notifikasi" component={Notifikasi} />
+      <Route path="/Temukan" component={Temukan}/>
+      <Route path="/lmsGuru" component={LmsGuru}/>
+      <Route path="/aktifitasGuru" component={AktifitasGuru}/>
+      <Route path="/detailKelasGuru" component={DetailKelas}/>
+      <Route path="/detailTugasGuru" component={DetailTugas}/>
+      <Route path="/lmsSiswa" component={LmsSiswa}/>
+      <Route path="/detailKelasSiswa" component={DetailKelasSiswa}/>
+      <Route path="/detailTugasSiswa" component={DetailTugasSiswa}/>
     </Switch>
   );
 }
