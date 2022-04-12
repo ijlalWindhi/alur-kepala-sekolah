@@ -41,8 +41,8 @@ export default class BursaKerja extends React.Component {
     let url = baseUrl + "/submission/job"
     axios.get(url, this.headerConfig())
       .then(response => {
-        this.setState({ job: response.data.data[0] })
-        console.log(response.data.data[0])
+        this.setState({ job: response.data.data })
+        console.log(response.data.data)
       })
       .catch(error => {
         if (error.response) {

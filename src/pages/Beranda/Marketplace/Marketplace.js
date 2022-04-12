@@ -63,8 +63,8 @@ export default class Marketplace extends React.Component {
         let url = baseUrl + "/products"
         axios.get(url, this.headerConfig())
             .then(response => {
-                this.setState({ products: response.data.data[0] })
-                console.log(response.data.data[0])
+                this.setState({ products: response.data.data })
+                console.log(response.data.data)
             })
             .catch(error => {
                 if (error.response) {
@@ -199,9 +199,15 @@ export default class Marketplace extends React.Component {
                                 </div>
 
                                 <div className="grid grid-cols-3 gap-4">
-                                    <ItemCard />
-                                    <ItemCard />
-                                    <ItemCard />
+                                    {this.state.products.map(item => (
+                                        <ItemCard
+                                            name={item.name}
+                                            image={item.imageUrl}
+                                            price={item.price}
+                                        />
+                                    ))}
+                                    {/* <ItemCard />
+                                    <ItemCard /> */}
                                 </div>
                             </div>
                             {/* Tab Content 2 */}
@@ -310,7 +316,7 @@ export default class Marketplace extends React.Component {
                         {/* UI beda dengan yang diperlukan izin untuk membetulkan */}
                         <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                                <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                                <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={ev => this.saveProducts(ev)}>
                                     <div className="relative px-6 pt-6 flex-auto">
                                         <DragAndDropFile /> {/* kurang setState to image */}
                                         <input

@@ -50,8 +50,8 @@ export default class Blog extends React.Component {
     let url = baseUrl + "/blogs"
     axios.get(url, this.headerConfig())
       .then(response => {
-        this.setState({ blogs: response.data.data[0] })
-        console.log(response.data.data[0]) 
+        this.setState({ blogs: response.data.data })
+        console.log(response.data.data)
       })
       .catch(error => {
         if (error.response) {
@@ -118,60 +118,18 @@ export default class Blog extends React.Component {
                   Video Siaran Langsung Lainnya
                 </h4>
                 <div class="grid grid-cols-3 gap-4">
-                  <div>
-                    <iframe
-                      width="100%"
-                      height="180"
-                      src="https://www.youtube.com/embed/eeI2wPXSGbM"
-                      frameborder="0"
-                      allowfullscreen="allowfullscreen"
-                    ></iframe>
-                  </div>
-                  <div>
-                    <iframe
-                      width="100%"
-                      height="180"
-                      src="https://www.youtube.com/embed/eeI2wPXSGbM"
-                      frameborder="0"
-                      allowfullscreen="allowfullscreen"
-                    ></iframe>
-                  </div>
-                  <div>
-                    <iframe
-                      width="100%"
-                      height="180"
-                      src="https://www.youtube.com/embed/eeI2wPXSGbM"
-                      frameborder="0"
-                      allowfullscreen="allowfullscreen"
-                    ></iframe>
-                  </div>
-                  <div>
-                    <iframe
-                      width="100%"
-                      height="180"
-                      src="https://www.youtube.com/embed/eeI2wPXSGbM"
-                      frameborder="0"
-                      allowfullscreen="allowfullscreen"
-                    ></iframe>
-                  </div>
-                  <div>
-                    <iframe
-                      width="100%"
-                      height="180"
-                      src="https://www.youtube.com/embed/eeI2wPXSGbM"
-                      frameborder="0"
-                      allowfullscreen="allowfullscreen"
-                    ></iframe>
-                  </div>
-                  <div>
-                    <iframe
-                      width="100%"
-                      height="180"
-                      src="https://www.youtube.com/embed/eeI2wPXSGbM"
-                      frameborder="0"
-                      allowfullscreen="allowfullscreen"
-                    ></iframe>
-                  </div>
+                  {this.state.blogs.map(item => (
+                    <div>
+                      <iframe
+                        width="100%"
+                        height="180"
+                        src={item.youtubeLink}
+                        frameborder="0"
+                        allowfullscreen="allowfullscreen"
+                      ></iframe>
+                      {/* <img className="w-full" src={item.youtubeLink}></img> */}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
