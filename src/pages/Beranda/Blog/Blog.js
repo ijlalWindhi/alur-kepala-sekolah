@@ -120,10 +120,12 @@ export default class Blog extends React.Component {
                 <div class="grid grid-cols-3 gap-4">
                   {this.state.blogs.map(item => (
                     <div>
+                      {console.log(item.youtubeLink.split("/")[item.youtubeLink.split("/").length - 1].replace('watch?v=',""))}
                       <iframe
                         width="100%"
                         height="180"
-                        src={item.youtubeLink}
+                        // src={item.youtubeLink}
+                        src={`https://www.youtube.com/embed/${item.youtubeLink.split("/")[item.youtubeLink.split("/").length - 1].replace('watch?v=',"")}`}
                         frameborder="0"
                         allowfullscreen="allowfullscreen"
                       ></iframe>

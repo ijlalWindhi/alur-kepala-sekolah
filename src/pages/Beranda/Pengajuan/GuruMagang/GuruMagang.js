@@ -86,17 +86,17 @@ export default class GuruMagang extends React.Component {
     return date.split('T')[0]
   }
 
-  ArrGuru = function (props) {  
+  ArrGuru = function (props) {
     //ALl data Array  
-    var listData = props.map(function (data) {  
-      return <div key={data.name}>{data.name}</div>  
-    });  
-    return (  
-      <div>  
-        {listData}  
-      </div>  
-    );  
-  }  
+    var listData = props.map(function (data) {
+      return <div key={data.name}>{data.name}</div>
+    });
+    return (
+      <div>
+        {listData}
+      </div>
+    );
+  }
 
   render() {
     return (
@@ -125,10 +125,10 @@ export default class GuruMagang extends React.Component {
                           {/* masih belum bener */}
                           <input type="date" className="rounded-3xl border-slate-300 p-4 text-slate-300" placeholder="Tanggal Magang" onChange={ev => this.setState({ intershipDate: ev.target.value })}></input>
                           <input type="text" className="rounded-3xl border-slate-300 p-4 text-slate-300" placeholder="Tujuan Magang" onChange={ev => this.setState({ apprenticeshipPlace: ev.target.value })}></input>
-                          <input type="text" className="rounded-3xl border-slate-300 p-4 text-slate-300" placeholder="Lokasi" onChange={ev => this.setState({ place: ev.target.value })}></input> 
-                                                                        {/* input nya location object berisi provinceId dan districtId seperti ini { "provinceId" : 16, "districtId" : 8 } */}
-                          <input type="text" className="rounded-3xl border-slate-300 p-4 text-slate-300" placeholder="Nama Guru" onChange={ev => this.setState({ user: ev.target.value })}></input> 
-                                                                        {/* input nya berupa array contohnya [{ "name" : "enam" },{ "name" : "tujuh" }] */}
+                          <input type="text" className="rounded-3xl border-slate-300 p-4 text-slate-300" placeholder="Lokasi" onChange={ev => this.setState({ place: ev.target.value })}></input>
+                          {/* input nya location object berisi provinceId dan districtId seperti ini { "provinceId" : 16, "districtId" : 8 } */}
+                          <input type="text" className="rounded-3xl border-slate-300 p-4 text-slate-300" placeholder="Nama Guru" onChange={ev => this.setState({ user: ev.target.value })}></input>
+                          {/* input nya berupa array contohnya [{ "name" : "enam" },{ "name" : "tujuh" }] */}
                           <div className="">
                             <span className="text-sm font-medium text-black">Daftar List Tambah Guru</span>
                             <button type="button" className="ml-24" data-modal-toggle="small-modal">
@@ -233,14 +233,14 @@ export default class GuruMagang extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                      <td class="w-4 p-4">
-                        <div class="flex items-center">
-                          <input id="checkbox-table-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                          <label for="checkbox-table-1" class="sr-only">checkbox</label>
-                        </div>
-                      </td>
-                      {this.state.internship.map(item => (
+                    {this.state.internship.map(item => (
+                      <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <td class="w-4 p-4">
+                          <div class="flex items-center">
+                            <input id="checkbox-table-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                            <label for="checkbox-table-1" class="sr-only">checkbox</label>
+                          </div>
+                        </td>
                         <>
                           <td className="px-6 py-4 text-black font-semibold text-sm">{item.apprenticeshipPlace}</td>
                           <td className="px-6 py-4 text-black font-semibold text-sm">{this.SplitDate(item.intershipDate)}</td>
@@ -248,20 +248,20 @@ export default class GuruMagang extends React.Component {
                           <td className="px-6 py-4 text-black font-semibold text-sm">{item.user.length}</td>
                           <td className="px-6 py-4 text-black font-semibold text-sm">{this.ArrGuru(item.user)}</td>
                         </>
-                      ))}
-                      <td class="px-6 py-4 text-right">
-                        <button data-modal-toggle="popup-delete" class="p-2 text-white dark:text-white btn-warning hover:underline ml-2 inline">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                          </svg>
-                        </button>
-                        <button data-modal-toggle="edit-modal" class="p-2 text-white dark:text-white btn-warning hover:underline inline">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                          </svg>
-                        </button>
-                      </td>
-                    </tr>
+                        <td class="px-6 py-4 text-right">
+                          <button data-modal-toggle="popup-delete" class="p-2 text-white dark:text-white btn-warning hover:underline ml-2 inline">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                          </button>
+                          <button data-modal-toggle="edit-modal" class="p-2 text-white dark:text-white btn-warning hover:underline inline">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>

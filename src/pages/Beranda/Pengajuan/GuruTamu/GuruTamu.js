@@ -242,12 +242,11 @@ export default class GuruTamu extends React.Component {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* {this.state.guest.map(item => ( */}
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                      {/* <th scope="row" class="px-6 py-4 text-black font-semibold text-sm">
+                    {this.state.guest.map(item => (
+                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        {/* <th scope="row" class="px-6 py-4 text-black font-semibold text-sm">
                           1
                         </th> */}
-                      {this.state.guest.map(item => (
                         <>
                           <td className="px-6 py-4 text-black font-semibold text-sm">{this.SplitDate(item.visitDate)}</td>
                           <td className="px-6 py-4 text-black font-semibold text-sm">{item.necessity}</td>
@@ -255,23 +254,22 @@ export default class GuruTamu extends React.Component {
                           <td className="px-6 py-4 text-black font-semibold text-sm">{item.in}</td>
                           <td className="px-6 py-4 text-black font-semibold text-sm">{item.out}</td>
                         </>
-                      ))}
-                      <td class="px-6 py-4 text-right">
-                        <button className="font-small p-2 text-white dark:text-white btn-warning hover:underline ml-2 inline" data-modal-toggle="popup-delete">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                          </svg>
-                        </button>
-                        {/* {this.state.guest.map(item => ( */}
+                        <td class="px-6 py-4 text-right">
+                          <button className="font-small p-2 text-white dark:text-white btn-warning hover:underline ml-2 inline" data-modal-toggle="popup-delete">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                          </button>
+                          {/* {this.state.guest.map(item => ( */}
                           <button className="font-small p-2 text-white dark:text-white btn-warning hover:underline inline" data-modal-toggle="edit-modal">{/*onClick={() => this.editGuest(item)}*/}
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                             </svg>
                           </button>
-                        {/* ))} */}
-                      </td>
-                    </tr>
-                    {/* ))} */}
+                          {/* ))} */}
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
