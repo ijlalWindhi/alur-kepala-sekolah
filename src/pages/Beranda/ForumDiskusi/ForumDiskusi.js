@@ -13,7 +13,7 @@ import berandaanda from '../../../assets/forumputih.png';
 import temukan from '../../../assets/temukan.png';
 import notifikasi from '../../../assets/bell.png';
 import UserLogin from '../../../assets/user-login.png';
-import postingan from '../../../assets/postingan.png';
+// import postingan from '../../../assets/postingan.png';
 
 export default class Marketplace extends React.Component {
   constructor() {
@@ -54,8 +54,8 @@ export default class Marketplace extends React.Component {
     axios
       .get(url, this.headerConfig())
       .then((response) => {
-        this.setState({ forum: response.data.data[0] });
-        console.log(response.data.data[0]);
+        this.setState({ forum: response.data.data });
+        console.log(response.data.data);
       })
       .catch((error) => {
         if (error.response) {
@@ -76,12 +76,12 @@ export default class Marketplace extends React.Component {
   saveForum = (event) => {
     event.preventDefault();
     let form = {
-      forumName: this.state.forumName,
+      name: this.state.name,
       description: this.state.description,
-      forumImage: this.state.forumImage,
+      image: this.state.image,
     };
     console.log(form);
-    let url = baseUrl + '/chats/groups'; //error
+    let url = baseUrl + '/chats/groups';
     // console.log("ini msuk insert")
     axios
       .post(url, form, this.headerConfig())
@@ -104,37 +104,39 @@ export default class Marketplace extends React.Component {
                   Aktivitas Terbaru ini halaman temukan
                 </h1>
                 <div className="card rounded-lg bg-white p-6 mt-8 mr-20">
-                  <div className="grid grid-cols-9">
-                    <div>
-                      <img src={UserLogin} />
-                    </div>
-                    <div className="col-span-7">
-                      <h5 className="text-base font-medium">
-                        Forum Programmer Indonesia
-                      </h5>
-                      <span className="font-normal text-sm text-slate-300">
-                        Antonio Purnama
-                      </span>
-                      <h6 className="font-normal text-sm text-slate-300">
-                        Yesterday at 12.30
-                      </h6>
-                    </div>
-                  </div>
-                  <div className="font-normal text-sm mt-4">
-                    Kasus penularan subvarian BA.2 Omicron dilaporkan terus
-                    meningkat. Studi ungkap tanda-tanda keparahan yang
-                    disebabkan oleh "Son of Omicron" ini.
-                  </div>
-                  <div className="mt-2">
-                    <img className="w-full" src={postingan}></img>
-                    <div className="mt-2 grid grid-cols-4">
-                      <div className="col-span-3">
-                        <button>Like : 23</button>
-                        <button className="mx-4">Comment : 23</button>
-                        <button>Share : 23</button>
+                  {this.state.forum.map(item => (
+                    <>
+                      <div className="grid grid-cols-9">
+                        <div>
+                          <img src={UserLogin} />
+                        </div>
+                        <div className="col-span-7">
+                          <h5 className="text-base font-medium">
+                            {item.name}
+                          </h5>
+                          <span className="font-normal text-sm text-slate-300">
+                            Antonio Purnama
+                          </span>
+                          <h6 className="font-normal text-sm text-slate-300">
+                            Yesterday at 12.30
+                          </h6>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                      <div className="font-normal text-sm mt-4">
+                        {item.description}
+                      </div>
+                      <div className="mt-2">
+                        <img className="w-full" src={item.image.url}></img>
+                        <div className="mt-2 grid grid-cols-4">
+                          <div className="col-span-3">
+                            <button>Like : 23</button>
+                            <button className="mx-4">Comment : 23</button>
+                            <button>Share : 23</button>
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  ))}
                 </div>
               </div>
             </div>
@@ -215,19 +217,19 @@ export default class Marketplace extends React.Component {
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={ev => this.saveBlogs(ev)}>
                     <div className="relative px-6 pt-6 flex-auto">
-                      <DragAndDropFile />
+                      <DragAndDropFile /> {/* kurang setState to image */}
                       <input
                         type="text"
                         name="forum"
                         id="forum"
                         className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
-                        placeholder="Forum Name"
+                        placeholder="Forum Name" onChange={ev => this.setState({ name: ev.target.value })}
                       />
                       <textarea
                         className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
-                        placeholder="Deskripsi Forum"
+                        placeholder="Deskripsi Forum" onChange={ev => this.setState({ description: ev.target.value })}
                       />
                     </div>
                     <div className="flex items-center justify-end p-6">
