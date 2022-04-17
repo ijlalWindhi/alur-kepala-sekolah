@@ -17,9 +17,10 @@ export default class GuruMagang extends React.Component {
       token: "",
       internship: [],
       apprenticeshipPlace: "",
-      description: "",
+      // description: "",
       intershipDate: "",
-      place: ""
+      place: "",
+      user: ""
     };
 
     if (localStorage.getItem("token")) {
@@ -64,9 +65,10 @@ export default class GuruMagang extends React.Component {
     event.preventDefault()
     let form = {
       apprenticeshipPlace: this.state.apprenticeshipPlace,
-      description: this.state.description,
+      // description: this.state.description,
       intershipDate: this.state.intershipDate,
-      place: this.state.place
+      place: this.state.place,
+      user: this.state.user
       // user:
       //   userId: 
       //   name: 
