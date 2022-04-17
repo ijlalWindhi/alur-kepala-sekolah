@@ -140,7 +140,8 @@ export default class Marketplace extends React.Component {
                                         aria-hidden="true"
                                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
                                         <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-                                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700" onSubmit={ev => this.saveProducts(ev)}>
+                                        <form onSubmit={ev => this.saveProducts(ev)}>
+                                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                                 <div class="flex justify-between items-start p-5 rounded-t">
                                                     <button
                                                         type="button"
@@ -190,10 +191,11 @@ export default class Marketplace extends React.Component {
                                                         class="text-red-600 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full border border-red-600 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Batal</button>
                                                     <button
                                                         data-modal-toggle="defaultModal"
-                                                        type="button"
+                                                        type="submit"
                                                         class="text-white bg-red-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
                                                 </div>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -201,9 +203,11 @@ export default class Marketplace extends React.Component {
                                 <div className="grid grid-cols-3 gap-4">
                                     {this.state.products.map(item => (
                                         <ItemCard
-                                            name={item.name}
-                                            image={item.imageUrl}
-                                            price={item.price}
+                                        name={item.name}
+                                        category={item.category}
+                                        status={item.status}
+                                        image={item.imageUrl}
+                                        price={item.price}
                                         />
                                     ))}
                                     {/* <ItemCard />
