@@ -11,7 +11,8 @@ export default class ItemCard extends React.Component {
           <img className="" src={this.props.image}></img>
         </div>
         <h5 className="mb-2 text-base font-medium mt-10">{this.props.name}</h5>
-        <p className="font-normal text-sm text-red-600">Kota Malang</p>
+        <p className="font-normal text-sm text-red-600">{this.props.category}</p>
+        <p className="font-normal text-sm text-grey-600">{this.props.status}</p>
         <h6 className="font-normal text-sm text-grey-700 mt-2">Rp. {this.props.price}</h6>
         <button className="btn btn-md bg-red-600 py-2 px-6 rounded-full text-white mt-6">
           Beli
