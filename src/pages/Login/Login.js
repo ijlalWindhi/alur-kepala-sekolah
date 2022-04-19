@@ -98,15 +98,6 @@ export default class Login extends React.Component {
                   value={this.state.email}
                   onChange={(ev) => this.setState({ email: ev.target.value })}
                 />
-                <input
-                  type="roles"
-                  name="roles"
-                  id="roles"
-                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4"
-                  placeholder="Enter your Roles"
-                  value={this.state.roles}
-                  onChange={(ev) => this.setState({ roles: ev.target.value })}
-                />
                 <div className="flex flex-row justify-start items-center">
                   <input
                     type={this.state.showPassword ? 'text' : 'password'}
@@ -125,6 +116,23 @@ export default class Login extends React.Component {
                     className="cursor-pointer absolute w-7 mt-2 ml-80"
                   />
                 </div>
+                <select
+                  value={this.state.roles}
+                  onChange={(ev) => this.setState({ roles: ev.target.value })}
+                  className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 rounded-full px-6 py-4 mt-4 text-gray-500 appearance-none"
+                >
+                  <option value="" disabled selected>
+                    {' '}
+                    User Role
+                  </option>
+                  <option value="1">Headmaster</option>
+                  <option value="2">Teacher</option>
+                  <option value="3">Student</option>
+                  <option value="4">Vocation Net</option>
+                  <option value="5">Telkom Group</option>
+                  <option value="6">Ministry</option>
+                  <option value="7">Super Admin</option>
+                </select>
                 <label
                   className="block text-red-500 mt-2 text-sm ml-64"
                   onClick={() => this.Modal()}

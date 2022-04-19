@@ -79,6 +79,7 @@ export default class Blog extends React.Component {
       youtubeLink: this.state.youtubeLink,
       blogImage: this.state.blogImage,
     };
+    console.log(this.state.youtubeLink)
     console.log(form);
     let url = baseUrl + "/blogs";
     // console.log("ini msuk insert")
@@ -188,34 +189,41 @@ export default class Blog extends React.Component {
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={(ev) => this.saveBlogs(ev)}>
-                    <div className="relative px-6 pt-6 flex-auto">
-                      <DragAndDropFile />
-                      {/*kurang setState to image */}
-                      {/* <DragAndDropTest /> */}
-                      <input
-                        type="text"
-                        name="email"
-                        id="email"
-                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
-                        placeholder="Youtube Links"
-                        onChange={(ev) => this.setState({ youtubeLink: ev.target.value })}
-                      />
-                      <textarea
-                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
-                        placeholder="Deskripsi Video"
-                        onChange={(ev) => this.setState({ description: ev.target.value })}
-                      />
+
+                  <form onSubmit={ev => this.saveBlogs(ev)}>
+                    <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" >
+                      <div className="relative px-6 pt-6 flex-auto">
+                        {/*     <DragAndDropFile />kurang setState to image */}
+                        <DragAndDropTest
+                          onChange={(ev) => this.setState({ blogImage: ev.target.files[0] })}
+                        // antara atas dan bawahnya
+                        // onChange={(ev) => this.setState({ blogImage: ev.target.value })}
+                        />
+                        <input
+                          type="text"
+                          name="email"
+                          id="email"
+                          className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
+                          placeholder="Youtube Links"
+                          onChange={(ev) => this.setState({ youtubeLink: ev.target.value })}
+                        />
+                        <textarea
+                          className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                          placeholder="Deskripsi Video"
+                          onChange={(ev) => this.setState({ description: ev.target.value })}
+                        />
+                      </div>
+                      <div className="flex items-center justify-end p-6">
+                        <button className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500" type="button" onClick={this.Modal}>
+                          Batal
+                        </button>
+                        <button className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none" type="submit" onClick={this.Modal}>
+                          Tambah
+                        </button>
+                      </div>
+
                     </div>
-                    <div className="flex items-center justify-end p-6">
-                      <button className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500" type="button" onClick={this.Modal}>
-                        Batal
-                      </button>
-                      <button className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none" type="submit" onClick={this.Modal}>
-                        Tambah
-                      </button>
-                    </div>
-                  </div>
+                  </form>
                 </div>
               </div>
               <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>

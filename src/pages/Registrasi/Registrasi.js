@@ -113,9 +113,12 @@ export default class Registrasi extends React.Component {
                   User Role
                 </option>
                 <option value="1">Headmaster</option>
+                <option value="2">Teacher</option>
+                <option value="3">Student</option>
                 <option value="4">Vocation Net</option>
                 <option value="5">Telkom Group</option>
                 <option value="6">Ministry</option>
+                <option value="7">Super Admin</option>
               </select>
               <div className="flex flex-row justify-start items-center">
                 <input

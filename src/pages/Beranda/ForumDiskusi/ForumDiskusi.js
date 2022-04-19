@@ -99,6 +99,10 @@ export default class Marketplace extends React.Component {
       .catch((error) => console.log(error));
   };
 
+  SplitDate = date => {
+    return date.split('T')[0]
+  }
+
   render() {
     return (
       <>
@@ -115,9 +119,17 @@ export default class Marketplace extends React.Component {
                           <img src={UserLogin} />
                         </div>
                         <div className="col-span-7">
-                          <h5 className="text-base font-medium">{item.name}</h5>
-                          <span className="font-normal text-sm text-slate-300">Antonio Purnama</span>
-                          <h6 className="font-normal text-sm text-slate-300">Yesterday at 12.30</h6>
+
+                          <h5 className="text-base font-medium">
+                            {item.name}
+                          </h5>
+                          <span className="font-normal text-sm text-slate-300">
+                            Antonio Purnama
+                          </span>
+                          <h6 className="font-normal text-sm text-slate-300">
+                            {this.SplitDate(item.createdAt)}
+                          </h6>
+
                         </div>
                       </div>
 
@@ -237,7 +249,10 @@ export default class Marketplace extends React.Component {
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={(ev) => this.saveBlogs(ev)}>
+
+                  
+                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={ev => this.saveBlogs(ev)}>
+
                     <div className="relative px-6 pt-6 flex-auto">
                       <DragAndDropFile /> {/* kurang setState to image */}
                       <input
