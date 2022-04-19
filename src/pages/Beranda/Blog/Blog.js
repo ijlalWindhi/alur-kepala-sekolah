@@ -7,8 +7,8 @@ import { baseUrl } from "../../../config";
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
 // import DragAndDropFile from "../Marketplace/DragAndDropFile";
-import DragAndDropFile from "../Marketplace/FilesDragAndDrop";
-// import DragAndDropTest from "../../../components/fragment/DragnDrop";
+// import DragAndDropFile from "../Marketplace/FilesDragAndDrop";
+import { Dragndrop } from "../../../components/fragment/DragnDrop";
 // PAKAI DRAGN DROP DI FOLDER FRAGMENT -> DRAGNDROP fail
 
 import UserLogin from "../../../assets/user-login.png";
@@ -79,7 +79,7 @@ export default class Blog extends React.Component {
       youtubeLink: this.state.youtubeLink,
       blogImage: this.state.blogImage,
     };
-    console.log(this.state.youtubeLink)
+    console.log(this.state.youtubeLink);
     console.log(form);
     let url = baseUrl + "/blogs";
     // console.log("ini msuk insert")
@@ -189,16 +189,16 @@ export default class Blog extends React.Component {
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
-
-                  <form onSubmit={ev => this.saveBlogs(ev)}>
-                    <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" >
+                  <form onSubmit={(ev) => this.saveBlogs(ev)}>
+                    <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                       <div className="relative px-6 pt-6 flex-auto">
                         {/*     <DragAndDropFile />kurang setState to image */}
-                        <DragAndDropTest
+                        <Dragndrop />
+                        {/* <DragAndDropTest
                           onChange={(ev) => this.setState({ blogImage: ev.target.files[0] })}
-                        // antara atas dan bawahnya
-                        // onChange={(ev) => this.setState({ blogImage: ev.target.value })}
-                        />
+                          // antara atas dan bawahnya
+                          // onChange={(ev) => this.setState({ blogImage: ev.target.value })}
+                        /> */}
                         <input
                           type="text"
                           name="email"
@@ -221,7 +221,6 @@ export default class Blog extends React.Component {
                           Tambah
                         </button>
                       </div>
-
                     </div>
                   </form>
                 </div>
