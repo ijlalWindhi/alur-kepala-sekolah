@@ -7,9 +7,9 @@ import { baseUrl } from "../../../config";
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
 // import DragAndDropFile from "../Marketplace/DragAndDropFile";
-// import DragAndDropFile from "../Marketplace/FilesDragAndDrop";
-import DragAndDropTest from "../../../components/fragment/DragnDrop";
-// PAKAI DRAGN DROP DI FOLDER FRAGMENT -> DRAGNDROP
+import DragAndDropFile from "../Marketplace/FilesDragAndDrop";
+// import DragAndDropTest from "../../../components/fragment/DragnDrop";
+// PAKAI DRAGN DROP DI FOLDER FRAGMENT -> DRAGNDROP fail
 
 import UserLogin from "../../../assets/user-login.png";
 import bookmark from "../../../assets/bookmark.png";
@@ -189,6 +189,7 @@ export default class Blog extends React.Component {
             <>
               <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
+
                   <form onSubmit={ev => this.saveBlogs(ev)}>
                     <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" >
                       <div className="relative px-6 pt-6 flex-auto">
@@ -220,6 +221,7 @@ export default class Blog extends React.Component {
                           Tambah
                         </button>
                       </div>
+
                     </div>
                   </form>
                 </div>
