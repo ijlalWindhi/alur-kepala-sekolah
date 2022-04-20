@@ -28,7 +28,7 @@ export default class Blog extends React.Component {
       blogs: [],
       description: "",
       youtubeLink: "",
-      blogImage: "",
+      blogImage: {},
     };
 
     if (localStorage.getItem("token")) {
@@ -72,6 +72,10 @@ export default class Blog extends React.Component {
     this.getBlogs();
   }
 
+  setImage = (param) => {
+    this.state.blogImage = param
+  }
+
   saveBlogs = (event) => {
     event.preventDefault();
     let form = {
@@ -89,6 +93,7 @@ export default class Blog extends React.Component {
         window.alert(response.data.message);
         console.log(response);
         this.getBlogs();
+        this.Modal();
       })
       .catch((error) => console.log(error));
   };
@@ -117,7 +122,7 @@ export default class Blog extends React.Component {
                 <div class="grid grid-cols-3 gap-4">
                   {this.state.blogs.map((item) => (
                     <div>
-                      {console.log(item.youtubeLink.split("/")[item.youtubeLink.split("/").length - 1].replace("watch?v=", ""))}
+                      {/* {console.log(item.youtubeLink.split("/")[item.youtubeLink.split("/").length - 1].replace("watch?v=", ""))} */}
                       <iframe
                         width="100%"
                         height="180"
@@ -193,7 +198,7 @@ export default class Blog extends React.Component {
                     <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                       <div className="relative px-6 pt-6 flex-auto">
                         {/*     <DragAndDropFile />kurang setState to image */}
-                        <Dragndrop />
+                        <Dragndrop onChange={this.setImage}/>
                         {/* <DragAndDropTest
                           onChange={(ev) => this.setState({ blogImage: ev.target.files[0] })}
                           // antara atas dan bawahnya
@@ -217,7 +222,7 @@ export default class Blog extends React.Component {
                         <button className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500" type="button" onClick={this.Modal}>
                           Batal
                         </button>
-                        <button className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none" type="submit" onClick={this.Modal}>
+                        <button className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none" type="submit">
                           Tambah
                         </button>
                       </div>

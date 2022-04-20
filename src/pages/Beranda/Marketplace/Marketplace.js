@@ -9,7 +9,8 @@ import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
 import ItemCard from "../../../components/fragment/Marketplace/ItemCard";
 import CardBeli from "../../../components/fragment/Marketplace/CardBeli";
 import SummaryCard from "../../../components/fragment/Marketplace/SummaryCard";
-import DragAndDropFile from "./FilesDragAndDrop"
+// import DragAndDropFile from "./FilesDragAndDrop"
+import { Dragndrop } from "../../../components/fragment/DragnDrop";
 import Location from "../../../assets/map-pin.png";
 import AddButton from "../../../assets/icon-add.svg"
 import settings from "../../../assets/icon-settings.svg"
@@ -102,9 +103,14 @@ export default class Marketplace extends React.Component {
                 window.alert(response.data.message)
                 console.log(response)
                 this.getProducts()
+                this.Modal()
             })
             .catch(error => console.log(error))
     }
+
+    setImage = (param) => {
+        this.state.image = param
+      }
 
     render() {
         return (
@@ -323,7 +329,7 @@ export default class Marketplace extends React.Component {
                                 <form onSubmit={ev => this.saveProducts(ev)}>
                                     <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={ev => this.saveProducts(ev)}>
                                         <div className="relative px-6 pt-6 flex-auto">
-                                            <DragAndDropFile /> {/* kurang setState to image */}
+                                            <Dragndrop onChange={this.setImage} /> {/* kurang setState to image */}
                                             <input
                                                 type="text"
                                                 name="email"
@@ -378,8 +384,7 @@ export default class Marketplace extends React.Component {
                                             </button>
                                             <button
                                                 className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none"
-                                                type="submit"
-                                                onClick={this.Modal}>
+                                                type="submit">
                                                 Tambah
                                             </button>
                                         </div>
