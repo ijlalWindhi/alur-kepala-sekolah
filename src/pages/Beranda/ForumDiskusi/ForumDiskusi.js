@@ -6,7 +6,8 @@ import { baseUrl } from "../../../config";
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
-import DragAndDropFile from "./FilesDragAndDrop";
+// import DragAndDropFile from "./FilesDragAndDrop";
+import { Dragndrop } from "../../../components/fragment/DragnDrop";
 import AddButton from "../../../assets/icon-add.svg";
 import settings from "../../../assets/icon-settings.svg";
 import berandaanda from "../../../assets/forumputih.png";
@@ -22,6 +23,9 @@ export default class Marketplace extends React.Component {
       // call variable
       token: "",
       forum: [],
+      name: "",
+      description: "",
+      image: ""
     };
 
     if (localStorage.getItem("token")) {
@@ -95,12 +99,17 @@ export default class Marketplace extends React.Component {
         window.alert(response.data.message);
         console.log(response);
         this.getForum();
+        this.Modal();
       })
       .catch((error) => console.log(error));
   };
 
   SplitDate = date => {
     return date.split('T')[0]
+  }
+
+  setImage = (param) => {
+    this.state.image = param
   }
 
   render() {
@@ -215,12 +224,12 @@ export default class Marketplace extends React.Component {
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
                   <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col bg-white outline-none focus:outline-none" onSubmit={(ev) => this.saveBlogs(ev)}>
                     <div className="relative px-8 pt-6 flex-auto">
-                      <DragAndDropFile /> {/* kurang setState to image */}
+                      <Dragndrop onChange={this.setImage} /> {/* kurang setState to image */}
                       <input
                         type="text"
                         name="forum"
                         id="forum"
-                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4 mt-8"
                         placeholder="Forum Name"
                         onChange={(ev) => this.setState({ name: ev.target.value })}
                       />
@@ -254,12 +263,12 @@ export default class Marketplace extends React.Component {
                   <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" onSubmit={ev => this.saveBlogs(ev)}>
 
                     <div className="relative px-6 pt-6 flex-auto">
-                      <DragAndDropFile /> {/* kurang setState to image */}
+                      <Dragndrop onChange={this.setImage} /> {/* kurang setState to image */}
                       <input
                         type="text"
                         name="forum"
                         id="forum"
-                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                        className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4 mt-8"
                         placeholder="Forum Name"
                         onChange={(ev) => this.setState({ name: ev.target.value })}
                       />
@@ -273,7 +282,7 @@ export default class Marketplace extends React.Component {
                       <button className="text-red-500 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-red-500" type="button" onClick={this.Modal}>
                         Batal
                       </button>
-                      <button className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none" type="submit" onClick={this.Modal}>
+                      <button className="bg-red-500 text-white text-sm px-6 py-3 rounded-full border-none" type="submit">
                         Tambah
                       </button>
                     </div>
