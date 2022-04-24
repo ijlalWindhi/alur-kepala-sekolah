@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/logo.png';
+import Logo from '../../assets/Logo.svg';
 
 export default function LayoutNavbar() {
   const sidebarContent = [
@@ -21,11 +21,11 @@ export default function LayoutNavbar() {
   ];
 
   return (
-    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-100">
-      <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <nav class="border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-100 mx-14 pt-10">
+      <div class="container flex flex-wrap justify-between items-center">
         <div class="flex items-center">
           <img src={Logo} class="mr-3 h-6 sm:h-10" alt="SMK TKJ"></img>
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-black">
+          <span class="self-center text-xl font-semibold whitespace-nowrap text-white">
             Platform SMK TKJ
           </span>
         </div>
