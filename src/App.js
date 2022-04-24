@@ -35,7 +35,9 @@ import DetailTugas from "./pages/Beranda/Lms/Guru/Kelas/DetailTugas";
 import DetailTugasSiswa from "./pages/Beranda/Lms/Siswa/Kelas/DetailTugas";
 import LmsSiswa from "./pages/Beranda/Lms/Siswa/Siswa";
 import AktifitasSiswa from "./pages/Beranda/Lms/Siswa/AktifitasSiswa";
-
+import ActiveClass from "./pages/Beranda/ActiveClass";
+import NewClass from "./pages/Beranda/NewClass";
+import EndClass from "./pages/Beranda/EndClass";
 import "./App.css";
 
 export default function App() {
@@ -45,6 +47,9 @@ export default function App() {
       <Route exact path="/" component={LandingPage} />
       <Route path="/landingpage" component={LandingPage} />
       <Route path="/beranda" component={Beranda} />
+      <Route path="/activeclass" component={ActiveClass} />
+      <Route path="/newclass" component={NewClass} />
+      <Route path="/endclass" component={EndClass} />
       <Route path="/registrasi" component={Registrasi} />
       <Route path="/resetpassword" component={ResetPassword} />
 
