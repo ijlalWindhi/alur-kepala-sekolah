@@ -6,9 +6,8 @@ import { baseUrl } from "../../../config";
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
-// import DragAndDropFile from "../Marketplace/DragAndDropFile";
-// import DragAndDropFile from "../Marketplace/FilesDragAndDrop";
 import { Dragndrop } from "../../../components/fragment/DragnDrop";
+import VideoPopup from "./VideoPopup";
 // PAKAI DRAGN DROP DI FOLDER FRAGMENT -> DRAGNDROP fail
 
 import UserLogin from "../../../assets/user-login.png";
@@ -18,6 +17,14 @@ import video from "../../../assets/icon-videoWhite.svg";
 import settings from "../../../assets/icon-settings.svg";
 import search from "../../../assets/icon-search.svg";
 import AddButton from "../../../assets/icon-add.svg";
+const urls = [
+  "https://www.youtube.com/embed/30L-WoWIXO8",
+  "https://www.youtube.com/embed/J42SZXS-_Qo",
+  "https://www.youtube.com/embed/Zn_f6el0TKw",
+  "https://www.youtube.com/embed/GdvY4JX-WsI",
+  "https://www.youtube.com/embed/HIj8wU_rGIU",
+  "https://www.youtube.com/embed/7svK1dtQguA",
+];
 
 export default class Blog extends React.Component {
   constructor() {
@@ -120,9 +127,11 @@ export default class Blog extends React.Component {
               <div className="card rounded-lg p-6 mt-8">
                 <h4 className="text-3xl font-semibold mb-5">Video Siaran Langsung Lainnya</h4>
                 <div class="grid grid-cols-3 gap-4">
-                  {this.state.blogs.map((item) => (
+                  {urls.map((url) => (
+                    <VideoPopup VideoUrl={url}></VideoPopup>
+                  ))}
+                  {/* {this.state.blogs.map((item) => (
                     <div>
-                      {/* {console.log(item.youtubeLink.split("/")[item.youtubeLink.split("/").length - 1].replace("watch?v=", ""))} */}
                       <iframe
                         width="100%"
                         height="180"
@@ -131,9 +140,8 @@ export default class Blog extends React.Component {
                         frameborder="0"
                         allowfullscreen="allowfullscreen"
                       ></iframe>
-                      {/* <img className="w-full" src={item.youtubeLink}></img> */}
                     </div>
-                  ))}
+                  ))} */}
                 </div>
               </div>
             </div>

@@ -5,7 +5,8 @@ import { Book, Clock } from 'react-feather';
 // inisiasi component
 import LayoutSidebar from '../../../../components/Layout/LayoutSidebar'
 import CardKelas from '../../../../components/fragment/Lms/Guru/CardKelas';
-import DragAndDropFile from "./FilesDragAndDrop"
+// import DragAndDropFile from "./FilesDragAndDrop"
+import { Dragndrop } from "../../../../components/fragment/DragnDrop";
 import AddButton from "../../../../assets/icon-add.svg"
 
 
@@ -79,7 +80,8 @@ export default class LmsGuru extends React.Component{
                 <div className="relative w-auto my-6 mx-auto max-w-3xl">
                     <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                         <div className="relative px-6 pt-6 flex-auto">
-                            <DragAndDropFile/>
+                            {/* <DragAndDropFile/> */}
+                            <Dragndrop onChange={this.setImage}/>
                             <input
                                 type="text"
                                 name="name"
