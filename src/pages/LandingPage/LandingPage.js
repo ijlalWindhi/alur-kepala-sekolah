@@ -6,6 +6,7 @@ import About from "../../assets/about-lp.svg"
 // inisiasi component
 import LayoutNavbar from "../../components/Layout/LayoutNavbar";
 import Card from "../../components/fragment/Card";
+import DataBox from "../../components/fragment/DataBox"
 import Footer from "../../components/fragment/Footer";
 
 
