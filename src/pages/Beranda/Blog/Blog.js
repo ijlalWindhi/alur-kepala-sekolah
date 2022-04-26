@@ -1,22 +1,24 @@
 // inisiasi library default
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../../config";
+import { ThumbsUp, MessageCircle, Bookmark, Image, PlusCircle } from "react-feather";
+import CardBg from "../../../assets/blog.png"
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
 import { Dragndrop } from "../../../components/fragment/DragnDrop";
-import VideoPopup from "./VideoPopup";
+// import VideoPopup from "./VideoPopup";
 // PAKAI DRAGN DROP DI FOLDER FRAGMENT -> DRAGNDROP fail
 
 import UserLogin from "../../../assets/user-login.png";
-import bookmark from "../../../assets/bookmark.png";
-import calender from "../../../assets/calendar.png";
-import video from "../../../assets/icon-videoWhite.svg";
-import settings from "../../../assets/icon-settings.svg";
-import search from "../../../assets/icon-search.svg";
-import AddButton from "../../../assets/icon-add.svg";
+// import bookmark from "../../../assets/bookmark.png";
+// import calender from "../../../assets/calendar.png";
+// import video from "../../../assets/icon-videoWhite.svg";
+// import settings from "../../../assets/icon-settings.svg";
+// import Search from "../../../assets/icon-search.svg";
+// import AddButton from "../../../assets/icon-add.svg";
 const urls = [
   "https://www.youtube.com/embed/30L-WoWIXO8",
   "https://www.youtube.com/embed/J42SZXS-_Qo",
@@ -118,82 +120,91 @@ export default class Blog extends React.Component {
         {" "}
         <LayoutSidebar>
           {" "}
-          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 mt-8">
-            <div class="col-span-2 ml-14 mt-3">
-              <div className="card rounded-lg p-6 mt-0">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/pdhuW_mz9YU" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+          <div class="grid grid-flow-row-dense grid-cols-2 grid-rows-1 mt-8">
+            <div class="ml-14 mt-3">
+              <div className="story grid grid-cols-6 gap-2">
+                <a href="#" className="justify-center items-center flex flex-col">
+                  <img src={UserLogin}></img>
+                  <PlusCircle className="ml-6 text-white bg-emerald-500 rounded-full" style={{marginTop: `-20px`}}/>
+                  <h2 className="text-sm font-medium mt-2">Jhon Doe</h2>
+                </a>
+                <div className="justify-center items-center flex flex-col">
+                  <img src={UserLogin} className="border-emerald-500 border-2 rounded-full"></img>
+                  <h2 className="text-sm font-medium mt-2">Hafiza</h2>
+                </div>
+                <div className="justify-center items-center flex flex-col">
+                  <img src={UserLogin} className="border-emerald-500 border-2 rounded-full"></img>
+                  <h2 className="text-sm font-medium mt-2">Nanda</h2>
+                </div>
+                <div className="justify-center items-center flex flex-col">
+                  <img src={UserLogin} className="border-emerald-500 border-2 rounded-full"></img>
+                  <h2 className="text-sm font-medium mt-2">Amala</h2>
+                </div>
               </div>
+              {/* <div className="card rounded-lg p-6 mt-0">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/pdhuW_mz9YU" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+              </div> */}
 
               <div className="card rounded-lg p-6 mt-8">
-                <h4 className="text-3xl font-semibold mb-5">Video Siaran Langsung Lainnya</h4>
-                <div class="grid grid-cols-3 gap-4">
-                  {urls.map((url) => (
-                    <VideoPopup VideoUrl={url}></VideoPopup>
-                  ))}
-                  {/* {this.state.blogs.map((item) => (
-                    <div>
-                      <iframe
-                        width="100%"
-                        height="180"
-                        // src={item.youtubeLink}
-                        src={`https://www.youtube.com/embed/${item.youtubeLink.split("/")[item.youtubeLink.split("/").length - 1].replace("watch?v=", "")}`}
-                        frameborder="0"
-                        allowfullscreen="allowfullscreen"
-                      ></iframe>
+                <h4 className="text-3xl font-semibold mb-5">Postingan Terbaru</h4>
+                <div class="grid grid-cols-2 gap-4">
+                  {urls.map(() => (
+                    <div className="card relative rounded-2xl">
+                    <img src={CardBg} className="" />
+                    <div className="absolute top-0 mt-5 ml-4 pr-4 grid grid-cols-5">
+                      <img src={UserLogin} className="col-span-1 w-10"></img>
+                      <div className="col-span-3 text-white text-sm ml-4">
+                      <span className="font-medium">Ibrahim Hazela</span>
+                      <p className="text-xs">1 Jam yang lalu</p>
+                      </div>
                     </div>
-                  ))} */}
+                    <div class="absolute bottom-0 left-0 ml-4 text-white grid grid-cols-3 mb-4">
+                      <button className="inline"><ThumbsUp className="inline"></ThumbsUp>123</button>
+                      <button className="inline mx-2"><MessageCircle className="inline"></MessageCircle>123</button>
+                      <button className="inline"><Bookmark className="inline"></Bookmark>123</button>
+                    </div>
+                  </div>                  
+                  ))}
                 </div>
               </div>
             </div>
             <div>
-              <div className="pl-32 mt-12">
-                <div className="flex flex-row">
-                  <h4 className="text-lg font-semibold">Blog/Berita</h4>
-                  <img src={settings} className="ml-24 cursor-pointer" />
+              <div className="pl-32 mt-12 pr-12">
+                <div className="bg-white p-6 rounded-xl justify-center items-center flex flex-col">
+                  <img src={UserLogin} className="w-16"></img>
+                  <div class="relative mt-12">
+                    <input
+                      class="focus:ring-red-500 focus:border-red-500 bg-slate-100 text-slate-400 rounded-full w-80 h-11 px-8 border-none"
+                      text-black="text-black"
+                      type="text"
+                      placeholder="Ingin menulis sesuatu?"
+                    ></input>
+                    <button type="submit" class="absolute left-0 top-2 text-red-600 ml-64">
+                      <Image/>
+                    </button>
+                  </div>
                 </div>
-                <div class="col-span-3 relative">
-                  <input class="focus:ring-red-500 focus:border-red-500 rounded-full w-64 h-11 mt-5 px-8 border-none" text-black="text-black" type="text" name="search" placeholder="Cari Blog/Berita"></input>
-                  <button type="submit" class="absolute left-0 top-5 ml-48">
-                    <img src={search} />
-                  </button>
+                <h4 className="text-lg font-semibold mt-8 mb-3">Pengguna Online</h4>
+                <div className="mt-4 grid grid-cols-12">
+                  <img src={UserLogin} className="inline w-10 mr-4 col-span-2"></img>
+                  <div className="col-span-10">
+                    <span className="text-base font-medium">Kedar Anugerah Nacha Putra</span>
+                    <p className="text-sm text-slate-400">Siswa</p>
+                  </div>
                 </div>
-                <div className="mt-8">
-                  <Link to="/blog" className="py-3 pl-5 pr-12 text-white bg-red-500 rounded-2xl">
-                    <img src={video} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Siaran Langsung</span>
-                  </Link>
+                <div className="mt-4 grid grid-cols-12">
+                  <img src={UserLogin} className="inline w-10 mr-4 col-span-2"></img>
+                  <div className="col-span-10">
+                    <span className="text-base font-medium">Nanda Hafiza Yusron</span>
+                    <p className="text-sm text-slate-400">Siswa</p>
+                  </div>
                 </div>
-                <div className="mt-6 ml-5">
-                  <Link to="/acara">
-                    <img src={calender} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Acara</span>
-                  </Link>
-                </div>
-                <div className="mt-6 ml-5">
-                  <Link to="/tersimpan">
-                    <img src={bookmark} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Tersimpan</span>
-                  </Link>
-                </div>
-                <div className="mt-8">
-                  <span onClick={() => this.Modal()} className="py-3 pl-5 pr-6 text-white bg-red-500 rounded-2xl cursor-pointer">
-                    <img src={AddButton} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Tambah Blog/Video</span>
-                  </span>
-                </div>
-
-                <h4 className="text-lg font-semibold mt-8 mb-3">Daftar Tontonan</h4>
-                <div className="mt-4">
-                  <img src={UserLogin} className="inline w-10 mr-4"></img>
-                  <span className="text-base font-normal">Alfia Zena</span>
-                </div>
-                <div className="mt-4">
-                  <img src={UserLogin} className="inline w-10 mr-4"></img>
-                  <span className="text-base font-normal">Alfia Zena</span>
-                </div>
-                <div className="mt-4">
-                  <img src={UserLogin} className="inline w-10 mr-4"></img>
-                  <span className="text-base font-normal">Alfia Zena</span>
+                <div className="mt-4 grid grid-cols-12">
+                  <img src={UserLogin} className="inline w-10 mr-4 col-span-2"></img>
+                  <div className="col-span-10">
+                    <span className="text-base font-medium">Hafiz Rizky Nurwachid</span>
+                    <p className="text-sm text-slate-400">Siswa</p>
+                  </div>
                 </div>
               </div>
             </div>

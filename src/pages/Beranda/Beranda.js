@@ -2,6 +2,8 @@
 import React from "react";
 import { Users } from "react-feather";
 import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
+import "./Beranda.css"
 
 // inisiasi component
 import LayoutSidebar from "../../components/Layout/LayoutSidebar";
@@ -26,7 +28,7 @@ export default class Beranda extends React.Component {
     return (
       <>
         <LayoutSidebar>
-          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 mt-8">
+          <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-1 mt-8 pb-8">
             <div class="col-span-2 ml-14">
               <h1 className="text-2xl font-semibold">Daftar Kelas</h1>
               <div className="mt-4 text-base font-normal text-gray-400">
@@ -67,7 +69,7 @@ export default class Beranda extends React.Component {
 
 
             <div>
-              <div className="pl-16">
+              <div className="pl-16 pr-8">
                 <h4 className="text-lg mb-4 font-semibold">Calendar</h4>
                 <div className="bg-white p-4 rounded-3xl ">
                   <Calendar />
