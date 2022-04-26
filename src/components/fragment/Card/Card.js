@@ -1,8 +1,8 @@
 // inisasi library default
 import React from 'react';
+import { Link } from 'react-router-dom';
 // inisiasi component
 import imageCard from '../../../assets/image-card.png';
-import userIcon from '../../../assets/icon-user.svg';
 
 export default function DataBox() {
   // const location = useLocation();
@@ -24,8 +24,22 @@ export default function DataBox() {
   return (
     <>
       {/* CARD */}
-      <div class="w-96 bg-white rounded-none border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
-        <img class="rounded-none p-1" src={imageCard} alt=""></img>
+      <div class="w-96 bg-white rounded-3xl border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
+      <div className="card relative rounded-3xl">
+        <img src={imageCard} className="contrast-50 rounded-3xl" />
+          <div class="absolute bottom-0 left-0 ml-4 text-white grid grid-cols-3 mb-4">
+            <div className="col-span-2">
+              <h6 className="text-sm font-medium">SMK Telkom Malang sukses menyelenggarakan Ujian Satuan Pendidikan dengan sistem 2 shift</h6>
+              <p className="text-gray-300 text-xs mt-2">19/02/2022, 14:18 WIB</p>
+            </div>
+            <div>
+              <Link to="/Berita"  class="inline-flex items-center py-2 px-3 mt-12 text-sm font-medium text-center text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"  >
+                {''}Selengkapnya
+              </Link>
+            </div>
+           </div>
+           </div>
+        {/* <img class="rounded-none p-1" src={imageCard} alt=""></img>
         <div class="p-5">
           <a href="#">
             <h5 class="mb-2 text-base font-medium tracking-tight text-gray-900 dark:text-white">
@@ -56,7 +70,7 @@ export default function DataBox() {
             {' '}
             Baca Selengkapnya
           </a>
-        </div>
+        </div> */}
       </div>
     </>
   );

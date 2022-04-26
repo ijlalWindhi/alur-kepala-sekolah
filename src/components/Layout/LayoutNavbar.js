@@ -69,15 +69,15 @@ export default function LayoutNavbar() {
         <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
           <ul className="flex flex-col md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             {/* NAV-LINK */}
-            <div className="py-3 pr-3 text-gray-400 flex flex-col items-center">
+            <div className="py-3 pr-3 text-white flex flex-col items-center text-base">
               <Link to="/beranda">Beranda</Link>
-              <div className="mt-1 w-2.5 h-2.5 bg-red-500 text-red-500 rounded-full"></div>
+              <div className="mt-1 w-2.5 h-2.5 bg-white text-red-500 rounded-full"></div>
             </div>
             {sidebarContent.map(({ target, label }) => (
               <li className="px-3 py-3">
                 <Link
                   to={target}
-                  className="block py-2 px-4 text-white rounded md:bg-transparent md:text-gray-400 font-normal md:p-0 dark:text-white bg-green-200"
+                  className="block py-2 px-4 text-white rounded md:bg-transparent md:text-white font-normal md:p-0 dark:text-white bg-green-200  text-base"
                   aria-current="page"
                 >
                   {label}
@@ -88,7 +88,7 @@ export default function LayoutNavbar() {
             <Link to="/login" className="btn-round">
               <button
                 type="button"
-                className="btn-warning bg-red-500 hover:bg-red-700 rounded-2xl"
+                className=" btn-warning text-red-600 bg-white hover:bg-red-700 rounded-2xl"
               >
                 Login
               </button>
