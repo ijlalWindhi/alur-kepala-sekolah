@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 import { baseUrl } from "../../../config";
 import { ThumbsUp, MessageCircle, Bookmark, Image, PlusCircle } from "react-feather";
-import CardBg from "../../../assets/blog.png"
+import CardBg from "../../../assets/blog.png";
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
@@ -82,8 +82,8 @@ export default class Blog extends React.Component {
   }
 
   setImage = (param) => {
-    this.state.blogImage = param
-  }
+    this.state.blogImage = param;
+  };
 
   saveBlogs = (event) => {
     event.preventDefault();
@@ -120,12 +120,12 @@ export default class Blog extends React.Component {
         {" "}
         <LayoutSidebar>
           {" "}
-          <div class="grid grid-flow-row-dense grid-cols-2 grid-rows-1 mt-8">
+          <div class="grid grid-flow-row-dense grid-cols-2 grid-rows-1 mt-8 ">
             <div class="ml-14 mt-3">
-              <div className="story grid grid-cols-6 gap-2">
+              <div className="story grid grid-cols-6 gap-2 bg-red-200">
                 <a href="#" className="justify-center items-center flex flex-col">
                   <img src={UserLogin}></img>
-                  <PlusCircle className="ml-6 text-white bg-emerald-500 rounded-full" style={{marginTop: `-20px`}}/>
+                  <PlusCircle className="ml-6 text-white bg-emerald-500 rounded-full" style={{ marginTop: `-20px` }} />
                   <h2 className="text-sm font-medium mt-2">Jhon Doe</h2>
                 </a>
                 <div className="justify-center items-center flex flex-col">
@@ -145,42 +145,43 @@ export default class Blog extends React.Component {
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/pdhuW_mz9YU" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
               </div> */}
 
-              <div className="card rounded-lg p-6 mt-8">
+              <div className="card rounded-lg p-6 mt-8  bg-green-200 ">
                 <h4 className="text-3xl font-semibold mb-5">Postingan Terbaru</h4>
                 <div class="grid grid-cols-2 gap-4">
                   {urls.map(() => (
                     <div className="card relative rounded-2xl">
-                    <img src={CardBg} className="" />
-                    <div className="absolute top-0 mt-5 ml-4 pr-4 grid grid-cols-5">
-                      <img src={UserLogin} className="col-span-1 w-10"></img>
-                      <div className="col-span-3 text-white text-sm ml-4">
-                      <span className="font-medium">Ibrahim Hazela</span>
-                      <p className="text-xs">1 Jam yang lalu</p>
+                      <img src={CardBg} className="" />
+                      <div className="absolute top-0 mt-5 ml-4 pr-4 grid grid-cols-5">
+                        <img src={UserLogin} className="col-span-1 w-10"></img>
+                        <div className="col-span-3 text-white text-sm ml-4">
+                          <span className="font-medium">Ibrahim Hazela</span>
+                          <p className="text-xs">1 Jam yang lalu</p>
+                        </div>
+                      </div>
+                      <div class="absolute bottom-0 left-0 ml-4 text-white grid grid-cols-3 mb-4">
+                        <button className="inline">
+                          <ThumbsUp className="inline"></ThumbsUp>123
+                        </button>
+                        <button className="inline mx-2">
+                          <MessageCircle className="inline"></MessageCircle>123
+                        </button>
+                        <button className="inline">
+                          <Bookmark className="inline"></Bookmark>123
+                        </button>
                       </div>
                     </div>
-                    <div class="absolute bottom-0 left-0 ml-4 text-white grid grid-cols-3 mb-4">
-                      <button className="inline"><ThumbsUp className="inline"></ThumbsUp>123</button>
-                      <button className="inline mx-2"><MessageCircle className="inline"></MessageCircle>123</button>
-                      <button className="inline"><Bookmark className="inline"></Bookmark>123</button>
-                    </div>
-                  </div>                  
                   ))}
                 </div>
               </div>
             </div>
-            <div>
-              <div className="pl-32 mt-12 pr-12">
+            <div className="w-80 flex justify-right  bg-yellow-200">
+              <div className=" mt-12 bg-blue-200">
                 <div className="bg-white p-6 rounded-xl justify-center items-center flex flex-col">
                   <img src={UserLogin} className="w-16"></img>
                   <div class="relative mt-12">
-                    <input
-                      class="focus:ring-red-500 focus:border-red-500 bg-slate-100 text-slate-400 rounded-full w-80 h-11 px-8 border-none"
-                      text-black="text-black"
-                      type="text"
-                      placeholder="Ingin menulis sesuatu?"
-                    ></input>
+                    <input class="focus:ring-red-500 focus:border-red-500 bg-slate-100 text-slate-400 rounded-full w-80 h-11 px-8 border-none" text-black="text-black" type="text" placeholder="Ingin menulis sesuatu?"></input>
                     <button type="submit" class="absolute left-0 top-2 text-red-600 ml-64">
-                      <Image/>
+                      <Image />
                     </button>
                   </div>
                 </div>
@@ -217,7 +218,7 @@ export default class Blog extends React.Component {
                     <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                       <div className="relative px-6 pt-6 flex-auto">
                         {/*     <DragAndDropFile />kurang setState to image */}
-                        <Dragndrop onChange={this.setImage}/>
+                        <Dragndrop onChange={this.setImage} />
                         {/* <DragAndDropTest
                           onChange={(ev) => this.setState({ blogImage: ev.target.files[0] })}
                           // antara atas dan bawahnya
