@@ -1,21 +1,21 @@
 // inisiasi library default
 import React from "react";
 import { Users } from "react-feather";
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css';
-import "./Beranda.css"
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import "./Beranda.css";
 
 // inisiasi component
 import LayoutSidebar from "../../components/Layout/LayoutSidebar";
 // import CardBox from "../../components/fragment/Beranda/CardBox";
-import UserLogin from "../../assets/user-login.png"
+import UserLogin from "../../assets/user-login.png";
 // import siaran from "../../assets/youtube.svg"
 // import foto from "../../assets/icon-foto.svg"
 // import forum from "../../assets/icon-forum.svg"
 // import postingan from "../../assets/postingan.png"
 // import newGroup from "../../assets/newGroup.png"
 // import Horizontal from "../../assets/icon-horizontal.svg"
-import Class from "../../assets/class.svg"
+import Class from "../../assets/class.svg";
 
 export default class Beranda extends React.Component {
   constructor() {
@@ -32,10 +32,18 @@ export default class Beranda extends React.Component {
             <div class="col-span-2 ml-14">
               <h1 className="text-2xl font-semibold">Daftar Kelas</h1>
               <div className="mt-4 text-base font-normal text-gray-400">
-                <a href="/beranda" className="mr-5 text-black">Semua</a>
-                <a href="/newclass" className="mr-5">Terbaru</a>
-                <a href="/endclass" className="mr-5">Selesai</a>
-                <a href="/activeclass" className="mr-5">Aktif</a>
+                <a href="/beranda" className="mr-5 text-black">
+                  Semua
+                </a>
+                <a href="/newclass" className="mr-5">
+                  Terbaru
+                </a>
+                <a href="/endclass" className="mr-5">
+                  Selesai
+                </a>
+                <a href="/activeclass" className="mr-5">
+                  Aktif
+                </a>
               </div>
               <div className="mt-5">
                 <div className="bg-white p-4 rounded-3xl grid grid-cols-4">
@@ -45,7 +53,9 @@ export default class Beranda extends React.Component {
                   <div className="col-span-3 py-2 px-8">
                     <div className="grid grid-cols-4">
                       <h4 className="col-span-3 text-base font-normal text-gray-300">Andre Kurniawan S.Pd</h4>
-                      <span className="text-right"><Users className="inline mr-2"/> 39 Orang</span>
+                      <span className="text-right">
+                        <Users className="inline mr-2" /> 39 Orang
+                      </span>
                     </div>
                     <h2 className="mb-6 text-lg font-medium">Bahasa Inggris</h2>
                     <span className="p-2 rounded-lg bg-amber-100 text-amber-500 text-sm font-medium">Wawasan Umum</span>
@@ -53,7 +63,7 @@ export default class Beranda extends React.Component {
                       <div className="col-span-2">
                         <h6 className="text-sm font-medium">39% Compolete</h6>
                         <div class="w-full bg-amber-100 rounded-full h-2.5 dark:bg-gray-700 mr-4 mt-1">
-                          <div class="bg-amber-400 h-2.5 rounded-full" style={{width: '45%'}}></div>
+                          <div class="bg-amber-400 h-2.5 rounded-full" style={{ width: "45%" }}></div>
                         </div>
                       </div>
                       <div></div>
@@ -63,10 +73,6 @@ export default class Beranda extends React.Component {
                 </div>
               </div>
             </div>
-
-
-
-
 
             <div>
               <div className="pl-16 pr-8">
@@ -80,7 +86,7 @@ export default class Beranda extends React.Component {
                 <div className="mt-6">
                   <div className="grid grid-cols-12">
                     <div className="col-span-2">
-                      <img src={Class} className=""/>
+                      <img src={Class} className="" />
                     </div>
                     <div className="col-span-10 ml-2">
                       <h5 className="text-base font-medium">Listening Session Talk</h5>
@@ -91,7 +97,7 @@ export default class Beranda extends React.Component {
                 <div className="mt-6">
                   <div className="grid grid-cols-12">
                     <div className="col-span-2">
-                      <img src={Class} className=""/>
+                      <img src={Class} className="" />
                     </div>
                     <div className="col-span-10 ml-2">
                       <h5 className="text-base font-medium">Modul 3 Basic Android</h5>
@@ -102,7 +108,7 @@ export default class Beranda extends React.Component {
                 <div className="mt-6">
                   <div className="grid grid-cols-12">
                     <div className="col-span-2">
-                      <img src={Class} className=""/>
+                      <img src={Class} className="" />
                     </div>
                     <div className="col-span-10 ml-2">
                       <h5 className="text-base font-medium">Reading Session Talk</h5>
@@ -113,7 +119,7 @@ export default class Beranda extends React.Component {
                 <div className="mt-6">
                   <div className="grid grid-cols-12">
                     <div className="col-span-2">
-                      <img src={Class} className=""/>
+                      <img src={Class} className="" />
                     </div>
                     <div className="col-span-10 ml-2">
                       <h5 className="text-base font-medium">Ulangan Harian 3 Matematika</h5>
@@ -121,14 +127,13 @@ export default class Beranda extends React.Component {
                     </div>
                   </div>
                 </div>
-                
               </div>
               <div className="pl-16 mt-12">
                 <h4 className="text-lg font-semibold">Pengguna Online</h4>
                 <div className="mt-6">
                   <div className="grid grid-cols-12">
                     <div className="col-span-2">
-                      <img src={UserLogin} className=""/>
+                      <img src={UserLogin} className="" />
                     </div>
                     <div className="col-span-10 ml-2">
                       <h5 className="text-base font-medium">Kedar Anugerah Nacha Putra</h5>
@@ -139,7 +144,7 @@ export default class Beranda extends React.Component {
                 <div className="mt-6">
                   <div className="grid grid-cols-12">
                     <div className="col-span-2">
-                      <img src={UserLogin} className=""/>
+                      <img src={UserLogin} className="" />
                     </div>
                     <div className="col-span-10 ml-2">
                       <h5 className="text-base font-medium">Nanda Hafiza Yusron</h5>
@@ -150,7 +155,7 @@ export default class Beranda extends React.Component {
                 <div className="mt-6">
                   <div className="grid grid-cols-12">
                     <div className="col-span-2">
-                      <img src={UserLogin} className=""/>
+                      <img src={UserLogin} className="" />
                     </div>
                     <div className="col-span-10 ml-2">
                       <h5 className="text-base font-medium">Hafiz Rizky Nurwachid</h5>
@@ -161,7 +166,6 @@ export default class Beranda extends React.Component {
               </div>
             </div>
           </div>
-          
         </LayoutSidebar>
       </>
     );
