@@ -59,14 +59,14 @@ export default function LayoutNavbar({ children }) {
             </div>
             {sidebarContent.map(({ target, label }, i) => (
               <li className="px-3 py-3">
-                <Link to={target} className="block py-2 px-4 text-white rounded md:bg-transparent md:text-gray-400 font-normal md:p-0 dark:text-white bg-green-200" aria-current="page">
+                <Link to={target} className="block py-2 px-4 rounded md:bg-transparent md:text-gray-400 font-normal md:p-0 text-black text-center" aria-current="page">
                   {label}
                 </Link>
               </li>
             ))}
 
-            <Link to="/login" className="btn-round">
-              <button type="button" className="btn-warning bg-red-500 hover:bg-red-700 rounded-2xl">
+            <Link to="/login" className="btn-round m-auto">
+              <button type="button" className="btn-warning lg:bg-red-500 hover:bg-red-700 rounded-2xl">
                 Login
               </button>
             </Link>

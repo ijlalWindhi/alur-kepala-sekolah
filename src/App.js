@@ -30,32 +30,32 @@ import "./App.css";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/landingpage" element={<LandingPage />} />
-      <Route path="/beranda" element={<Beranda />} />
-      <Route path="/registrasi" element={<Registrasi />} />
-      <Route path="/resetpassword" element={<ResetPassword />} />
+    <Switch>
+      <Route path="/login" component={Login} />
+      <Route path="/" exact component={LandingPage} />
+      <Route path="/landingpage" component={LandingPage} />
+      <Route path="/beranda" component={Beranda} />
+      <Route path="/registrasi" component={Registrasi} />
+      <Route path="/resetpassword" component={ResetPassword} />
 
-      <Route path="/blog" element={<Blog />} />
-      <Route path="/forumdiskusi" element={<ForumDiskusi />} />
-      <Route path="/marketplace" element={<Marketplace />} />
-      <Route path="/pengajuan" element={<Pengajuan />} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/forumdiskusi" component={ForumDiskusi} />
+      <Route path="/marketplace" component={Marketplace} />
+      <Route path="/pengajuan" component={Pengajuan} />
 
-      <Route path="/acara" element={<Acara />} />
-      <Route path="/tersimpan" element={<Tersimpan />} />
+      <Route path="/acara" component={Acara} />
+      <Route path="/tersimpan" component={Tersimpan} />
 
-      <Route path="/keranjang" element={<Keranjang />} />
-      <Route path="/riwayatpembelian" element={<RiwayatPembelian />} />
+      <Route path="/keranjang" component={Keranjang} />
+      <Route path="/riwayatpembelian" component={RiwayatPembelian} />
 
-      <Route path="/guruMagang" element={<GuruMagang />} />
-      <Route path="/guruTamu" element={<GuruTamu />} />
-      <Route path="/kunjungan" element={<Kunjungan />} />
-      <Route path="/sertifikasi" element={<Sertifikasi />} />
-      <Route path="/bursaKerja" element={<BursaKerja />} />
-      <Route path="/pengajuanBursa" element={<PengajuanBursa />} />
+      <Route path="/guruMagang" component={GuruMagang} />
+      <Route path="/guruTamu" component={GuruTamu} />
+      <Route path="/kunjungan" component={Kunjungan} />
+      <Route path="/sertifikasi" component={Sertifikasi} />
+      <Route path="/bursaKerja" component={BursaKerja} />
+      <Route path="/pengajuanBursa" component={PengajuanBursa} />
 
-    </Routes>
+    </Switch>
   );
 }

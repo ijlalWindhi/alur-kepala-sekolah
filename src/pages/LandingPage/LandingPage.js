@@ -42,10 +42,10 @@ export default class LandingPage extends React.Component {
             <DataBox />
           </div>
         </div>
-        <div className="py-5 px-5 font-semibold">
+        <div className="py-auto px-5 font-semibold">
           <h1 className="text-3xl text-center pb-14 underline underline-offset-8 decoration-4 decoration-red-600">Berita Terkini</h1>
           <div className="flex justify-center">
-            <div className="grid grid-cols-3 gap-14">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
               <Card/>
               <Card/>
               <Card/>
@@ -66,11 +66,10 @@ export default class LandingPage extends React.Component {
                 center={center}
                 zoom={18}
               >
-                <></>
               </GoogleMap>
             </LoadScript>
           </div>
-          <div className="flex flex-row gap-8 justify-center pt-14 mb-20">
+          <div className="flex flex-wrap justify-around gap-y-8 pt-14 mb-20">
             <CallBox />
           </div>
         </div>

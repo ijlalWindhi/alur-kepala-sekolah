@@ -5,26 +5,10 @@ import imageCard from "../../../assets/image-card.png";
 import userIcon from "../../../assets/icon-user.svg";
 
 export default function DataBox({ handleAction }) {
-  // const location = useLocation();
-  // const { id } = queryString.parse(location.search.replace("?", ""));
-  // const [description, setDescription] = useState("");
-
-  // const date = () => {
-  //   return moment().format();
-  // };
-
-  // const handleSubmit = () => {
-  //   handleAction({ description, createAt: date() });
-  // };
-
-  // useEffect(() => {
-  //   if (!id) setDescription("");
-  // }, [id]);
-
   return (
     <>
       {/* CARD */}
-      <div class="w-96 bg-white rounded-none border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
+      <div class="lg:w-96 bg-white rounded-none border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 ">
         <img class="rounded-none p-1" src={imageCard} alt=""></img>
         <div class="p-5">
           <a href="#">
