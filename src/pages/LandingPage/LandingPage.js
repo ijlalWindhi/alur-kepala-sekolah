@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 import people from "../../assets/people.svg"
 import About from "../../assets/about-lp.svg"
 
+
 // inisiasi component
 import LayoutNavbar from "../../components/Layout/LayoutNavbar";
 import Card from "../../components/fragment/Card";
-import DataBox from "../../components/fragment/DataBox"
+import DataBox from "../../components/fragment/DataBox";
 import Footer from "../../components/fragment/Footer";
-
-
 
 export default class LandingPage extends React.Component {
   constructor() {
@@ -55,16 +54,6 @@ export default class LandingPage extends React.Component {
         <div className="py-5 px-5 font-semibold grid grid-cols-3">
           <h1 className="text-3xl pb-4 pl-8 col-span-2">Berita Terkini</h1>
           <Link to="/blog" className="text-xl font-normal text-red-600 text-right pr-8">Selengkapnya</Link>
-          {/* <div className="flex justify-center">
-            <div className="grid grid-cols-3 gap-14">
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-              <Card/>
-            </div>
-          </div> */}
         </div>
 
         <div class="snap-x overscroll-auto mx-auto snap-mandatory flex overflow-scroll mx-10 pb-5 mb-20">
@@ -77,8 +66,7 @@ export default class LandingPage extends React.Component {
             <div class="snap-start inline mr-3"><Card/></div>
             <div class="snap-start inline mr-3"><Card/></div>
         </div>
-     
-
+    
         <Footer />
       </>
     );
