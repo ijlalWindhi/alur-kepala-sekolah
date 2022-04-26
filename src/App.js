@@ -6,6 +6,7 @@ import { Route, Switch } from "react-router-dom";
 // pages UTAMA
 import Beranda from "./pages/Beranda";
 import LandingPage from "./pages/LandingPage";
+import Berita from "./pages/LandingPage/Berita";
 import Registrasi from "./pages/Registrasi";
 import ResetPassword from "./pages/ResetPassword";
 import Login from "./pages/Login";
@@ -46,6 +47,7 @@ export default function App() {
       <Route path="/login" component={Login} />
       <Route exact path="/" component={LandingPage} />
       <Route path="/landingpage" component={LandingPage} />
+      <Route path="/Berita" component={Berita} />
       <Route path="/beranda" component={Beranda} />
       <Route path="/activeclass" component={ActiveClass} />
       <Route path="/newclass" component={NewClass} />

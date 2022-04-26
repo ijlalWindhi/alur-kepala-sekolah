@@ -25,6 +25,7 @@ code {
 .bg-landing{
   background-image: url('../src/assets/bg-landing.svg');
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 /* untuk reusable css */
 @layer components {
