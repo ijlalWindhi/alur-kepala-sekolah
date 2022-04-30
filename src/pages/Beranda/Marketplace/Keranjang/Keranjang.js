@@ -1,18 +1,22 @@
 // inisiasi library default
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+
+
 
 // inisiasi component
-import LayoutSidebar from '../../../../components/Layout/LayoutSidebar';
-import ItemCard from '../../../../components/fragment/Marketplace/ItemCard';
-import CardBeli from '../../../../components/fragment/Marketplace/CardBeli';
-import SummaryCard from '../../../../components/fragment/Marketplace/SummaryCard';
-import Location from '../../../../assets/map-pin.png';
-import settings from '../../../../assets/icon-settings.svg';
-import search from '../../../../assets/icon-search.svg';
-import bag from '../../../../assets/icon-bag.svg';
-import trolly from '../../../../assets/icon-trollyWhite.svg';
-import tag from '../../../../assets/icon-tag.svg';
+import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
+import ItemCard from "../../../../components/fragment/Marketplace/ItemCard";
+// import CardBeli from "../../../../components/fragment/Marketplace/CardBeli/CardBeli";
+import CardList from "../../../../components/fragment/Marketplace/CardBeli/CardList";
+
+import SummaryCard from "../../../../components/fragment/Marketplace/SummaryCard";
+import Location from "../../../../assets/map-pin.png";
+import settings from "../../../../assets/icon-settings.svg";
+import search from "../../../../assets/icon-search.svg";
+import bag from "../../../../assets/icon-bagWhite.svg";
+import trolly from "../../../../assets/icon-trolly.svg";
+// import tag from '../../../../assets/icon-tag.svg';
 
 export default class Keranjang extends React.Component {
   constructor() {
@@ -24,9 +28,7 @@ export default class Keranjang extends React.Component {
   render() {
     return (
       <>
-        {' '}
         <LayoutSidebar>
-          {' '}
           <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3 mt-10">
             <div class="col-span-2 ml-14">
               <div id="tabContent">
@@ -156,11 +158,11 @@ export default class Keranjang extends React.Component {
                       Pembelian Barang
                     </h1>
                     {/* <span className="col-span-1 text-right text-base font-normal text-red-600">Beli Barang</span> */}
-                  </div>
+                  </div>  
                   <div className="grid cols-5 gap-4">
-                    <CardBeli />
-                    <CardBeli />
-                    <CardBeli />
+                    <CardList />
+                    <CardList />
+                    <CardList />
                   </div>
                 </div>
                 {/* Tab Content 3 */}
@@ -206,7 +208,7 @@ export default class Keranjang extends React.Component {
                 </div>
                 <div className="mt-8 ml-5">
                   <Link to="/marketplace">
-                    <img src={bag} className="inline mr-4"></img>
+                    <img src={trolly} className="inline mr-4"></img>
                     <span className="font-normal text-base ">
                       Telusuri Semua
                     </span>
@@ -217,41 +219,11 @@ export default class Keranjang extends React.Component {
                     to="/keranjang"
                     className="py-3 pl-5 pr-28 text-white bg-red-500 rounded-2xl"
                   >
-                    <img src={trolly} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Keranjang</span>
-                  </Link>
-                </div>
-                <div className="mt-6 ml-5">
-                  <Link to="/riwayatpembelian">
-                    <img src={tag} className="inline mr-4"></img>
+                    <img src={bag} className="inline mr-4"></img>
                     <span className="font-normal text-base ">
-                      Riwayat Pembelian
+                      List Pembelian
                     </span>
                   </Link>
-                </div>
-                <div className="mt-8">
-                  <h4 className="text-lg font-semibold">Filter</h4>
-                  <div className="mt-4">
-                    <img src={Location} className="inline mr-2"></img>
-                    <span className="">Jakarta, Indonesia</span>
-                  </div>
-                </div>
-                <div className="mt-8">
-                  <h4 className="text-lg font-semibold">Kategori</h4>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    <span className="badge bg-red-200 p-4 rounded-3xl text-xs font-medium text-red-600">
-                      Component
-                    </span>
-                    <span className="badge bg-red-200 p-4 rounded-3xl text-xs font-medium text-red-600">
-                      Aksesoris Komputer
-                    </span>
-                    <span className="badge bg-red-200 p-4 rounded-3xl text-xs font-medium text-red-600">
-                      Komputer
-                    </span>
-                    <span className="badge bg-red-200 p-4 rounded-3xl text-xs font-medium text-red-600">
-                      Komputer
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
