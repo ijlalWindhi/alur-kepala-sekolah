@@ -42,6 +42,7 @@ import ActiveClass from "./pages/Beranda/ActiveClass";
 import NewClass from "./pages/Beranda/NewClass";
 import EndClass from "./pages/Beranda/EndClass";
 import Akun from "./pages/Beranda/Akun";
+import Detailforum from "./pages/Beranda/ForumDiskusi/Detailforum";
 import "./App.css";
 
 export default function App() {
@@ -86,10 +87,12 @@ export default function App() {
       <Route path="/detailTugasGuru" component={DetailTugas} />
       <Route path="/Akun" component={Akun} />
 
+
       <Route path="/lmsSiswa" component={LmsSiswa} />
       <Route path="/detailKelasSiswa" component={DetailKelasSiswa} />
       <Route path="/detailTugasSiswa" component={DetailTugasSiswa} />
       <Route path="/peserta-siswa" component={PesertaSiswa} />
+      <Route path="/Detailforum" component={Detailforum}/>
     </Switch>
   );
 }
