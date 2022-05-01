@@ -4,41 +4,19 @@ import React from "react";
 import axios from "axios";
 import { baseUrl } from "../../../config";
 import { NavLink } from "react-router-dom";
-
 import {
   ThumbsUp,
   MessageCircle,
-  Bookmark,
-  // Image,
-  // PlusCircle
+  Bookmark
 } from "react-feather";
-// import imageCard from '../../../assets/image-card.png';
 import data from "../../../dummy/bloglist";
-
-// import CardBg from "../../../assets/blog.png";
-// import Card from "../../../components/fragment/Card";
 
 // inisiasi component
 import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
 import { Dragndrop } from "../../../components/fragment/DragnDrop";
-// import VideoPopup from "./VideoPopup";
-// PAKAI DRAGN DROP DI FOLDER FRAGMENT -> DRAGNDROP fail
 
 import UserLogin from "../../../assets/user-login.png";
-// import bookmark from "../../../assets/bookmark.png";
-// import calender from "../../../assets/calendar.png";
-// import video from "../../../assets/icon-videoWhite.svg";
-// import settings from "../../../assets/icon-settings.svg";
-// import Search from "../../../assets/icon-search.svg";
-// import AddButton from "../../../assets/icon-add.svg";
-// const urls = [
-//   "https://www.youtube.com/embed/30L-WoWIXO8",
-//   "https://www.youtube.com/embed/J42SZXS-_Qo",
-//   "https://www.youtube.com/embed/Zn_f6el0TKw",
-//   "https://www.youtube.com/embed/GdvY4JX-WsI",
-//   "https://www.youtube.com/embed/HIj8wU_rGIU",
-//   "https://www.youtube.com/embed/7svK1dtQguA",
-// ];
+
 
 export default class Blog extends React.Component {
   constructor() {
@@ -136,73 +114,37 @@ export default class Blog extends React.Component {
         {" "}
         <LayoutSidebar>
           {" "}
-          <div class="grid grid-flow-row-dense grid-cols-2 grid-rows-1 mt-8 ">
-            <div class="ml-14 mt-3">
-              {/* <div className="story grid grid-cols-6 gap-2 bg-red-200">
-                <a href="#" className="justify-center items-center flex flex-col">
-                  <img src={UserLogin}></img>
-                  <PlusCircle className="ml-6 text-white bg-emerald-500 rounded-full" style={{ marginTop: `-20px` }} />
-                  <h2 className="text-sm font-medium mt-2">Jhon Doe</h2>
-                </a>
-                <div className="justify-center items-center flex flex-col">
-                  <img src={UserLogin} className="border-emerald-500 border-2 rounded-full"></img>
-                  <h2 className="text-sm font-medium mt-2">Hafiza</h2>
-                </div>
-                <div className="justify-center items-center flex flex-col">
-                  <img src={UserLogin} className="border-emerald-500 border-2 rounded-full"></img>
-                  <h2 className="text-sm font-medium mt-2">Nanda</h2>
-                </div>
-                <div className="justify-center items-center flex flex-col">
-                  <img src={UserLogin} className="border-emerald-500 border-2 rounded-full"></img>
-                  <h2 className="text-sm font-medium mt-2">Amala</h2>
-                </div>
-              </div> */}
-              {/* <div className="card rounded-lg p-6 mt-0">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/pdhuW_mz9YU" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-              </div> */}
-
-              {/* <div className="card rounded-lg p-6 mt-8  bg-green-200 "> */}
-              <h1 className="text-2xl font-semibold mb-5">Postingan Terbaru</h1>
+          <div class="grid grid-flow-row-dense grid-cols-5 mt-8 ">
+            <div class="ml-14 mt-3 col-span-3">
               <div className="mt-4 text-base font-normal text-gray-400">
                 <a href="/blog" className="mr-5 text-black">
-                  Blog informasi
+                  Blog/Postingan
                 </a>
                 <a href="/beritaTerkini" className="mr-5">
-                  Berita terkini
+                  Berita
                 </a>
-  
               </div>
+                <div className="grid grid-cols-6 my-8">
+                  <h1 className="text-2xl font-semibold col-span-3">Postingan Terbaru</h1>
+                  <div className="col-span-3">
+                    <button  onClick={() => this.Modal()} class="bg-red-600 text-white py-2 px-4 rounded-2xl mr-2">
+                     + Postingan
+                    </button> 
+                    <button  onClick={() => this.Modal()} class="bg-red-600 text-white py-2 px-4 rounded-2xl">
+                     <Bookmark className="inline mr-2"/> Disimpan
+                    </button> 
+                  </div>
+                </div>
                 <div class="grid grid-cols-1 gap-4 mt-4">
                   {data.map((data) => (
-                    // <div className="card relative rounded-2xl flex max-w-full w-full bg-gray-200 justify-center">
-                    //   <img src={CardBg} className="max-w-full" />
-                    //   <div className="absolute top-0 mt-5 ml-4 pr-4 grid grid-cols-5">
-                    //     <img src={UserLogin} className="col-span-1 w-10"></img>
-                    //     <div className="col-span-3 text-white text-sm ml-4">
-                    //       <span className="font-medium">Ibrahim Hazela</span>
-                    //       <p className="text-xs">1 Jam yang lalu</p>
-                    //     </div>
-                    //   </div>
-                    //   <div class="absolute bottom-0 left-0 ml-4 text-white grid grid-cols-3 mb-4">
-                    //     <button className="inline">
-                    //       <ThumbsUp className="inline"></ThumbsUp>123
-                    //     </button>
-                    //     <button className="inline mx-2">
-                    //       <MessageCircle className="inline"></MessageCircle>123
-                    //     </button>
-                    //     <button className="inline">
-                    //       <Bookmark className="inline"></Bookmark>123
-                    //     </button>
-                    //   </div>
-                    // </div>
                     <div className="max-w-full w-full bg-white justify-center flex flex-col rounded-2xl">
                       <div className="flex flex-row mx-4">
                         <img src={UserLogin} className="rounded-full w-10 h-10 self-center"></img>
                         <h1
                           style={{
                             margin: "20px",
-                            fontWeight: "600",
-                            fontSize: "20px",
+                            fontWeight: "500",
+                            fontSize: "14px",
                           }}
                         >
                           {data.author}
@@ -211,7 +153,7 @@ export default class Blog extends React.Component {
                       <NavLink to="/templateBlog" className="max-w-full w-full">
                         <img
                           src={data.image}
-                          className="object-cover"
+                          className="object-cover w-fit"
                           style={{
                             margin: "0 auto",
                           }}
@@ -220,8 +162,8 @@ export default class Blog extends React.Component {
                           style={{
                             margin: "15px",
                             marginBottom: "0",
-                            fontWeight: "600",
-                            fontSize: "19px",
+                            fontWeight: "500",
+                            fontSize: "16px",
                           }}
                         >
                           {data.title}
@@ -243,13 +185,8 @@ export default class Blog extends React.Component {
                 </div>
               {/* </div> */}
             </div>
-            <div className="flex ">
+            <div className="flex  col-span-2 ml-12">
               <div className="mx-auto ">
-                <div className="bg-white p-6 shadow-xl rounded-xl justify-center">
-                    <button  onClick={() => this.Modal()} type="submit" class="border-red-600 text-red-600 font-semibold border-4 pt-4 pb-4 px-20 rounded-2xl ">
-                     + Buat Post Baru
-                    </button>  
-                </div>
                 <h4 className="text-lg font-semibold mt-8 mb-3">Pengguna Online</h4>
                 <div className="mt-4 grid grid-cols-12">
                   <img src={UserLogin} className="inline w-10 mr-4 col-span-2"></img>

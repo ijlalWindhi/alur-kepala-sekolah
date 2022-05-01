@@ -1,154 +1,69 @@
 // inisiasi library default
 import React from "react";
-// import { Link } from "react-router-dom";
-// import axios from "axios";
-// import { baseUrl } from "../../../config";
-// import { NavLink } from "react-router-dom";
 
-import // ThumbsUp,
-// MessageCircle,
-// Bookmark,
-// Image,
-// PlusCircle
-"react-feather";
-// import imageCard from '../../../assets/image-card.png';
-// import data from "../../../../dummy/bloglist";
-
-// import CardBg from "../../../assets/blog.png";
-// import Card from "../../../components/fragment/Card";
-
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // inisiasi component
 import LayoutSidebar from "../../../../components/Layout/LayoutSidebar";
 import { Dragndrop } from "../../../../components/fragment/DragnDrop";
-// import VideoPopup from "./VideoPopup";
 
-import Card from "../../../../components/fragment/Card";
+import imageCard from "../../../../assets/image-card.png"
 
-// import UserLogin from "../../../../assets/user-login.png";
-// import bookmark from "../../../assets/bookmark.png";
-// import calender from "../../../assets/calendar.png";
-// import video from "../../../assets/icon-videoWhite.svg";
-// import settings from "../../../assets/icon-settings.svg";
-// import Search from "../../../assets/icon-search.svg";
-// import AddButton from "../../../assets/icon-add.svg";
-// const urls = [
-//   "https://www.youtube.com/embed/30L-WoWIXO8",
-//   "https://www.youtube.com/embed/J42SZXS-_Qo",
-//   "https://www.youtube.com/embed/Zn_f6el0TKw",
-//   "https://www.youtube.com/embed/GdvY4JX-WsI",
-//   "https://www.youtube.com/embed/HIj8wU_rGIU",
-//   "https://www.youtube.com/embed/7svK1dtQguA",
-// ];
-
-export default class Blog extends React.Component {
+export default class beritaTerkini extends React.Component {
   constructor() {
     super();
     this.state = {
-      // call variable
-      // token: "",
-      // blogs: [],
-      // description: "",
-      // youtubeLink: "",
-      // blogImage: {},
     };
-
-    // if (localStorage.getItem("token")) {
-    //   this.state.token = localStorage.getItem("token");
-    // } else {
-    //   window.location = "/login";
-    // }
-    // this.headerConfig.bind(this);
 
     this.state.showModal = false;
   }
 
-  // headerConfig = () => {
-  //   let header = {
-  //     headers: { Authorization: `Bearer ${this.state.token}` },
-  //   };
-  //   return header;
-  // };
-
-  // getBlogs = () => {
-  //   let url = baseUrl + "/blogs";
-  //   axios
-  //     .get(url)
-  //     .then((response) => {
-  //       this.setState({ blogs: response.data.data });
-  //       console.log(response.data.data);
-  //     })
-  //     .catch((error) => {
-  //       if (error.response) {
-  //         if (error.response.status) {
-  //           window.alert(error.response.data.message);
-  //           // this.props.history.push("/dashboard")
-  //         }
-  //       } else {
-  //         console.log(error);
-  //       }
-  //     });
-  // };
-
-  // componentDidMount() {
-  //   this.getBlogs();
-  // }
-
-  // setImage = (param) => {
-  //   this.state.blogImage = param;
-  // };
-
-  // saveBlogs = (event) => {
-  //   event.preventDefault();
-  //   let form = {
-  //     description: this.state.description,
-  //     youtubeLink: this.state.youtubeLink,
-  //     blogImage: this.state.blogImage,
-  //   };
-  //   console.log(this.state.youtubeLink);
-  //   console.log(form);
-  //   let url = baseUrl + "/blogs";
-  //   // console.log("ini msuk insert")
-  //   axios
-  //     .post(url, form)
-  //     .then((response) => {
-  //       window.alert(response.data.message);
-  //       console.log(response);
-  //       this.getBlogs();
-  //       this.Modal();
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
-  // // function untuk menampilkan modal tambah blog
-  // Modal = () => {
-  //   this.setState({
-  //     showModal: !this.state.showModal,
-  //   });
-  // };
 
   render() {
     return (
       <>
         <LayoutSidebar>
-          <div class="grid grid-rows-2 mt-8 ">
-            <div class="ml-14 mt-3">
+          <div class="grid grid-cols-4 mt-8 ">
+            <div class="ml-14 mt-3 col-span-3">
               <h1 className="text-2xl font-semibold mb-5">Postingan Terbaru</h1>
               <div className="mt-4 text-base font-normal text-gray-400">
-                <NavLink to="/blog" className="mr-5 ">
-                  Blog informasi
-                </NavLink>
-                <NavLink to="/beritaTerkini" className="mr-5 text-black">
-                  Berita terkini
-                </NavLink>
+                <Link to="/blog" className="mr-5 ">
+                  Blog?postingan
+                </Link>
+                <Link to="/beritaTerkini" className="mr-5 text-black">
+                  Berita
+                </Link>
               </div>
-              <div class="grid grid-cols-2 gap-4 mt-4">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-              </div>
+              <div class="grid grid-cols-2 gap-2 mt-4">
+                  <div className="card relative rounded-3xl">
+                    <img src={imageCard} className="contrast-50 rounded-3xl w-full" />
+                    <div class="absolute bottom-0 left-0 ml-4 text-white grid grid-cols-3 mb-4">
+                      <div className="col-span-2">
+                        <h6 className="text-sm font-medium">SMK Telkom Malang sukses menyelenggarakan Ujian Satuan Pendidikan dengan sistem 2 shift</h6>
+                        <p className="text-gray-300 text-xs mt-2">19/02/2022, 14:18 WIB</p>
+                      </div>
+                      <div>
+                        <Link to="/templateBlog"  class="inline-flex items-center py-2 px-2 mt-12 text-sm font-medium text-center text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"  >
+                          Selengkapnya
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card relative rounded-3xl">
+                    <img src={imageCard} className="contrast-50 rounded-3xl w-full" />
+                    <div class="absolute bottom-0 left-0 ml-4 text-white grid grid-cols-3 mb-4">
+                      <div className="col-span-2">
+                        <h6 className="text-sm font-medium">SMK Telkom Malang sukses menyelenggarakan Ujian Satuan Pendidikan dengan sistem 2 shift</h6>
+                        <p className="text-gray-300 text-xs mt-2">19/02/2022, 14:18 WIB</p>
+                      </div>
+                      <div>
+                        <Link to="/templateBlog"  class="inline-flex items-center py-2 px-2 mt-12 text-sm font-medium text-center text-white bg-red-600 rounded-full hover:bg-red-700 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"  >
+                          Selengkapnya
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+              </div>              
             </div>
           </div>
           {this.state.showModal ? (
