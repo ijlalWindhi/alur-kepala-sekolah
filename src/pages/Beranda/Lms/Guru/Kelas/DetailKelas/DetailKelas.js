@@ -1,5 +1,4 @@
 import React from 'react'
-import { Book, Clock, Video } from 'react-feather'
 import { Link } from 'react-router-dom'
 
 import LayoutSidebar from '../../../../../../components/Layout/LayoutSidebar'
@@ -28,13 +27,9 @@ export default class DetailKelas extends React.Component{
                 <LayoutSidebar>
                 <div class="grid grid-flow-row-dense grid-cols-3 mt-12">
                 <div class="col-span-2 ml-14">
-                    <div id="tabContent">
+                    <div>
                         {/* Tab Content 1 */}
-                        <div
-                            class="p-4"
-                            id="profile"
-                            role="tabpanel"
-                            aria-labelledby="profile-tab">
+                        <div class="p-4">
                             <div className="">
                                 <div className="card  rounded-3xl bg-white">
                                     <div className="card-header bg-green-400 rounded-t-3xl p-4 pt-14 text-white">
@@ -42,15 +37,14 @@ export default class DetailKelas extends React.Component{
                                         <h1 className="mt-2 text-lg font-normal">Hafiz Rizky Nurwachid, S.pd.</h1>
                                     </div>
                                     <div className="card-body p-6 relative">
-                                        <div className="rounded-full absolute z-10 w-5 top-0 right-16" style={{marginTop: `-10px`}}>
-                                            <Link to="/meet" className="bg-red-600 rounded-3xl p-3 text-white" >
-                                                <Video className="inline"/>
-                                            </Link>
-                                        </div>
-                                        <div className="mt-8">
-                                            <span onClick={() => this.Modal()} className="py-3 pl-5 pr-6 text-white bg-red-600 rounded-2xl cursor-pointer">
+                                        <div className="mt-4">
+                                            <div className="mb-12">
+                                                <Link to="/detailKelasGuru" className="text-lg font-normal mr-6 border-b-2 border-red-600">Aktivitas</Link>
+                                                <Link to="/peserta" className="text-lg font-normal text-gray-300">Peserta</Link>
+                                            </div>
+                                            <span onClick={() => this.Modal()} className="py-3 pl-5 pr-6 text-white bg-green-400 rounded-2xl cursor-pointer">
                                                 <img src={AddButton} className="inline mr-4"></img>
-                                                <span className="font-normal text-base ">Tambah Kelas</span>
+                                                <span className="font-normal text-base ">Tambah Aktivitas</span>
                                             </span>
                                         </div>
                                         <div className="mt-8">
@@ -63,23 +57,6 @@ export default class DetailKelas extends React.Component{
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                  <div className="pl-32 mt-10">
-                      <div className="flex flex-row">
-                          <h4 className="text-lg font-semibold">Marketplace</h4>
-                      </div>
-                      <div className="mt-8">
-                          <Link to="/lmsGuru" className="py-3 pl-5 pr-20 text-white bg-red-500 rounded-2xl">
-                              <span className="font-normal text-base "><Book className="mr-2 inline"/> Daftar Kelas</span>
-                          </Link>
-                      </div>
-                      <div className="mt-6 ml-5">
-                          <Link to="/aktifitasGuru">
-                              <span className="font-normal text-base "><Clock className="mr-2 inline" /> Aktifitas Terbaru</span>
-                          </Link>
-                      </div>
-                  </div>
                 </div>
             </div>
 
