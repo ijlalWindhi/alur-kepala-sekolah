@@ -11,7 +11,7 @@ export default class CardTugas extends React.Component{
         return(
             <div className="card bg-slate-100 p-4 rounded-3xl mt-4">
                 <div className="grid grid-cols-8">
-                    <div className=" bg-red-600 p-3 rounded-full mx-3"><File className="text-white" /></div>
+                    <div className=" bg-blue-600 p-3 rounded-full mx-3"><File className="text-white" /></div>
                     <div className="col-span-5 ml-3">
                         <Link to="/detailTugasGuru" className="font-medium text-base">Latihan Soal Matematika</Link>
                         <h4 className="font-normal text-sm">Matematika XII RPL 4</h4>

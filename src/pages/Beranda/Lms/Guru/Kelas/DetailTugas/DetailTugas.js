@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, Clock, File } from 'react-feather';
+import { File } from 'react-feather';
 import { Link } from "react-router-dom";
 
 import LayoutSidebar from "../../../../../../components/Layout/LayoutSidebar";
@@ -14,8 +14,8 @@ export default class DetailTugas extends React.Component{
         return(
             <div>
              <LayoutSidebar>
-             <div class="grid grid-flow-row-dense grid-cols-3 mt-12">
-                <div class="col-span-2 ml-14">
+             <div class="grid grid-flow-row-dense grid-cols-8 mt-12">
+                <div class="col-span-7 ml-14">
                     <div id="tabContent">
                         {/* Tab Content 1 */}
                         <div
@@ -29,7 +29,7 @@ export default class DetailTugas extends React.Component{
                             <div className="mt-8">
                                 <div className="card bg-white p-8 rounded-3xl mt-4">
                                     <div className="grid grid-cols-10">
-                                        <div className=" bg-red-600 py-3 px-4 rounded-full mx-1"><File className="text-white" /></div>
+                                        <div className=" bg-red-600 py-3 px-3 rounded-full mx-4"><File className="text-white" /></div>
                                         <div className="col-span-6 ml-3">
                                             <Link to="/detailTugas" className="font-medium text-base">Latihan Soal Matematika</Link>
                                             <h4 className="font-normal text-sm">Matematika XII RPL 4 - 12 April 2022</h4>
@@ -39,8 +39,9 @@ export default class DetailTugas extends React.Component{
                                         </div>
                                     </div>
                                     <hr className="mt-8"/>
-                                    <h1 className="mt-4 text-base font-medium">10/40 Siswa Sudah Mengumpulkan</h1>
-                                    <div className="grid grid-cols-2 gap-2">
+                                    <h1 className="mt-4 text-xl font-medium">10/40</h1>
+                                    <h1 className="text-sm font-medium text-gray-300">Siswa Sudah Mengumpulkan</h1>
+                                    <div className="grid grid-cols-3 gap-2">
                                         <CardSiswa/>
                                         <CardSiswa/>
                                         <CardSiswa/>
@@ -49,24 +50,7 @@ export default class DetailTugas extends React.Component{
                             </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                  <div className="pl-32 mt-10">
-                      <div className="flex flex-row">
-                          <h4 className="text-lg font-semibold">Marketplace</h4>
-                      </div>
-                      <div className="mt-8">
-                          <Link to="/lmsGuru" className="py-3 pl-5 pr-20 text-white bg-red-500 rounded-2xl">
-                              <span className="font-normal text-base "><Book className="mr-2 inline"/> Daftar Kelas</span>
-                          </Link>
-                      </div>
-                      <div className="mt-6 ml-5">
-                          <Link to="/aktifitasGuru">
-                              <span className="font-normal text-base "><Clock className="mr-2 inline" /> Aktifitas Terbaru</span>
-                          </Link>
-                      </div>
-                  </div>
-                </div>
+                </div> 
             </div>   
              </LayoutSidebar>   
             </div>       

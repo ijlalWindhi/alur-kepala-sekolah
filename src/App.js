@@ -31,13 +31,13 @@ import PengajuanBursa from "./pages/Beranda/Pengajuan/PengajuanBursa";
 import Notifikasi from "./pages/Beranda/ForumDiskusi/Notifikasi";
 import Temukan from "./pages/Beranda/ForumDiskusi/Temukan";
 import LmsGuru from "./pages/Beranda/Lms/Guru/Guru";
-import AktifitasGuru from "./pages/Beranda/Lms/Guru/Aktifitas";
+import Peserta from "./pages/Beranda/Lms/Guru/Peserta";
 import DetailKelas from "./pages/Beranda/Lms/Guru/Kelas/DetailKelas";
-// import DetailKelasSiswa from "./pages/Beranda/Lms/Siswa/Kelas/DetailKelas";
+import DetailKelasSiswa from "./pages/Beranda/Lms/Siswa/Kelas/DetailKelas";
 import DetailTugas from "./pages/Beranda/Lms/Guru/Kelas/DetailTugas";
-// import DetailTugasSiswa from "./pages/Beranda/Lms/Siswa/Kelas/DetailTugas";
-// import LmsSiswa from "./pages/Beranda/Lms/Siswa/Siswa";
-// import AktifitasSiswa from "./pages/Beranda/Lms/Siswa/AktifitasSiswa";
+import DetailTugasSiswa from "./pages/Beranda/Lms/Siswa/Kelas/DetailTugas";
+import LmsSiswa from "./pages/Beranda/Lms/Siswa/Siswa";
+import PesertaSiswa from "./pages/Beranda/Lms/Siswa/Peserta";
 import ActiveClass from "./pages/Beranda/ActiveClass";
 import NewClass from "./pages/Beranda/NewClass";
 import EndClass from "./pages/Beranda/EndClass";
@@ -81,15 +81,15 @@ export default function App() {
       <Route path="/Notifikasi" component={Notifikasi} />
       <Route path="/Temukan" component={Temukan} />
       <Route path="/lmsGuru" component={LmsGuru} />
-      <Route path="/aktifitasGuru" component={AktifitasGuru} />
+      <Route path="/peserta" component={Peserta} />
       <Route path="/detailKelasGuru" component={DetailKelas} />
       <Route path="/detailTugasGuru" component={DetailTugas} />
       <Route path="/Akun" component={Akun} />
 
-      {/* <Route path="/lmsSiswa" component={LmsSiswa} />
+      <Route path="/lmsSiswa" component={LmsSiswa} />
       <Route path="/detailKelasSiswa" component={DetailKelasSiswa} />
       <Route path="/detailTugasSiswa" component={DetailTugasSiswa} />
-      <Route path="/aktifitasSiswa" component={AktifitasSiswa} /> */}
+      <Route path="/peserta-siswa" component={PesertaSiswa} />
     </Switch>
   );
 }
