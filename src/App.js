@@ -43,6 +43,7 @@ import NewClass from "./pages/Beranda/NewClass";
 import EndClass from "./pages/Beranda/EndClass";
 import Akun from "./pages/Beranda/Akun";
 import Detailforum from "./pages/Beranda/ForumDiskusi/Detailforum";
+import Disimpan from "./pages/Beranda/Blog/Disimpan";
 import "./App.css";
 
 export default function App() {
@@ -61,6 +62,7 @@ export default function App() {
 
       <Route path="/blog" component={Blog} />
       <Route path="/beritaTerkini" component={beritaTerkini} />
+      <Route path="/postingan-simpan" component={Disimpan} />
       <Route path="/forumdiskusi" component={ForumDiskusi} />
       <Route path="/marketplace" component={Marketplace} />
       <Route path="/pengajuan" component={Pengajuan} />
