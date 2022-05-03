@@ -1,6 +1,6 @@
 // inisiasi library default
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import {Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../../config";
 import {
@@ -16,10 +16,10 @@ import LayoutSidebar from "../../../components/Layout/LayoutSidebar";
 // import DragAndDropFile from "./FilesDragAndDrop";
 import { Dragndrop } from "../../../components/fragment/DragnDrop";
 import AddButton from "../../../assets/icon-add.svg";
-import settings from "../../../assets/icon-settings.svg";
-import berandaanda from "../../../assets/forumputih.png";
-import temukan from "../../../assets/temukan.png";
-import notifikasi from "../../../assets/bell.png";
+// import settings from "../../../assets/icon-settings.svg";
+// import berandaanda from "../../../assets/forumputih.png";
+// import temukan from "../../../assets/temukan.png";
+// import notifikasi from "../../../assets/bell.png";
 import UserLogin from "../../../assets/user-login.png";
 
 // import postingan from '../../../assets/postingan.png';
@@ -131,7 +131,18 @@ export default class Marketplace extends React.Component {
           <div class="grid grid-flow-row-dense grid-cols-3 mt-12">
             <div class="col-span-2 ml-14">
               <div>
-                <h1 className="text-3xl font-semibold">Aktivitas Terbaru ini halaman temukan</h1>
+                <div className="flex flex-row justify-between">
+                        <div className="flex items-center">
+                           <h1 className="text-3xl font-semibold">Aktivitas Terbaru </h1>
+                        </div>
+                        <div className=" inline">
+                          <span onClick={() => this.Modal()} className="py-3 pl-5 pr-6 text-white bg-red-500 rounded-2xl cursor-pointer">
+                            <img src={AddButton} className="inline mr-4"></img>
+                            <span className="font-normal text-base ">Tambah Forum</span>
+                          </span>
+                        </div>
+                </div>
+                
                 {this.state.forum.map(() => (
                   <div className="card rounded-lg bg-white p-8 my-8 ">
                     <div className="max-w-full bg-white justify-center flex flex-col rounded-2xl">
@@ -194,36 +205,36 @@ export default class Marketplace extends React.Component {
             {/*batas kanan */}
 
             <div>
-              <div className="pl-32 mt-10">
-                <div className="flex flex-row">
-                  <h4 className="text-lg font-semibold">Sharing Informasi</h4>
-                  <img src={settings} className="ml-24 cursor-pointer" />
-                </div>
+              <div className="pl-16 mt-10">
 
                 <div className="mt-8">
-                  <Link to="/forumdiskusi" className="py-3 pl-5 pr-20 text-white bg-red-500 rounded-2xl">
-                    <img src={berandaanda} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Beranda Anda</span>
-                  </Link>
+                  <h4 className="text-lg font-semibold">Rekomendasi Grup</h4>
+                  <div className="mt-6 grid grid-cols-6">
+                    <img src={UserLogin} className="inline w-10 mr-4"></img>
+                    <div className="col-span-5">
+                      <Link to="/Detailforum"><span className="text-base font-normal">Komunitas Jomblo</span></Link>
+                      <br />
+                      <span className="text-sm font-normal text-slate-400">Terakhir aktif Sehari yang lalu</span>
+                    </div>
+                  </div>
+                  <div className="mt-6 grid grid-cols-6">
+                    <img src={UserLogin} className="inline w-10 mr-4"></img>
+                    <div className="col-span-5">
+                      <span className="text-base font-normal">Paguyuban Manusia Ambigu</span>
+                      <br />
+                      <span className="text-sm font-normal text-slate-400">Terakhir aktif 7 jam yang lalu</span>
+                    </div>
+                  </div>
+                  <div className="mt-6 grid grid-cols-6">
+                    <img src={UserLogin} className="inline w-10 mr-4"></img>
+                    <div className="col-span-5">
+                      <span className="text-base font-normal">Perkumpulan Friendzone</span>
+                      <br />
+                      <span className="text-sm font-normal text-slate-400">Terakhir aktif 2 hari yang lalu</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-6 ml-5">
-                  <Link to="/Temukan">
-                    <img src={temukan} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Temukan</span>
-                  </Link>
-                </div>
-                <div className="mt-6 ml-5 mb-8">
-                  <Link to="/Notifikasi">
-                    <img src={notifikasi} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Notifikasi</span>
-                  </Link>
-                </div>
-                <div className="mt-12">
-                  <span onClick={() => this.Modal()} className="py-3 pl-5 pr-6 text-white bg-red-500 rounded-2xl cursor-pointer">
-                    <img src={AddButton} className="inline mr-4"></img>
-                    <span className="font-normal text-base ">Tambah Forum</span>
-                  </span>
-                </div>
+                
 
                 <div className="mt-8">
                   <h4 className="text-lg font-semibold">Grup yang Anda Tergabung didalamnya</h4>
