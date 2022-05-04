@@ -2,10 +2,11 @@
 import React from "react";
 // inisiasi component
 import Item from "../../../../assets/item.svg";
-// import Message from "../../../../assets/message-circle.svg";
-// import HorizontalIcon from "../../../../assets/icon-horizontal.svg";
+import {Dragndrop} from "../../../fragment/DragnDrop";
 
 export default function CardBeli() {
+  const [Modal, setModal] = React.useState(false);
+
   return (
     <div class="p-6 card bg-white rounded-3xl">
       <div className="grid grid-cols-5 gap-4">
@@ -50,6 +51,7 @@ export default function CardBeli() {
                 background: "#E7008A",
                 borderRadius: "8px",
               }}
+              onClick={() => setModal(true)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,13 +71,91 @@ export default function CardBeli() {
           </div>
         </div>
       </div>
-      {/* <div className="flex justify-center">
-            <img className="" src={Item}></img>
+      {Modal ? (
+        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none bg-gray-500/50 focus:outline-none">
+          <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                      <div className="relative px-6 pt-6 flex-auto flex flex-col">
+                          {/* <img src={ImageKonfrimasi} className="w-3/4 m-auto"/> */}
+                          <Dragndrop />{" "}
+                          <input
+                              type="text"
+                              name="email"
+                              id="email"
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
+                              placeholder="Nama Barang"
+                          />
+                          <input
+                              type="text"
+                              name="email"
+                              id="email"
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                              placeholder="Harga Barang"
+                          />
+                          <select
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
+                          >
+                              <option value="" disabled selected>
+                                  Status
+                              </option>
+                              <option value="available">Available</option>
+                              <option value="empty">Empty</option>
+                              <option value="hide">Hide</option>
+                          </select>
+                          <select
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
+                          >
+                              <option value="" disabled selected>
+                                  Kategori Barang
+                              </option>
+                              <option value="book">Book</option>
+                              <option value="it-services">IT Services</option>
+                              <option value="electronic">Electronic</option>
+                              <option value="misc">MISC</option>
+                          </select>
+                          <textarea
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                              placeholder="Deskripsi Barang"
+                          />
+                          <select
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
+                          >
+                              <option value="" disabled selected>
+                                  Lokasi Penjualan
+                              </option>
+                              <option value="1">Headmaster</option>
+                              <option value="4">Vocation Net</option>
+                              <option value="5">Telkom Group</option>
+                              <option value="6">Ministry</option>
+                          </select>
+                          <input
+                              type="text"
+                              name="stock"
+                              id="stock"
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4"
+                              placeholder="Stock Barang"
+                          />
+                      </div>
+                      <div className="flex items-center justify-center p-6">
+                          <button
+                              className="text-yellow-400 background-white px-8 py-3 mr-4 text-sm border-2 rounded-full border-yellow-400"
+                              type="button"
+                              onClick={() => setModal(false)}
+                          >
+                              Batal
+                          </button>
+                          <button
+                              className="bg-yellow-400 text-white text-sm px-6 py-3 rounded-full border-none"
+                              type="submit"
+                              onClick={() => setModal(false)}
+                          >
+                              Konfirmasi
+                          </button>
+                      </div>
+                  </div>
+          </div>
         </div>
-        <h5 className="mb-2 text-base font-medium mt-10">Intel Core</h5>
-        <p className="font-normal text-sm text-red-600">Kota Malang</p>
-        <h6 className="font-normal text-sm text-grey-700 mt-2">Rp.8797192379</h6>
-        <button className="btn btn-md bg-red-600 py-2 px-6 rounded-full text-white mt-6">Beli</button> */}
+      ) : null}
     </div>
   );
 }

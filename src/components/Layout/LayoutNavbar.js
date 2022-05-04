@@ -6,11 +6,11 @@ import Logo from "../../assets/Logo.svg";
 
 export default function LayoutNavbar() {
   return (
-    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-100 ">
+    <nav class="bg-white md:bg-transparent border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-100 ">
       <div class="container flex flex-wrap justify-between items-center mx-auto ">
         <div class="flex items-center">
           <img src={Logo} class="mr-3 h-6 sm:h-10" alt="SMK TKJ"></img>
-          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-black">Platform SMK TKJ</span>
+          <span class="self-center text-xl font-semibold whitespace-nowrap md:text-white text-black">Platform SMK TKJ</span>
         </div>
 
         {/*   TOGGLE  */}
@@ -38,23 +38,28 @@ export default function LayoutNavbar() {
         <div className="hidden w-full md:block md:w-auto " id="mobile-menu">
           <ul className="flex flex-col md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
             {/* NAV-LINK */}
-            <div className="py-3 pr-3 text-gray-400 flex flex-col items-center">
+            <div className="py-3 pr-3 text-black md:text-white flex flex-col items-center">
               <Link to="/beranda">Beranda</Link>
-              <div className="mt-1 w-2.5 h-2.5 bg-red-500 text-red-500 rounded-full"></div>
+              <div className="mt-1 w-2.5 h-2.5 bg-red-500 md:bg-white rounded-full"></div>
             </div>
             <li className="px-3 py-3">
-              <a href="#tentang" className="block py-2 px-4 text-white rounded md:bg-transparent md:text-gray-400 font-normal md:p-0 dark:text-white bg-green-200" aria-current="page">
-                Tentang Kami
+              <a href="#tentang" className="block py-2 px-4 text-black rounded md:bg-transparent md:text-white font-normal md:p-0 dark:text-white" aria-current="page">
+                Tentang
               </a>
             </li>
             <li className="px-3 py-3">
-              <a href="#berita" className="block py-2 px-4 text-white rounded md:bg-transparent md:text-gray-400 font-normal md:p-0 dark:text-white bg-green-200" aria-current="page">
+              <a href="#berita" className="block py-2 px-4 text-black rounded md:bg-transparent md:text-white font-normal md:p-0 dark:text-white" aria-current="page">
                 Berita
+              </a>
+            </li>
+            <li className="px-3 py-3">
+              <a href="#kontak" className="block py-2 px-4 text-black rounded md:bg-transparent md:text-white font-normal md:p-0 dark:text-white" aria-current="page">
+                Kontak
               </a>
             </li>
 
             <Link to="/login" className="btn-round">
-              <button type="button" className="btn-warning bg-red-500 hover:bg-red-700 rounded-2xl">
+              <button type="button" className="bg-red-500 text-white md:bg-white md:text-red-500 px-5 py-3 rounded-2xl">
                 Login
               </button>
             </Link>

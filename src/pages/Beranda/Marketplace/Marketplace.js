@@ -17,6 +17,7 @@ import settings from "../../../assets/icon-settings.svg";
 import search from "../../../assets/icon-search.svg";
 import bag from "../../../assets/icon-bag.svg";
 import trolly from "../../../assets/icon-trollyWhite.svg";
+import papper from "../../../assets/icon-papper.svg";
 // import tag from "../../../assets/icon-tag.svg";
 
 export default class Marketplace extends React.Component {
@@ -38,11 +39,11 @@ export default class Marketplace extends React.Component {
             approve: "",
         };
 
-        if (localStorage.getItem("token")) {
-            this.state.token = localStorage.getItem("token");
-        } else {
-            window.location = "/login";
-        }
+        // if (localStorage.getItem("token")) {
+        //     this.state.token = localStorage.getItem("token");
+        // } else {
+        //     window.location = "/login";
+        // }
         this.headerConfig.bind(this);
         // state show modal tambah barang
         this.state.showModal = false;
@@ -204,7 +205,7 @@ export default class Marketplace extends React.Component {
                                 >
                                     <div className="mb-8 grid grid-cols-4">
                                         <h1 className="col-span-3 font-semibold text-3xl inline">
-                                            List barang
+                                            List Barang
                                         </h1>
                                         <div className="flex justify-end">
                                             <span
@@ -221,11 +222,6 @@ export default class Marketplace extends React.Component {
 
                                     {/* fitur tambah barang */}
                                     <div className="mb-8 grid grid-cols-5 mt-5">
-                                        {/* <div className="col-span-2">
-                                    <button
-                                        className="bg-red-600 p-3 text-white rounded-2xl"
-                                        data-modal-toggle="defaultModal">+ Tambah Barang</button>
-                                </div> */}
                                         <div
                                             id="defaultModal"
                                             tabindex="-1"
@@ -329,24 +325,6 @@ export default class Marketplace extends React.Component {
                                         <CardBeli />
                                     </div>
                                 </div>
-                                {/* Tab Content 2 */}
-                                <div
-                                    class="hidden p-4"
-                                    id="dashboard"
-                                    role="tabpanel"
-                                    aria-labelledby="dashboard-tab"
-                                >
-                                    <div className="mb-8 grid grid-cols-4">
-                                        <h1 className="col-span-3 font-semibold text-xl inline">
-                                            List Transaksi
-                                        </h1>
-                                    </div>
-                                    <div className="grid cols-5 gap-4">
-                                        <CardBeli />
-                                        <CardBeli />
-                                        <CardBeli />
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div>
@@ -383,6 +361,14 @@ export default class Marketplace extends React.Component {
                                         <img src={bag} className="inline mr-4"></img>
                                         <span className="font-normal text-base ">
                                             List Pembelian
+                                        </span>
+                                    </Link>
+                                </div>
+                                <div className="mt-6 ml-5">
+                                    <Link to="/riwayattransaksi">
+                                        <img src={papper} className="inline mr-4"></img>
+                                        <span className="font-normal text-base ">
+                                            Riwayat Transaksi
                                         </span>
                                     </Link>
                                 </div>
@@ -463,7 +449,7 @@ export default class Marketplace extends React.Component {
                                                     onChange={(ev) =>
                                                         this.setState({ lokasi: ev.target.value })
                                                     }
-                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mt-4"
+                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
                                                 >
                                                     <option value="" disabled selected>
                                                         Lokasi Penjualan
@@ -477,7 +463,7 @@ export default class Marketplace extends React.Component {
                                                     type="text"
                                                     name="stock"
                                                     id="stock"
-                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
+                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
                                                     placeholder="Stock Barang"
                                                     onChange={(ev) =>
                                                         this.setState({ stock: ev.target.value })

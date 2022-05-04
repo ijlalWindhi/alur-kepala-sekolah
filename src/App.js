@@ -72,7 +72,7 @@ export default function App() {
       <Route path="/templateBlog" component={TemplateBlog} />
 
       <Route path="/keranjang" component={Keranjang} />
-      <Route path="/riwayatpembelian" component={RiwayatPembelian} />
+      <Route path="/riwayattransaksi" component={RiwayatPembelian} />
 
       <Route path="/guruMagang" component={GuruMagang} />
       <Route path="/guruTamu" component={GuruTamu} />

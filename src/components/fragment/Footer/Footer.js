@@ -10,7 +10,7 @@ import { Youtube, Instagram, Twitter, Facebook } from "react-feather";
 
 function Footer() {
   return (
-    <footer className="text-center lg:text-left border-y-2 shadow-2xl ">
+    <footer className="text-center lg:text-left border-y-2 shadow-2xl " id="kontak">
       <div className="mx-40 py-10 text-center md:text-left">
         <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="">
@@ -87,13 +87,9 @@ function Footer() {
                     <h6 className="font-medium text-2xl mt-4 mb-4 flex justify-center md:justify-start">
                     Download App
                     </h6>
-                    <div className='flex items-center'>
-                        <p className="flex items-center justify-center md:justify-start mb-4">
-                        <img src={apple} alt="apple icon"/>
-                        </p>
-                        <p className="flex items-center justify-center ml-4 md:justify-start mb-4">
-                        <img src={playstore} alt="playstore icon"/>
-                        </p>
+                    <div className='flex flex-row justify-center md:justify-start'>
+                            <img src={apple} alt="apple icon"/>
+                            <img src={playstore} alt="playstore icon"/>
                     </div>
                 </div> */}
         </div>
