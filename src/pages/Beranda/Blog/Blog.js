@@ -3,11 +3,11 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../../config";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   ThumbsUp,
   MessageCircle,
-  Bookmark
+  Bookmark, Share2
 } from "react-feather";
 import data from "../../../dummy/bloglist";
 
@@ -130,9 +130,9 @@ export default class Blog extends React.Component {
                     <button  onClick={() => this.Modal()} class="bg-red-600 text-white py-2 px-4 rounded-2xl mr-2">
                      + Postingan
                     </button> 
-                    <button  onClick={() => this.Modal()} class="bg-red-600 text-white py-2 px-4 rounded-2xl">
+                    <Link to="/postingan-simpan"  class="bg-red-600 text-white py-2 px-4 rounded-2xl">
                      <Bookmark className="inline mr-2"/> Disimpan
-                    </button> 
+                    </Link> 
                   </div>
                 </div>
                 <div class="grid grid-cols-1 gap-4 mt-4">
@@ -158,10 +158,8 @@ export default class Blog extends React.Component {
                             margin: "0 auto",
                           }}
                         />
-                        <h1
+                        <h1 className="col-span-11 m-4"
                           style={{
-                            margin: "15px",
-                            marginBottom: "0",
                             fontWeight: "500",
                             fontSize: "16px",
                           }}
@@ -169,16 +167,21 @@ export default class Blog extends React.Component {
                           {data.title}
                         </h1>
                       </NavLink>
-                      <div class=" bottom-0 left-0 grid grid-cols-3 my-5">
+                      <div class=" bottom-0 left-0 my-5 grid grid-cols-12 mx-4">
+                        <div className="col-span-11">
+                          <button className="inline mr-6">
+                            <ThumbsUp className="inline mr-2"></ThumbsUp>123
+                          </button>
+                          <button className="inline mx-2">
+                            <MessageCircle className="inline mr-2"></MessageCircle>123
+                          </button>
+                          <button className="inline mx-2">
+                            <Share2 className="inline mr-2"></Share2>123
+                          </button>
+                        </div>
                         <button className="inline">
-                          <ThumbsUp className="inline"></ThumbsUp>123
-                        </button>
-                        <button className="inline mx-2">
-                          <MessageCircle className="inline"></MessageCircle>123
-                        </button>
-                        <button className="inline">
-                          <Bookmark className="inline"></Bookmark>123
-                        </button>
+                            <Bookmark className="inline ,r-2"></Bookmark>
+                          </button>
                       </div>
                     </div>
                   ))}
