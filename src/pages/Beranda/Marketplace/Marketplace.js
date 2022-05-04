@@ -449,7 +449,7 @@ export default class Marketplace extends React.Component {
                                                     onChange={(ev) =>
                                                         this.setState({ lokasi: ev.target.value })
                                                     }
-                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mt-4"
+                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
                                                 >
                                                     <option value="" disabled selected>
                                                         Lokasi Penjualan
@@ -463,7 +463,7 @@ export default class Marketplace extends React.Component {
                                                     type="text"
                                                     name="stock"
                                                     id="stock"
-                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
+                                                    className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
                                                     placeholder="Stock Barang"
                                                     onChange={(ev) =>
                                                         this.setState({ stock: ev.target.value })

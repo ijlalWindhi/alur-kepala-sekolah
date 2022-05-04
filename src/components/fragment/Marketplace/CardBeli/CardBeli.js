@@ -2,7 +2,7 @@
 import React from "react";
 // inisiasi component
 import Item from "../../../../assets/item.svg";
-// import { Dragndrop } from "../../../../components/fragment/DragnDrop";
+import {Dragndrop} from "../../../fragment/DragnDrop";
 
 export default function CardBeli() {
   const [Modal, setModal] = React.useState(false);
@@ -77,8 +77,64 @@ export default function CardBeli() {
                   <div className="border-0 rounded-[30px] shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                       <div className="relative px-6 pt-6 flex-auto flex flex-col">
                           {/* <img src={ImageKonfrimasi} className="w-3/4 m-auto"/> */}
-                          <h1 className="m-auto text-2xl font-bold">Konfirmasi Pembelian?</h1>
-                          <p className="m-auto text-lg mt-5">Apakah anda yakin akan konfirmasi pembelian barang ini?</p>
+                          <Dragndrop />{" "}
+                          <input
+                              type="text"
+                              name="email"
+                              id="email"
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mt-8 mb-4"
+                              placeholder="Nama Barang"
+                          />
+                          <input
+                              type="text"
+                              name="email"
+                              id="email"
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                              placeholder="Harga Barang"
+                          />
+                          <select
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
+                          >
+                              <option value="" disabled selected>
+                                  Status
+                              </option>
+                              <option value="available">Available</option>
+                              <option value="empty">Empty</option>
+                              <option value="hide">Hide</option>
+                          </select>
+                          <select
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
+                          >
+                              <option value="" disabled selected>
+                                  Kategori Barang
+                              </option>
+                              <option value="book">Book</option>
+                              <option value="it-services">IT Services</option>
+                              <option value="electronic">Electronic</option>
+                              <option value="misc">MISC</option>
+                          </select>
+                          <textarea
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4 mb-4"
+                              placeholder="Deskripsi Barang"
+                          />
+                          <select
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 text-gray-500 rounded-xl px-6 py-4 mb-4"
+                          >
+                              <option value="" disabled selected>
+                                  Lokasi Penjualan
+                              </option>
+                              <option value="1">Headmaster</option>
+                              <option value="4">Vocation Net</option>
+                              <option value="5">Telkom Group</option>
+                              <option value="6">Ministry</option>
+                          </select>
+                          <input
+                              type="text"
+                              name="stock"
+                              id="stock"
+                              className="focus:ring-red-500 focus:border-red-500 text-sm flex-1 block w-96 border-2 border-gray-300 rounded-xl px-6 py-4"
+                              placeholder="Stock Barang"
+                          />
                       </div>
                       <div className="flex items-center justify-center p-6">
                           <button
