@@ -19,7 +19,7 @@ export default function CardBeli() {
             Rp4.599.000,00
           </h6>
         </div>
-        <div className="flex justify-center flex-col justify-center">
+        <div className="flex justify-center flex-col">
           <div className="flex flex-row">
             <button
               style={{

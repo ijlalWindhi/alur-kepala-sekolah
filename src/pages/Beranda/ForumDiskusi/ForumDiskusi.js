@@ -36,11 +36,11 @@ export default class Marketplace extends React.Component {
       image: "",
     };
 
-    if (localStorage.getItem("token")) {
-      this.state.token = localStorage.getItem("token");
-    } else {
-      window.location = "/login";
-    }
+    // if (localStorage.getItem("token")) {
+    //   this.state.token = localStorage.getItem("token");
+    // } else {
+    //   window.location = "/login";
+    // }
     this.headerConfig.bind(this);
 
     // state show modal tambah barang
